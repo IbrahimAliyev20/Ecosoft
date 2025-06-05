@@ -15,7 +15,7 @@ export function MissionSection() {
         </div>
         <h3 className="text-xl font-semibold mb-2 text-foreground">Missiyamız</h3>
         <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya'da uzun yıllardır hizmet vermekteyiz.
+          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
         </p>
       </div>
 
@@ -30,7 +30,7 @@ export function MissionSection() {
         </div>
         <h3 className="text-xl font-semibold mb-2 text-foreground">Vizyonumuz</h3>
         <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya'da uzun yıllardır hizmet vermekteyiz.
+          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export function MissionSection() {
         </div>
         <h3 className="text-xl font-semibold mb-2 text-foreground">Dəyərimiz</h3>
         <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya'da uzun yıllardır hizmet vermekteyiz.
+          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
         </p>
       </div>
     </div>

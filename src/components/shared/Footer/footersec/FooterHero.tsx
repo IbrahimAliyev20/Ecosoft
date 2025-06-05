@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
 import { Instagram, Facebook } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function FooterHero() {
   return (
@@ -21,7 +21,7 @@ export default function FooterHero() {
 
       <div className="w-full border-t border-border  py-6 px-8 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center mb-4 md:mb-0">
-          <img 
+          <Image 
           src="/image/logo.svg"
           width={89}
           height={89} 

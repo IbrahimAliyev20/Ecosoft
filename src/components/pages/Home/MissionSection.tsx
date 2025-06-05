@@ -19,7 +19,7 @@ export function MissionSection() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center text-center border-x-2 border-border ">
+      <div className="flex flex-col items-center text-center border-x-2 border-border md:border-0 ">
         <div className="bg-cyan-50 rounded-full p-4 mb-4">
           <Image
           src="/icons/ScanEye.svg"

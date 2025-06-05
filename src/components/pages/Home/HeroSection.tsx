@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative  py-16 lg:py-9 overflow-hidden">
-      <div className="px-24">
+    <section className="relative py-4  md:py-16 lg:py-9 overflow-hidden">
+      <div className="px-10 md:px-24">
         <div className="flex flex-col lg:flex-row items-center gap-6">
           {/* Text Content */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -37,7 +37,7 @@ export function HeroSection() {
                 alt="Water purification process"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg object-cover w-full h-full"
+                className="rounded-lg shadow-lg object-cover w-full h-full "
               />
             </div>
             <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">

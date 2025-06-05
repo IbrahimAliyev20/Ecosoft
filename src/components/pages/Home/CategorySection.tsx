@@ -51,7 +51,7 @@ const services: CategoryCard[] = [
 
 export function CleaningServices() {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-6xl">
+    <div className="container mx-auto px-4 py-0 md:py-12 max-w-8xl">
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
@@ -77,17 +77,19 @@ function ServiceCard({ service }: CategoryCardProps) {
   return (
     <div className="flex gap-4 p-10 bg-gray-100 rounded-lg border border-border hover:shadow-md transition-shadow">
       {/* Image Container */}
-      <div className="relative flex-shrink-0">
-        <div className="w-26 h-28 bg-cyan-100 rounded-lg overflow-hidden">
+      <div className="relative flex-shrink-0 w-[90px] h-[90px] md:w-[110px] md:h-[110px]">
+        {/* Blue Card */}
+        <div className="absolute bottom-0 left-0 w-full h-full bg-cyan-500 z-0 rounded-lg translate-x-[-8px] translate-y-[8px]"></div>
+        {/* Image */}
+        <div className="w-full h-full bg-cyan-100 rounded-lg overflow-hidden relative z-10">
           <Image
             width={300}
             height={300}
             src={service.image}
             alt={service.title}
-            className="w-full h-full object-cover relative z-10"
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute -bottom-2 -left-2 w-26 h-28 bg-cyan-500 z-0 rounded-lg"></div>
       </div>
 
       {/* Content */}

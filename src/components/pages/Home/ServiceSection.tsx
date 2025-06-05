@@ -26,7 +26,7 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="py-12 bg-background">
+    <section className="py-0 md:py-12 bg-background">
       <div className="container mx-auto px-16">
         <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Xidmətlərimiz</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

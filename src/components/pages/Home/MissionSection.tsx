@@ -3,7 +3,7 @@ import React from 'react';
 
 export function MissionSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-0 px-12  md:p-8">
       <div className="flex flex-col items-center text-center">
         <div className="bg-cyan-50 rounded-full p-4 mb-4">
           <Image
@@ -19,7 +19,7 @@ export function MissionSection() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center border-x-2 border-border ">
         <div className="bg-cyan-50 rounded-full p-4 mb-4">
           <Image
           src="/icons/ScanEye.svg"

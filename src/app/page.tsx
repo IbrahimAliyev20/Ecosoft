@@ -9,7 +9,7 @@ export default function Home() {
 <>
 <div className="bg-cyan-50">
 
-<div className="container mx-auto px-4 pb-10">
+<div className="container mx-auto px-4  pb-10">
 <HeroSection /> 
 </div>
 </div>

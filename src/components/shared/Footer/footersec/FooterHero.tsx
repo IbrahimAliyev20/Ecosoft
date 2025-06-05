@@ -21,12 +21,14 @@ export default function FooterHero() {
 
       <div className="w-full border-t border-border  py-6 px-8 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center mb-4 md:mb-0">
+          <Link href="/">
           <Image 
           src="/image/logo.svg"
           width={89}
           height={89} 
           alt="HydroLink Logo" 
           className="mr-2" />
+           </Link>
         </div>
         <nav className="flex flex-wrap justify-center md:justify-start gap-x-12 gap-y-2 mb-4 md:mb-0">
            <Link   

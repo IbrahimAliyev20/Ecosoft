@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,7 +50,7 @@ export function Navbar() {
             Ana səhifə
             </Link>
           <Link 
-           href="#" className="text-foreground hover:text-primary">
+           href="/products" className="text-foreground hover:text-primary">
             Məhsullar
             </Link>
           <Link 
@@ -64,6 +65,20 @@ export function Navbar() {
            href="#" className="text-foreground hover:text-primary">
             Əlaqə
             </Link>
+        </div>
+        <div
+          className="hidden md:flex items-center space-x-4">
+          <Button
+            
+            variant="default">
+             <Image 
+              src="/icons/HandCoins.svg"
+              width={24}
+              height={24}
+              alt="HydroLink Logo"
+             />
+              Təklif al
+            </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,7 +126,22 @@ export function Navbar() {
               <a href="#" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Bloq</a>
               <a href="#" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Əlaqə</a>
             </nav>
+              <div
+          className="flex md:hidden items-center mt-10">
+          <Button
+            
+            variant="default">
+             <Image 
+              src="/icons/HandCoins.svg"
+              width={24}
+              height={24}
+              alt="HydroLink Logo"
+             />
+              Təklif al
+            </Button>
+        </div>
             <div className="flex-1" />
+           
           </div>
         </div>
       )}

@@ -1,53 +1,30 @@
-import Image from 'next/image';
 import React from 'react';
+import { Package } from 'lucide-react';
+import Image from 'next/image';
 
-export function MissionSection() {
+export default function MissionSection () {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-0 px-12  md:p-8">
-      <div className="flex flex-col items-center text-center">
-        <div className="bg-cyan-50 rounded-full p-4 mb-4">
-          <Image
-          src="/icons/Goal.svg"
-          alt="goal"
-          width={32}
-          height={32}
-          className="w-8 h-8 text-primary" />
+   
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div className="w-22 h-22 bg-cyan-50 rounded-full flex items-center justify-center">
+                <Image 
+                  src='/icons/Package.svg'
+                  alt='Package Icon'
+                  width={40}
+                  height={40}
+                  className='text-white '
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-semibold text-foreground">Pulsuz</span>
+                <span className="text-xl font-semibold text-foreground">çatdırılma</span>
+              </div>
+            </div>
+          ))}
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-foreground">Missiyamız</h3>
-        <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
-        </p>
       </div>
-
-      <div className="flex flex-col items-center text-center md:border-x-2 border-border border-0 ">
-        <div className="bg-cyan-50 rounded-full p-4 mb-4">
-          <Image
-          src="/icons/ScanEye.svg"
-          alt="goal"
-          width={32}
-          height={32}
-          className="w-8 h-8 text-primary" />
-        </div>
-        <h3 className="text-xl font-semibold mb-2 text-foreground">Vizyonumuz</h3>
-        <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
-        </p>
-      </div>
-
-      <div className="flex flex-col items-center text-center">
-        <div className="bg-cyan-50 rounded-full p-4 mb-4">
-          <Image
-          src="/icons/HandHeart.svg"
-          alt="goal"
-          width={32}
-          height={32}
-          className="w-8 h-8 text-primary" />
-        </div>
-        <h3 className="text-xl font-semibold mb-2 text-foreground">Dəyərimiz</h3>
-        <p className="text-muted-foreground">
-          Güvenilir Çözüm Ortağınız Kepenek İnşaat olarak inşaat, emlak ve turizm konaklama alanlarında Alanya da uzun yıllardır hizmet vermekteyiz.
-        </p>
-      </div>
-    </div>
   );
 }

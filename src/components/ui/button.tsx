@@ -12,7 +12,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-cyan-500 text-white shadow-xs hover:bg-cyan-600", // Updated default to match the design
+          "bg-cyan-500 text-white shadow-xs hover:bg-cyan-600", 
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
@@ -57,7 +57,6 @@ function Button({
       {...props}
     >
       {children}
-      {/* Add the arrow icon for the default variant */}
       {(!variant || variant === "secondary") && !asChild && (
         <svg
           xmlns="http://www.w3.org/2000/svg"

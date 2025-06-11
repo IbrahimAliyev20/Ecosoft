@@ -1,5 +1,4 @@
 import React from 'react';
-import { Package } from 'lucide-react';
 import Image from 'next/image';
 
 export default function MissionSection () {

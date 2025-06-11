@@ -1,7 +1,7 @@
 'use client';
 
 import { Product } from '@/utils/products';
-import { ShieldCheck, RefreshCw, Truck, MessageSquare, Phone } from 'lucide-react';
+import { ShieldCheck, RefreshCw, Truck,  Phone } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'; 
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';

@@ -8,8 +8,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 export function ProductImageGallery({ images }: { images: string[] }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   
-  // mainApi və thumbApi üçün olan useState sətirləri buradan silindi, çünki artıqdır.
-
   const [mainRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [thumbRef, thumbEmblaApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
@@ -38,12 +36,12 @@ export function ProductImageGallery({ images }: { images: string[] }) {
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   return (
-    <div>
+    <div >
       <div className="relative">
-        <div className="overflow-hidden rounded-lg" ref={mainRef}>
+        <div className="overflow-hidden rounded-lg border-2 border-gray-200" ref={mainRef}>
           <div className="flex">
             {images.map((src, index) => (
-              <div className="relative basis-full shrink-0 grow-0 aspect-square" key={index}>
+              <div className="relative basis-full shrink-0 grow-0 h-[450px]" key={index}>
                 <Image
                   src={src}
                   alt={`Product image ${index + 1}`}
@@ -66,14 +64,17 @@ export function ProductImageGallery({ images }: { images: string[] }) {
         <div className="overflow-hidden" ref={thumbRef}>
           <div className="flex -ml-2">
             {images.map((src, index) => (
-              <div className="basis-1/4 shrink-0 grow-0 pl-2" key={index}>
+              /* DƏYİŞİKLİK 2: 'basis-1/4' -> 'basis-1/5' olaraq dəyişdirildi.
+                Bu, hər bir kiçik şəklin enini 20% edir və nəticədə bir sırada 5 şəkil görünür.
+              */
+              <div className="basis-1/6 shrink-0 grow-0 pl-2" key={index}>
                 <button onClick={() => onThumbClick(index)} className={`block w-full rounded-md border-2 transition ${selectedIndex === index ? 'border-cyan-500' : 'border-transparent'}`}>
                   <div className="relative aspect-square">
                     <Image
                       src={src}
                       alt={`Thumbnail ${index + 1}`}
                       fill
-                      className="object-contain rounded-md"
+                      className="object-contain rounded-md border-2 border-gray-200"
                     />
                   </div>
                 </button>
@@ -82,6 +83,7 @@ export function ProductImageGallery({ images }: { images: string[] }) {
           </div>
         </div>
       </div>
+   
     </div>
   );
 }

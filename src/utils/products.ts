@@ -26,7 +26,7 @@ export const allProducts: Product[] = [
   {
     id: 2,
     slug: 'uv-sterilizator-2000',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'UV Sterilizator 2000',
     productCode: 'FU23456789',

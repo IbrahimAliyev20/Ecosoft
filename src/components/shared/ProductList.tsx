@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/shared/ProductCard';
 import { allProducts, categories } from '@/utils/products';
+import Link from 'next/link'; 
 
 const displayCategories = ['Hamısı', ...categories];
 
@@ -60,14 +61,16 @@ export function ProductList() {
           </div>
         </div>
 
+        {/* 2. KARTLAR LİNK İLƏ ƏHATƏ EDİLDİ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              imageSrc={product.imageSrc}
-              title={product.title}
-              productCode={product.productCode}
-            />
+            <Link href={`/product/${product.slug}`} key={product.id}>
+              <ProductCard
+                imageSrc={product.imageSrc}
+                title={product.title}
+                productCode={product.productCode}
+              />
+            </Link>
           ))}
         </div>
 

@@ -50,7 +50,7 @@ export function Navbar() {
             Ana səhifə
             </Link>
           <Link 
-           href="/products" className="text-foreground hover:text-primary">
+           href="/product" className="text-foreground hover:text-primary">
             Məhsullar
             </Link>
           <Link 

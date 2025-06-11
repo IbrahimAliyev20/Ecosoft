@@ -4,31 +4,11 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button'; 
-
 import { ServiceCard } from '@/components/shared/ServiceCard';
 import ButtonMore from '@/components/shared/ButtonMore';
+import { allBlogPosts } from '@/utils/blog';
 
 export function BlogSection() {
-  const services = [
-    {
-      imageSrc: '/image/servicesec.png',
-      title: 'Kafelər üçün su təmizlənməsi',
-      description: 'Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut',
-      features: ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
-    },
-    {
-      imageSrc: '/image/servicesec.png',
-      title: 'Restoranlar üçün həllər',
-      description: 'Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut',
-      features: ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
-    },
-    {
-      imageSrc: '/image/servicesec.png',
-      title: 'Otellər üçün sistemlər',
-      description: 'Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut',
-      features: ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
-    },
-  ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
@@ -46,13 +26,13 @@ export function BlogSection() {
         <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Blog</h2>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
-          {services.map((service, index) => (
+          {allBlogPosts.map((post, index) => (
             <ServiceCard
               key={index}
-              imageSrc={service.imageSrc}
-              title={service.title}
-              description={service.description}
-              features={service.features}
+              imageSrc={post.imageSrc}
+              title={post.title}
+              description={post.description}
+              date={post.date}
             />
           ))}
         </div>
@@ -60,13 +40,13 @@ export function BlogSection() {
         <div className="md:hidden mb-8">
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
-                {services.map((service, index) => (
+                {allBlogPosts.map((post, index) => (
                     <div className="basis-full shrink-0 grow-0 p-2" key={index}>
                         <ServiceCard
-                            imageSrc={service.imageSrc}
-                            title={service.title}
-                            description={service.description}
-                            features={service.features}
+                            imageSrc={post.imageSrc}
+                            title={post.title}
+                            description={post.description}
+                            date={post.date}
                         />
                     </div>
                 ))}

@@ -4,9 +4,10 @@ import Image from 'next/image'
 
 const ButtonMore = () => {
   return (
-  <div className="flex justify-center mt-6">
+  <div className="flex justify-center mt-6 ">
         <Button
-          variant="default">
+          variant="default"
+          className='cursor-pointer'>
           Ətraflı
           <Image 
           src='/icons/ExternalLink.svg'

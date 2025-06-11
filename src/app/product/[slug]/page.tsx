@@ -26,18 +26,24 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   return (
     <main className="py-12">
       <div className="container mx-auto px-4">
-        {/* DƏYİŞİKLİK: 'gap-12' -> 'gap-8' olaraq dəyişdirildi. Bu, iki sütun arasındakı boşluğu azaldır. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 ">
-          <ProductImageGallery images={product.images}/>
+       
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-x-8 gap-y-12">
           
-          <ProductInfo product={product} />
-        </div>
+          <div className="order-1 lg:order-none">
+            <ProductImageGallery images={product.images}/>
+          </div>
+          
+          <div className="order-3 lg:order-none">
+            <ProductInfo product={product} />
+          </div>
 
-           <div className="mt-16">
+          <div className="order-2 lg:order-none lg:col-span-2">
             <h3 className="text-2xl font-semibold mb-4 border-b pb-2">Məhsulun Təsviri</h3>
             <p className="text-gray-600 leading-relaxed">
                 {product.description}
             </p>
+          </div>
+
         </div>
       </div>
     </main>

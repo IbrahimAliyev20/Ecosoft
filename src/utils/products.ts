@@ -16,7 +16,7 @@ export const allProducts: Product[] = [
   {
     id: 1,
     slug: 'ecosoft-basicsoft-1500',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Ecosoft Basicsoft 1500',
     productCode: 'FU12345678',
@@ -36,7 +36,7 @@ export const allProducts: Product[] = [
   {
     id: 3,
     slug: 'kompakt-su-yumsaldici',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Kompakt Su Yumşaldıcı',
     productCode: 'FU34567890',
@@ -46,7 +46,7 @@ export const allProducts: Product[] = [
   {
     id: 4,
     slug: 'sənaye-filtrasiya-sistemi',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Sənaye Filtrasiya Sistemi',
     productCode: 'FU45678901',
@@ -56,7 +56,7 @@ export const allProducts: Product[] = [
   {
     id: 5,
     slug: 'bag-ucun-damci-sulama-sistemi',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Bağ üçün Damcı Sulama Sistemi',
     productCode: 'FU56789012',
@@ -66,7 +66,7 @@ export const allProducts: Product[] = [
   {
     id: 6,
     slug: 'metbex-krani-ucun-filtr',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Mətbəx Kranı üçün Filtr',
     productCode: 'FU67890123',
@@ -76,7 +76,7 @@ export const allProducts: Product[] = [
   {
     id: 7,
     slug: 'menzil-ucun-magistral-filtr',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Mənzil üçün Magistral Filtr',
     productCode: 'FU78901234',
@@ -86,7 +86,7 @@ export const allProducts: Product[] = [
   {
     id: 8,
     slug: 'yuksek-tezyiqli-su-pompasi',
-    images: [defaultImage, defaultImage, defaultImage],
+    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
     imageSrc: defaultImage,
     title: 'Yüksək Təzyiqli Su Pompası',
     productCode: 'FU89012345',

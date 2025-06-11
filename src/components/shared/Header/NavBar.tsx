@@ -58,7 +58,7 @@ export function Navbar() {
             Haqqımızda
             </Link>
           <Link 
-           href="#" className="text-foreground hover:text-primary">
+           href="/blog" className="text-foreground hover:text-primary">
             Bloq
             </Link>
           <Link 

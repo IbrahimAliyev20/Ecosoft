@@ -61,7 +61,6 @@ export function ProductList() {
           </div>
         </div>
 
-        {/* 2. KARTLAR LİNK İLƏ ƏHATƏ EDİLDİ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {filteredProducts.map((product) => (
             <Link href={`/product/${product.slug}`} key={product.id}>

@@ -1,10 +1,9 @@
-// components/QuickOfferModal.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X,  } from 'lucide-react'; // İkonlar
-import { Button } from '@/components/ui/button'; // Shadcn/ui Button komponentiniz
+import { X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface QuickOfferModalProps {
   isOpen: boolean;
@@ -16,13 +15,12 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
     name: '',
     surname: '',
     question: '',
-    phone: '', // Sualınız inputu kimi görünür, amma mobil nömrə istəyirsinizsə bu olmalıdır
+    phone: '',
   });
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Modal açılanda body scrollunu deaktiv et
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
@@ -51,7 +49,6 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
     setErrorMessage('');
 
     try {
-      // Form göndərmə API endpoint'i (bu endpointi özünüz yaratmalısınız)
       const response = await fetch('/api/submit-quick-offer', {
         method: 'POST',
         headers: {
@@ -67,98 +64,88 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
       const result = await response.json();
       if (result.success) {
         setSuccessMessage("Təklifiniz uğurla göndərildi!");
-        setFormData({ name: '', surname: '', question: '', phone: '' }); 
-        setTimeout(onClose, 2000); 
+        setFormData({ name: '', surname: '', question: '', phone: '' });
+        setTimeout(onClose, 2000);
       } else {
         setErrorMessage(result.message || "Server xətası.");
       }
-    }  finally {
+    } catch (error: any) {
+      console.error("Quick offer form submission error:", error);
+      setErrorMessage(error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+    } finally {
       setLoading(false);
     }
   };
 
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Overlay */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-xs"
-        onClick={onClose} // Overlay'e tıklayanda modalı bağla
-      />
-
-      {/* Modal Content */}
-      <div className="relative bg-white rounded-lg p-6 md:p-8 w-full max-w-md mx-auto shadow-xl z-10 animate-fade-in-up">
-        {/* Close Button */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 bg-black/50" onClick={onClose}></div>
+      <div className="relative bg-white w-full max-w-lg mx-4 rounded-2xl shadow-xl">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
-          aria-label="Modali Bağla"
+          className="absolute right-4 top-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
         >
-          <X size={24} />
+          <X className="h-6 w-6 text-gray-500" />
         </button>
 
-        {/* Modal Header */}
-        <div className="flex flex-col items-start mb-6">
+        <div className="p-6 text-center border-b">
           <Image
             src="/image/logo.svg"
-            width={89} // Logonu kiçik et
-            height={89}
-            alt="HydroLink Logo"
-            className="mb-3"
+            alt="Logo"
+            width={89}
+            height={81}
+            className="mx-auto mb-4"
           />
-          <h2 className="text-2xl font-semibold text-foreground text-center">Sürətli təklif al</h2>
-          <p className="text-sm text-muted-foreground text-center mt-2">
-            Hesabımıza giriş etmək üçün mobil nömrənizi daxil edin
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Təklif almaq üçün formu doldurun
+          </h2>
         </div>
 
-        {/* Modal Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" >Adınız</label>
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <div className="space-y-4">
             <input
               type="text"
-              id="name"
               name="name"
-              placeholder="Adınız"
               value={formData.name}
               onChange={handleChange}
+              placeholder="Adınız"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
-              className="w-full p-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />
-          </div>
-          <div>
-            <label htmlFor="surname" >Soyadınız</label>
             <input
               type="text"
-              id="surname"
               name="surname"
-              placeholder="Soyadınız"
               value={formData.surname}
               onChange={handleChange}
+              placeholder="Soyadınız"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
-              className="w-full p-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
             />
-          </div>
-        
-          <div>
-            <label htmlFor="question" >Sualınız</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Mobil nömrəniz"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              required
+            />
             <textarea
-              id="question"
               name="question"
-              rows={3} // Kiçik bir textarea
-              placeholder="Sualınız"
               value={formData.question}
               onChange={handleChange}
-              className="w-full p-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-y"
-            ></textarea>
+              placeholder="Sualınız"
+              rows={3}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+              required
+            />
           </div>
 
           {successMessage && (
-            <p className="text-green-600 text-center">{successMessage}</p>
+            <p className="text-green-600 text-sm">{successMessage}</p>
           )}
           {errorMessage && (
-            <p className="text-red-600 text-center">{errorMessage}</p>
+            <p className="text-red-600 text-sm">{errorMessage}</p>
           )}
 
           <Button

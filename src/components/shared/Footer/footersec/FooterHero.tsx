@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function FooterHero() {
   return (
     <div className="flex flex-col items-center justify-center  bg-background text-foreground">
-      <div className="flex-grow flex flex-col items-center justify-center text-center px-4">
+      <div className="flex-grow flex flex-col items-center justify-center text-center px-4 mb-10">
         <h1 className="text-3xl md:text-4xl font-[600] mb-6">
           Sadəcə su deyil,
           <br />

@@ -5,13 +5,45 @@ export interface ServiceCardData {
   title: string;
   description: string;
   image: string;
-  slug: string; // Detay sayfasına gitmek için slug
-  content: string; // Hizmetin detaylı içeriği (HTML formatında olabilir)
+  slug: string;
+  content: string;
 }
 
 export const allServices: ServiceCardData[] = [
   {
     id: 1,
+    title: "Su filtrasiya sistemləri",
+    description: "Suyun təmizlənməsi və filtrasiyası üçün müasir həllər",
+    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    slug: "su-filtrasiya-sistemleri",
+    content: "Su filtrasiyası sistemləri suyun təmizlənməsi və keyfiyyətinin artırılması üçün istifadə olunan texnologiyalardır. Bu sistemlər suyun içərisindəki zərərli maddələri, bakteriyaları və digər çirkləndiriciləri təmizləyərək, içməli su keyfiyyətini artırır."
+  },
+  {
+    id: 2,
+    title: "Su yumşaltma sistemləri",
+    description: "Sərt suyun yumşaldılması üçün effektiv həllər",
+    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    slug: "su-yumsaltma-sistemleri",
+    content: "Su yumşaltma sistemləri, sərt suyun tərkibindəki kalsium və maqnezium ionlarını təmizləyərək, suyun yumşaldılmasını təmin edir. Bu sistemlər sayəsində su qızdırıcıları və digər məişət cihazlarının ömrü uzanır."
+  },
+  {
+    id: 3,
+    title: "Sənaye su təmizləmə",
+    description: "Sənaye müəssisələri üçün su təmizləmə həlləri",
+    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    slug: "senaye-su-temizleme",
+    content: "Sənaye su təmizləmə sistemləri, müxtəlif sənaye sahələrində istifadə olunan suyun təmizlənməsi və təkrar istifadəsi üçün nəzərdə tutulmuşdur. Bu sistemlər vasitəsilə istehsal proseslərində istifadə olunan su təmizlənir və ətraf mühitə zərər vermədən təkrar istifadə edilir."
+  },
+  {
+    id: 4,
+    title: "Membran texnologiyaları",
+    description: "Su təmizləmədə qabaqcıl membran texnologiyaları",
+    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    slug: "membran-texnologiyalari",
+    content: "Membran texnologiyaları, suyun təmizlənməsində istifadə olunan ən müasir üsullardan biridir. Bu texnologiya vasitəsilə suyun tərkibindəki ən kiçik çirkləndiricilər belə təmizlənir və yüksək keyfiyyətli su əldə edilir."
+  },
+  {
+    id: 5,
     title: "Kafeler üçün su təmizlənməsi",
     description: "Kafelerdə və restoranlarda təmiz suyun təminatı müştəri məmnuniyyəti və avadanlıqların ömrü üçün vacibdir. Ən son texnologiyalarla su təmizləmə həlləri təklif edirik.",
     image: "/image/category.png",
@@ -23,7 +55,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 2,
+    id: 6,
     title: "Mənzillər üçün su təmizlənməsi",
     description: "Evlərdə içməli suyun keyfiyyətini artırmaq üçün fərdi həllər. Filtr sistemləri və texniki dəstək.",
     image: "/image/category.png",
@@ -35,7 +67,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 3,
+    id: 7,
     title: "Ofislər üçün su təmizlənməsi",
     description: "İş yerində sağlam və təmiz su təminatı üçün xüsusi sistemlər. Əməkdaşların rifahı üçün vacibdir.",
     image: "/image/category.png",
@@ -47,7 +79,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 4,
+    id: 8,
     title: "Sənaye obyektləri üçün su təmizlənməsi",
     description: "Böyük sənaye müəssisələri üçün yüksək həcmli su təmizləmə sistemləri. Proses səmərəliliyini artırır.",
     image: "/image/category.png",
@@ -59,7 +91,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 5,
+    id: 9,
     title: "Kənd Təsərrüfatı üçün su təmizlənməsi",
     description: "Kənd təsərrüfatında irriqasiya və heyvandarlıq üçün suyun təmizlənməsi. Məhsuldarlığı artırır.",
     image: "/image/category.png",
@@ -71,7 +103,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 6,
+    id: 10,
     title: "Hovuzlar üçün su təmizlənməsi",
     description: "Hovuzların təmiz və təhlükəsiz qalması üçün filtrasiya və dezinfeksiya sistemləri.",
     image: "/image/category.png",
@@ -83,7 +115,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 7,
+    id: 11,
     title: "Kimyəvi Su Təmizləmə",
     description: "Suyun tərkibindəki kimyəvi elementlərin təmizlənməsi üçün xüsusi proseslər və məhsullar.",
     image: "/image/category.png",
@@ -95,7 +127,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 8,
+    id: 12,
     title: "Mexaniki Su Təmizləmə",
     description: "Suyun tərkibindəki mexaniki çirkləndiricilərin (qum, palçıq, pas) aradan qaldırılması.",
     image: "/image/category.png",
@@ -107,7 +139,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 9,
+    id: 13,
     title: "Ultrabenövşəyi (UV) Dezenfeksiya",
     description: "Bakteriya və virusların sudan effektiv şəkildə kənarlaşdırılması üçün UV sterilizasiya sistemləri.",
     image: "/image/category.png",
@@ -119,7 +151,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 10,
+    id: 14,
     title: "İon Mübadiləsi ilə Yumşaltma",
     description: "Suyun sərtliyini aradan qaldırmaq və ərp yığılmasını önləmək üçün ion mübadiləsi sistemləri.",
     image: "/image/category.png",
@@ -131,7 +163,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 11,
+    id: 15,
     title: "Nanofiltrasiya sistemləri",
     description: "Su tərkibindəki kiçik hissəcikləri, üzvi maddələri və bəzi duzları təmizləmək üçün qabaqcıl texnologiya.",
     image: "/image/category.png",
@@ -143,7 +175,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 12,
+    id: 16,
     title: "Ultrafiltrasiya sistemləri",
     description: "Asılı hissəcikləri, kolloidləri və böyük molekulyar üzvi maddələri sudan kənarlaşdırmaq üçün effektiv filtrasiya.",
     image: "/image/category.png",
@@ -155,7 +187,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 13,
+    id: 17,
     title: "Əks Osmoz (RO) Sistemləri",
     description: "Suyun tərkibindəki bütün duzları, mineralları və çirkləndiriciləri təmizləyən ən qabaqcıl təmizləmə metodu.",
     image: "/image/category.png",
@@ -167,7 +199,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 14,
+    id: 18,
     title: "Su Yumşaltma Qurğuları",
     description: "Sərt sudan yaranan ərp və digər problemləri həll etmək üçün avtomatlaşdırılmış yumşaltma qurğuları.",
     image: "/image/category.png",
@@ -179,7 +211,7 @@ export const allServices: ServiceCardData[] = [
     `,
   },
   {
-    id: 15,
+    id: 19,
     title: "Dərman Sənayesi üçün Su Təmizlənməsi",
     description: "Farmasevtik istehsalda tələb olunan yüksək təmizlik standartlarına uyğun su təmizləmə sistemləri.",
     image: "/image/category.png",
@@ -192,6 +224,6 @@ export const allServices: ServiceCardData[] = [
   },
 ];
 
-export const getServiceBySlug = (slug: string) => {
-  return allServices.find((service) => service.slug === slug);
-};
+export function getServiceBySlug(slug: string): ServiceCardData | undefined {
+  return allServices.find(service => service.slug === slug);
+}

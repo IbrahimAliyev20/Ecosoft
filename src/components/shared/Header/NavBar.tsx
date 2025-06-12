@@ -34,130 +34,137 @@ export function Navbar() {
   };
   const closeOfferModal = () => setIsOfferModalOpen(false);
 
-
   return (
-    <nav className="bg-white shadow-sm">
-      <div className="fixed bg-white z-90 w-full mx-auto px-8 md:px-36 py-2 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          <Link href="/" className="flex items-center">
             <Image
               src="/image/logo.svg"
+              alt="Logo"
               width={89}
-              height={89}
-              alt="HydroLink Logo"
-              className="h-fit w-fit"
+              height={81}
+              priority
             />
           </Link>
-        </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex text-lg space-x-6 ">
-          <Link
-            href="/" className="text-black hover:text-primary">
-            Ana səhifə
-          </Link>
-          <Link
-            href="/product" className="text-foreground hover:text-primary">
-            Məhsullar
-          </Link>
-          <Link
-            href="/about" className="text-foreground hover:text-primary">
-            Haqqımızda
-          </Link>
-          <Link
-            href="/services" className="text-foreground hover:text-primary">
-            Xidmətlər
-          </Link>
-          <Link
-            href="/blog" className="text-foreground hover:text-primary">
-            Bloq
-          </Link>
-          <Link
-            href="/contact" className="text-foreground hover:text-primary">
-            Əlaqə
-          </Link>
-        </div>
-        <div
-          className="hidden md:flex items-center space-x-4">
-          <Button
-            onClick={openOfferModal} 
-            variant="default"
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-600 hover:text-gray-900">
+              Ana səhifə
+            </Link>
+            <Link href="/about" className="text-gray-600 hover:text-gray-900">
+              Haqqımızda
+            </Link>
+            <Link href="/product" className="text-gray-600 hover:text-gray-900">
+              Məhsullar
+            </Link>
+            <Link href="/services" className="text-gray-600 hover:text-gray-900">
+              Xidmətlər
+            </Link>
+            <Link href="/blog" className="text-gray-600 hover:text-gray-900">
+              Blog
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-900">
+              Əlaqə
+            </Link>
+            <Button
+              onClick={openOfferModal}
+              variant="default"
+              className="bg-[#06B6D4] text-white hover:bg-[#0891b2] transition-colors"
+            >
+              Təklif al
+            </Button>
+          </div>
+
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
           >
-            <Image
-              src="/icons/HandCoins.svg"
-              width={24}
-              height={24}
-              alt="Təklif al ikonu"
-            />
-            Təklif al
-          </Button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-foreground focus:outline-none">
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6 text-gray-600" />
+            ) : (
+              <Menu className="h-6 w-6 text-gray-600" />
+            )}
           </button>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 flex md:hidden">
-          <div
-            className="absolute inset-0 bg-black/20 transition-opacity duration-200"
-            onClick={closeMobileMenu}
-          />
-          <div className="relative bg-white shadow-lg w-44 max-w-full h-full ml-auto flex flex-col pt-8 px-6 pb-8 animate-slide-in-right">
-            <div className="flex items-center justify-between mb-8">
+        <div className="fixed inset-0 z-50 bg-white md:hidden">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex justify-between items-center mb-8">
               <Link href="/" onClick={closeMobileMenu}>
                 <Image
                   src="/image/logo.svg"
-                  width={48}
-                  height={48}
-                  alt="HydroLink Logo"
-                  className="h-10 w-10"
+                  alt="Logo"
+                  width={89}
+                  height={81}
+                  priority
                 />
               </Link>
               <button
-                className="text-foreground ml-auto"
                 onClick={closeMobileMenu}
-                aria-label="Menüyü Kapat"
+                className="p-2 rounded-lg hover:bg-gray-100"
               >
-                <X size={28} />
+                <X className="h-6 w-6 text-gray-600" />
               </button>
             </div>
-            {/* Menü Linkleri */}
-            <nav className="flex flex-col gap-5 mt-2">
-              <Link href="/" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Ana səhifə</Link>
-              <Link href="/product" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Məhsullar</Link>
-              <Link href="/about" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Haqqımızda</Link>
-              <Link href="/services" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Xidmətlər</Link>
-              <Link href="/blog" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Bloq</Link>
-              <Link href="/contact" className="text-foreground hover:text-primary text-base font-medium transition-colors" onClick={closeMobileMenu}>Əlaqə</Link>
-            </nav>
-            <div
-              className="flex md:hidden items-center mt-10">
-              <Button
-                onClick={openOfferModal} 
-                variant="default"
+
+            <div className="flex flex-col space-y-4">
+              <Link
+                href="/"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
               >
-                <Image
-                  src="/icons/HandCoins.svg"
-                  width={24}
-                  height={24}
-                  alt="Təklif al ikonu"
-                />
+                Ana səhifə
+              </Link>
+              <Link
+                href="/about"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
+              >
+                Haqqımızda
+              </Link>
+              <Link
+                href="/products"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
+              >
+                Məhsullar
+              </Link>
+              <Link
+                href="/services"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
+              >
+                Xidmətlər
+              </Link>
+              <Link
+                href="/blog"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/contact"
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-gray-900 py-2"
+              >
+                Əlaqə
+              </Link>
+              <Button
+                onClick={openOfferModal}
+                variant="default"
+                className="w-full bg-[#06B6D4] text-white hover:bg-[#0891b2] transition-colors"
+              >
                 Təklif al
               </Button>
             </div>
-            <div className="flex-1" />
-
           </div>
         </div>
       )}
 
-      {/* Quick Offer Modal (pop-up) */}
       <QuickOfferModal isOpen={isOfferModalOpen} onClose={closeOfferModal} />
     </nav>
   );

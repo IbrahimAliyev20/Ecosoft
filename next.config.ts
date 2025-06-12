@@ -1,22 +1,18 @@
-import type { NextConfig } from "next";
+import type { Config } from "next";
 
-const nextConfig: NextConfig = {
-   images: {
+const config: Config = {
+  images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co', // Bu əvvəlki idi, qalsın
-        port: '',
-        pathname: '/**',
+        hostname: 'placehold.co',
       },
       {
         protocol: 'https',
-        hostname: 'i.ibb.co', // YENİ ƏLAVƏ OLUNAN
-        port: '',
-        pathname: '/**',
+        hostname: 'i.ibb.co',
       },
     ],
   },
 };
 
-export default nextConfig;
+export default config;

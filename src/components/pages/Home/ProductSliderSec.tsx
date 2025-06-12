@@ -6,15 +6,13 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductCard } from '@/components/shared/ProductCard';
 import ButtonMore from '@/components/shared/ButtonMore';
-// 1. Next.js-dən Link komponentini import edirik.
 import Link from 'next/link';
 
-// 2. Product tipinə hər bir məhsulun unikal URL hissəsi üçün 'slug' əlavə edirik.
 interface Product {
   imageSrc: string;
   title: string;
   productCode: string;
-  slug: string; 
+  slug: string;
 }
 
 interface ProductSliderSecProps {
@@ -35,7 +33,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
 
   return (
     <section className="container mx-auto py-8">
-        <h2 className="text-4xl font-semibold text-center">{title}</h2>
+      <h2 className="text-4xl font-semibold text-center">{title}</h2>
 
       <div className="flex justify-end items-center mb-6">
         <div className="flex space-x-2">
@@ -48,15 +46,10 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
         </div>
       </div>
 
-      <div className="embla overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex">
-          {products.map((product, index) => (
-            // 3. Hər bir slaydın (kartın) tam hündürlüyü tutmasını təmin edirik.
-            <div className="embla__slide basis-full md:basis-1/2 lg:basis-1/4 shrink-0 min-w-0 pr-4 h-full" key={index}>
-              {/* 4. ProductCard komponentini Link ilə əhatə edirik.
-                  - `href` atributu məhsulun slug'ından istifadə edərək dinamik URL yaradır.
-                  - `className="block h-full"`: Linkin bütün kart sahəsini tutmasını və kliklənəbilir olmasını təmin edir.
-              */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {products.map((product) => (
+            <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4">
               <Link href={`/product/${product.slug}`} className="block h-full">
                 <ProductCard
                   imageSrc={product.imageSrc}
@@ -69,10 +62,8 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
         </div>
       </div>
 
-      <div >
-        <Link href={'/product'} >
-       <ButtonMore />
-        </Link>
+      <div className="flex justify-center mt-8">
+        <ButtonMore href="/products" />
       </div>
     </section>
   );

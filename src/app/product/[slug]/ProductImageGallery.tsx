@@ -36,54 +36,60 @@ export function ProductImageGallery({ images }: { images: string[] }) {
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   return (
-    <div >
-      <div className="relative">
-        <div className="overflow-hidden rounded-lg border-2 border-gray-200" ref={mainRef}>
-          <div className="flex">
+    <div className="flex flex-col gap-4">
+      <div className="relative rounded-2xl overflow-hidden bg-white">
+        <div className="overflow-hidden" ref={mainRef}>
+          <div className="flex aspect-square">
             {images.map((src, index) => (
-              <div className="relative basis-full shrink-0 grow-0 h-[450px]" key={index}>
-                <Image
-                  src={src}
-                  alt={`Product image ${index + 1}`}
-                  fill
-                  className="object-contain"
-                />
+              <div className="flex-[0_0_100%] min-w-0" key={index}>
+                <div className="relative aspect-square">
+                  <Image
+                    src={src}
+                    alt={`Product image ${index + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <button onClick={scrollPrev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white transition shadow-md">
-          <ChevronLeft size={24} />
+
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md text-gray-800 hover:bg-gray-100"
+          onClick={scrollPrev}
+        >
+          <ChevronLeft className="w-5 h-5" />
         </button>
-        <button onClick={scrollNext} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white transition shadow-md">
-          <ChevronRight size={24} />
+
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md text-gray-800 hover:bg-gray-100"
+          onClick={scrollNext}
+        >
+          <ChevronRight className="w-5 h-5" />
         </button>
       </div>
 
-      <div className="mt-4">
-        <div className="overflow-hidden" ref={thumbRef}>
-          <div className="flex -ml-2">
-            {images.map((src, index) => (
-              /* DƏYİŞİKLİK 2: 'basis-1/4' -> 'basis-1/5' olaraq dəyişdirildi.
-                Bu, hər bir kiçik şəklin enini 20% edir və nəticədə bir sırada 5 şəkil görünür.
-              */
-              <div className="basis-1/6 shrink-0 grow-0 pl-2" key={index}>
-                <button onClick={() => onThumbClick(index)} className={`block w-full rounded-md border-2 transition ${selectedIndex === index ? 'border-cyan-500' : 'border-transparent'}`}>
-                  <div className="relative aspect-square">
-                    <Image
-                      src={src}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-contain rounded-md border-2 border-gray-200"
-                    />
-                  </div>
-                </button>
-              </div>
-            ))}
-          </div>
+      <div className="overflow-hidden" ref={thumbRef}>
+        <div className="flex gap-2">
+          {images.map((src, index) => (
+            <button
+              key={index}
+              onClick={() => onThumbClick(index)}
+              className={`relative basis-1/5 aspect-square rounded-lg overflow-hidden flex-shrink-0 ${
+                index === selectedIndex ? 'ring-2 ring-cyan-500' : ''
+              }`}
+            >
+              <Image
+                src={src}
+                alt={`Thumbnail ${index + 1}`}
+                fill
+                className="object-cover"
+              />
+            </button>
+          ))}
         </div>
       </div>
-   
     </div>
   );
 }

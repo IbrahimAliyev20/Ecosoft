@@ -1,40 +1,46 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Error from "next/error";
 
 interface QuickOfferModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProps) {
+export default function QuickOfferModal({
+  isOpen,
+  onClose,
+}: QuickOfferModalProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    question: '',
-    phone: '',
+    name: "",
+    surname: "",
+    question: "",
+    phone: "",
   });
   const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     }
     return () => {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -45,33 +51,39 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setSuccessMessage('');
-    setErrorMessage('');
+    setSuccessMessage("");
+    setErrorMessage("");
 
     try {
-      const response = await fetch('/api/submit-quick-offer', {
-        method: 'POST',
+      const response = await fetch("/api/submit-quick-offer", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error("Təklif göndərilərkən xəta baş verdi.");
+        throw new Error({
+          message: "Təklif göndərilərkən xəta baş verdi.",
+          statusCode: 500,
+        });
       }
 
       const result = await response.json();
       if (result.success) {
         setSuccessMessage("Təklifiniz uğurla göndərildi!");
-        setFormData({ name: '', surname: '', question: '', phone: '' });
+        setFormData({ name: "", surname: "", question: "", phone: "" });
         setTimeout(onClose, 2000);
       } else {
         setErrorMessage(result.message || "Server xətası.");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Quick offer form submission error:", error);
-      setErrorMessage(error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+      setErrorMessage(
+        (error as { message: string }).message ||
+          "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+      );
     } finally {
       setLoading(false);
     }
@@ -149,7 +161,7 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
           )}
 
           <Button
-            variant='default'
+            variant="default"
             disabled={loading}
             className="w-full py-3 text-lg font-semibold text-primary-foreground transition-colors flex items-center justify-center gap-2"
           >

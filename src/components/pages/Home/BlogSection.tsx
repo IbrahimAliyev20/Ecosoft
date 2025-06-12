@@ -67,10 +67,12 @@ export function BlogSection() {
             </Button>
           </div>
         </div>
+          <Link href="/blog">
 
         <div className="text-center">
           <ButtonMore />
         </div>
+          </Link>
       </div>
     </section>
   );

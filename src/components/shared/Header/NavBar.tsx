@@ -46,7 +46,7 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex text-lg space-x-6 ">
           <Link   
-          href="#" className="text-black hover:text-primary">
+          href="/" className="text-black hover:text-primary">
             Ana səhifə
             </Link>
           <Link 
@@ -54,7 +54,7 @@ export function Navbar() {
             Məhsullar
             </Link>
           <Link 
-           href="#" className="text-foreground hover:text-primary">
+           href="/about" className="text-foreground hover:text-primary">
             Haqqımızda
             </Link>
           <Link 
@@ -62,7 +62,7 @@ export function Navbar() {
             Bloq
             </Link>
           <Link 
-           href="#" className="text-foreground hover:text-primary">
+           href="/contact" className="text-foreground hover:text-primary">
             Əlaqə
             </Link>
         </div>

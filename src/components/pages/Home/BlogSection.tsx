@@ -3,13 +3,13 @@
 import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button'; 
-import { ServiceCard } from '@/components/shared/ServiceCard';
+import { Button } from '@/components/ui/button';
 import ButtonMore from '@/components/shared/ButtonMore';
 import { allBlogPosts } from '@/utils/blog';
+import { BlogCard } from '@/components/shared/BlogCard';
+import Link from 'next/link'; 
 
 export function BlogSection() {
-
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   const scrollPrev = useCallback(() => {
@@ -26,42 +26,48 @@ export function BlogSection() {
         <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Blog</h2>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
-          {allBlogPosts.map((post, index) => (
-            <ServiceCard
-              key={index}
-              imageSrc={post.imageSrc}
-              title={post.title}
-              description={post.description}
-              date={post.date}
-            />
+          {allBlogPosts.map((post,) => (
+            <Link href={`/blog/${post.slug}`} key={post.slug}>
+              <BlogCard
+                imageSrc={post.imageSrc}
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                category={post.category}
+                
+              />
+            </Link>
           ))}
         </div>
 
         <div className="md:hidden mb-8">
-            <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex">
-                {allBlogPosts.map((post, index) => (
-                    <div className="basis-full shrink-0 grow-0 p-2" key={index}>
-                        <ServiceCard
-                            imageSrc={post.imageSrc}
-                            title={post.title}
-                            description={post.description}
-                            date={post.date}
-                        />
-                    </div>
-                ))}
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {allBlogPosts.map((post) => ( 
+                <div className="basis-full shrink-0 grow-0 p-2" key={post.slug}> 
+                  <Link href={`/blog/${post.slug}`}> 
+                    <BlogCard
+                      imageSrc={post.imageSrc}
+                      title={post.title}
+                      description={post.description}
+                      date={post.date}
+                      category={post.category}
+                    />
+                  </Link>
                 </div>
+              ))}
             </div>
-            <div className="flex justify-center items-center gap-4 mt-6">
-                <Button variant="outline" size="icon" onClick={scrollPrev} className="rounded-full">
-                    <ChevronLeft className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" onClick={scrollNext} className="rounded-full">
-                    <ChevronRight className="h-4 w-4" />
-                </Button>
-            </div>
+          </div>
+          <div className="flex justify-center items-center gap-4 mt-6">
+            <Button variant="outline" size="icon" onClick={scrollPrev} className="rounded-full">
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <Button variant="outline" size="icon" onClick={scrollNext} className="rounded-full">
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
-        
+
         <div className="text-center">
           <ButtonMore />
         </div>

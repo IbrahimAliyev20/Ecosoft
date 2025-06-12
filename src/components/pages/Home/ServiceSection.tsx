@@ -3,14 +3,14 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import ButtonMore from '@/components/shared/ButtonMore';
 
-interface CategoryCard {
+interface ServiceCardData {
   id: number;
   title: string;
   description: string;
   image: string;
 }
 
-const services: CategoryCard[] = [
+const services: ServiceCardData[] = [
   {
     id: 1,
     title: "Kafeler üçün su təmizlənməsi",
@@ -71,11 +71,11 @@ export function ServiceSection() {
   );
 }
 
-interface CategoryCardProps {
-  service: CategoryCard;
+interface ServiceCardProps {
+  service: ServiceCardData;
 }
 
-function ServiceCard({ service }: CategoryCardProps) {
+function ServiceCard({ service }: ServiceCardProps) {
   return (
     <div className="flex gap-4 p-5 md:p-10 bg-gray-100 rounded-xl border border-border hover:shadow-md transition-shadow">
       <div className="relative flex-shrink-0 w-[90px] h-[90px] md:w-[110px] md:h-[110px]">

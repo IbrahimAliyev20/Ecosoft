@@ -2,10 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link'; 
-import { ServiceCard } from '@/components/shared/ServiceCard';
 import { allBlogPosts } from '@/utils/blog';
+import { BlogCard } from '@/components/shared/BlogCard';
 
-const filterTags = ['Bütün yazılar', 'Filtrlər', 'Məsləhətlər', 'Sənaye'];
+const filterTags = ['Bütün yazılar', 'Filtrlər', 'Məsləhətlər', 'Sənaye','Yeniliklər'];
 
 export default function BlogPage() {
   const [activeTag, setActiveTag] = useState('Bütün yazılar');
@@ -43,11 +43,12 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
-              <ServiceCard
+              <BlogCard
                 imageSrc={post.imageSrc}
                 title={post.title}
                 description={post.description}
                 date={post.date}
+                category={post.category}
               />
             </Link>
           ))}

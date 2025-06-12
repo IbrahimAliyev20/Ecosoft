@@ -18,7 +18,7 @@ export function ProductInfo({ product }: { product: Product }) {
         <hr className="border-gray-200" />
 
    
-        <Accordion type="single" collapsible defaultValue="item-1" className="w-full mt-6 border-none">
+        <Accordion type="single" collapsible  className="w-full mt-6 border-none">
           
           <AccordionItem value="item-1" className="border rounded-xl mb-3">
             <AccordionTrigger className="font-semibold text-base hover:no-underline p-4">

@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge';
 import { getPostBySlug } from '@/utils/blog';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,7 +43,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <div className="flex justify-between items-center text-muted-foreground text-sm mb-8">
-          <span className="bg-muted px-3 py-1 rounded-md">{post.category}</span>
+      <Badge variant="default" className='bg-[#06B6D4] text-base'>{post.category}</Badge>
+
+          
           <span>{post.date}</span>
         </div>
 

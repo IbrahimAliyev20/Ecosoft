@@ -6,13 +6,13 @@ import Image from 'next/image';
 export default function FooterHero() {
   return (
     <div className="flex flex-col items-center justify-center  bg-background text-foreground">
-      <div className="flex-grow flex md:hidden flex-col items-center justify-center text-center px-4">
+      <div className="flex-grow flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-3xl md:text-4xl font-[600] mb-6">
           Sadəcə su deyil,
           <br />
           həyatına dəyər qatırıq
         </h1>
-        <Link href="#" 
+        <Link href="/contact" 
          className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-cyan-500 text-white font-medium px-4 py-2 hover:bg-cyan-600 transition-all'
          >
           Bizimlə əlaqə

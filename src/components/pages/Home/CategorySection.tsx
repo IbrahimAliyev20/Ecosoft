@@ -75,7 +75,7 @@ function CategoryCard({ category }: CategoryCardProps) {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/80 to-transparent flex items-start p-6 z-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/80 to-transparent flex items-center p-6 z-10">
           <h3 className="text-white text-2xl font-semibold">
             {category.title}
           </h3>

@@ -21,7 +21,7 @@ export function ServiceSection() {
         ))}
       </div>
       <div>
-        <Link  href="/about">
+        <Link  href="/services">
         <ButtonMore />
         </Link>
       </div>

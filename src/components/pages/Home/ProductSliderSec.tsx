@@ -50,7 +50,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
         <div className="flex">
           {products.map((product) => (
             <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4">
-              <Link href={`/product/${product.slug}`} className="block h-full">
+              <Link href={`/products/${product.slug}`} className="block h-full">
                 <ProductCard
                   imageSrc={product.imageSrc}
                   title={product.title}

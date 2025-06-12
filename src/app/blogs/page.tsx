@@ -42,7 +42,7 @@ export default function BlogPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
-            <Link href={`/blog/${post.slug}`} key={post.slug}>
+            <Link href={`/blogs/${post.slug}`} key={post.slug}>
               <BlogCard
                 imageSrc={post.imageSrc}
                 title={post.title}

@@ -27,7 +27,7 @@ export function BlogSection() {
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
           {allBlogPosts.map((post,) => (
-            <Link href={`/blog/${post.slug}`} key={post.slug}>
+            <Link href={`/blogs/${post.slug}`} key={post.slug}>
               <BlogCard
                 imageSrc={post.imageSrc}
                 title={post.title}
@@ -45,7 +45,7 @@ export function BlogSection() {
             <div className="flex">
               {allBlogPosts.map((post) => ( 
                 <div className="basis-full shrink-0 grow-0 p-2" key={post.slug}> 
-                  <Link href={`/blog/${post.slug}`}> 
+                  <Link href={`/blogs/${post.slug}`}> 
                     <BlogCard
                       imageSrc={post.imageSrc}
                       title={post.title}
@@ -67,7 +67,7 @@ export function BlogSection() {
             </Button>
           </div>
         </div>
-          <Link href="/blog">
+          <Link href="/blogs">
 
         <div className="text-center">
           <ButtonMore />

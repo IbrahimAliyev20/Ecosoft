@@ -39,11 +39,12 @@ export default function FooterHero() {
     </div>
 
     <nav className="flex flex-col md:flex-row items-center gap-6 my-8 md:my-0 md:mx-auto">
-      <Link href="#" className="text-[#06B6D4] hover:text-primary">Ana səhifə</Link>
-      <Link href="#" className="text-[#06B6D4] hover:text-primary">Məhsullar</Link>
-      <Link href="#" className="text-[#06B6D4] hover:text-primary">Haqqımızda</Link>
-      <Link href="#" className="text-[#06B6D4] hover:text-primary">Bloq</Link>
-      <Link href="#" className="text-[#06B6D4] hover:text-primary">Əlaqə</Link>
+      <Link href="/" className="text-[#06B6D4] hover:text-primary">Ana səhifə</Link>
+      <Link href="/about" className="text-[#06B6D4] hover:text-primary">Haqqımızda</Link>
+      <Link href="/products" className="text-[#06B6D4] hover:text-primary">Məhsullar</Link>
+      <Link href="/services" className="text-[#06B6D4] hover:text-primary">Xidmətlər</Link>
+      <Link href="/blogs" className="text-[#06B6D4] hover:text-primary">Bloq</Link>
+      <Link href="/contact" className="text-[#06B6D4] hover:text-primary">Əlaqə</Link>
     </nav>
 
     <div className="hidden md:flex items-center gap-4">

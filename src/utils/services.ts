@@ -14,7 +14,7 @@ export const allServices: ServiceCardData[] = [
     id: 1,
     title: "Su filtrasiya sistemləri",
     description: "Suyun təmizlənməsi və filtrasiyası üçün müasir həllər",
-    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    image: "/image/category.png",
     slug: "su-filtrasiya-sistemleri",
     content: "Su filtrasiyası sistemləri suyun təmizlənməsi və keyfiyyətinin artırılması üçün istifadə olunan texnologiyalardır. Bu sistemlər suyun içərisindəki zərərli maddələri, bakteriyaları və digər çirkləndiriciləri təmizləyərək, içməli su keyfiyyətini artırır."
   },
@@ -22,7 +22,7 @@ export const allServices: ServiceCardData[] = [
     id: 2,
     title: "Su yumşaltma sistemləri",
     description: "Sərt suyun yumşaldılması üçün effektiv həllər",
-    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    image: "/image/category.png",
     slug: "su-yumsaltma-sistemleri",
     content: "Su yumşaltma sistemləri, sərt suyun tərkibindəki kalsium və maqnezium ionlarını təmizləyərək, suyun yumşaldılmasını təmin edir. Bu sistemlər sayəsində su qızdırıcıları və digər məişət cihazlarının ömrü uzanır."
   },
@@ -30,7 +30,7 @@ export const allServices: ServiceCardData[] = [
     id: 3,
     title: "Sənaye su təmizləmə",
     description: "Sənaye müəssisələri üçün su təmizləmə həlləri",
-    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    image: "/image/category.png",
     slug: "senaye-su-temizleme",
     content: "Sənaye su təmizləmə sistemləri, müxtəlif sənaye sahələrində istifadə olunan suyun təmizlənməsi və təkrar istifadəsi üçün nəzərdə tutulmuşdur. Bu sistemlər vasitəsilə istehsal proseslərində istifadə olunan su təmizlənir və ətraf mühitə zərər vermədən təkrar istifadə edilir."
   },
@@ -38,7 +38,7 @@ export const allServices: ServiceCardData[] = [
     id: 4,
     title: "Membran texnologiyaları",
     description: "Su təmizləmədə qabaqcıl membran texnologiyaları",
-    image: "https://i.ibb.co/Jk0Yd3k/service1.png",
+    image: "/image/category.png",
     slug: "membran-texnologiyalari",
     content: "Membran texnologiyaları, suyun təmizlənməsində istifadə olunan ən müasir üsullardan biridir. Bu texnologiya vasitəsilə suyun tərkibindəki ən kiçik çirkləndiricilər belə təmizlənir və yüksək keyfiyyətli su əldə edilir."
   },

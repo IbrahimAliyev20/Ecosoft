@@ -55,13 +55,13 @@ export function Navbar() {
             <Link href="/about" className="text-gray-600 hover:text-gray-900">
               Haqqımızda
             </Link>
-            <Link href="/product" className="text-gray-600 hover:text-gray-900">
+            <Link href="/products" className="text-gray-600 hover:text-gray-900">
               Məhsullar
             </Link>
             <Link href="/services" className="text-gray-600 hover:text-gray-900">
               Xidmətlər
             </Link>
-            <Link href="/blog" className="text-gray-600 hover:text-gray-900">
+            <Link href="/blogs" className="text-gray-600 hover:text-gray-900">
               Blog
             </Link>
             <Link href="/contact" className="text-gray-600 hover:text-gray-900">

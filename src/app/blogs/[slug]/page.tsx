@@ -25,7 +25,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <nav className="container mx-auto px-6 text-sm text-muted-foreground mb-8">
           <Link href="/" className="hover:text-primary">Ana səhifə</Link>
           <span className="mx-2">&gt;</span>
-          <Link href="/blog" className="hover:text-primary">Bloglar</Link>
+          <Link href="/blogs" className="hover:text-primary">Bloglar</Link>
           <span className="mx-2">&gt;</span>
           <span className="text-foreground">{post.title}</span>
         </nav>
@@ -64,7 +64,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {otherBlogPosts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherBlogPosts.slice(0, 3).map((otherPost) => ( 
-              <Link href={`/blog/${otherPost.slug}`} key={otherPost.slug}>
+              <Link href={`/blogs/${otherPost.slug}`} key={otherPost.slug}>
                 <BlogCard
                   imageSrc={otherPost.imageSrc}
                   title={otherPost.title}

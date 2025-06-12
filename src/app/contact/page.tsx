@@ -49,9 +49,6 @@ export default function ContactPage() {
       } else {
         setErrorMessage(result.message || "Server xətası.");
       }
-    } catch (error: any) {
-      console.error('Form submission error:', error);
-      setErrorMessage(error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
     } finally {
       setLoading(false);
     }

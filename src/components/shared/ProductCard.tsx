@@ -1,5 +1,6 @@
-import React from "react";
+// import React, { useMemo } from "react";
 import Image from "next/image";
+// import { useDebounce } from "use-debounce";
 
 interface ProductCardProps {
   imageSrc: string;
@@ -12,14 +13,21 @@ export function ProductCard({
   title,
   productCode,
 }: ProductCardProps) {
+  // const filteredItems = useMemo(() => {
+  //   // Mevcut filtreleme mantığı
+  // }, []);
+
+  // const debouncedSearchQuery = useDebounce("initialQuery", 300);
+
   return (
     <div className="border rounded-xl overflow-hidden group cursor-pointer flex flex-col h-full"> 
       <div className="w-full h-48 p-4 flex justify-center items-center">
         <Image
           src={imageSrc}
           alt={title}
-          width={400}
-          height={400}
+          width={200}
+          height={200}
+          loading="lazy"
           className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </div>

@@ -1,6 +1,5 @@
-import { BlogSection } from '@/components/pages/Home/BlogSection'; // This import seems unused here
 import { Badge } from '@/components/ui/badge';
-import { allBlogPosts, getPostBySlug } from '@/utils/blog'; // Import allBlogPosts
+import { allBlogPosts, getPostBySlug } from '@/utils/blog'; 
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -19,7 +18,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  // Filter out the current post from all blog posts
   const otherBlogPosts = allBlogPosts.filter((blogPost) => blogPost.slug !== slug);
 
   return (

@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, User, Mail, MessageSquare } from 'lucide-react'; // İkonlar
+import { X,  } from 'lucide-react'; // İkonlar
 import { Button } from '@/components/ui/button'; // Shadcn/ui Button komponentiniz
 
 interface QuickOfferModalProps {
@@ -67,15 +67,12 @@ export default function QuickOfferModal({ isOpen, onClose }: QuickOfferModalProp
       const result = await response.json();
       if (result.success) {
         setSuccessMessage("Təklifiniz uğurla göndərildi!");
-        setFormData({ name: '', surname: '', question: '', phone: '' }); // Formu təmizlə
-        setTimeout(onClose, 2000); // 2 saniyə sonra modalı bağla
+        setFormData({ name: '', surname: '', question: '', phone: '' }); 
+        setTimeout(onClose, 2000); 
       } else {
         setErrorMessage(result.message || "Server xətası.");
       }
-    } catch (error: any) {
-      console.error("Quick offer form submission error:", error);
-      setErrorMessage(error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
-    } finally {
+    }  finally {
       setLoading(false);
     }
   };

@@ -4,7 +4,7 @@ import {
   getServiceBySlug,
   ServiceCardData,
 } from "@/utils/services";
-import ServiceListCard from "@/components/pages/Services/ServiceListCard";
+import ServiceListCard from "@/components/pages/Service/ServiceListCard";
 import React, { useState, useEffect } from "react";
 
 export default  function ServiceContainer() {

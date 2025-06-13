@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonMore from '@/components/shared/ButtonMore';
 import { allServices} from '@/utils/services';
 import Link from 'next/link';
-import ServiceCard from '@/components/pages/Services/ServiceCard';
+import ServiceCard from '@/components/pages/Service/ServiceCard';
 
 
 

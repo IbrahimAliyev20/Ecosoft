@@ -1,4 +1,5 @@
-import ServiceContainer from "@/components/pages/Services/ServiceContainer"; 
+import ServiceContainer from "@/components/pages/Service/Servicecontainer";
+
 export default function ServicePage() {
   return (
     <div>

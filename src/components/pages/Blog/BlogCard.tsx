@@ -19,12 +19,11 @@ export function BlogCard({ imageSrc, title, description, date, category }: BlogC
           fill
           className="w-full h-48 object-cover rounded-[12px] mb-4"
         />
+        <p className='absolute top-2 left-2 py-[2px] px-3 rounded-[6px] bg-[#06B6D4] text-white text-[14px] '>{category}</p>
       </div>
       <div className="p-4 flex flex-col flex-grow">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
           <span>{date}</span>
-          <span>•</span>
-          <span>{category}</span>
         </div>
         <h3 className="text-xl font-medium mb-2 line-clamp-2">
           {title}

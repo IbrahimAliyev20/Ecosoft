@@ -26,7 +26,7 @@ export default function FooterHero() {
       <Link href="/">
         <Image 
           src="/image/logo.svg"
-          width={130}
+          width={89}
           height={45} 
           alt="HydroLink Logo" 
         />

@@ -7,7 +7,7 @@ import {
 import ServiceListCard from "@/components/pages/Services/ServiceListCard";
 import React, { useState, useEffect } from "react";
 
-function ServiceContainer() {
+export default  function ServiceContainer() {
   const [selectedService, setSelectedService] =
     useState<ServiceCardData | null>(null);
 
@@ -74,5 +74,3 @@ function ServiceContainer() {
     </div>
   );
 }
-
-export default ServiceContainer;

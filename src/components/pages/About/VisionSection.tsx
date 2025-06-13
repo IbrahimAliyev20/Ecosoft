@@ -1,5 +1,4 @@
 import React from 'react';
-import { Clock, Eye, Heart } from 'lucide-react';
 import Image from 'next/image';
 
 export function VisionSec() {

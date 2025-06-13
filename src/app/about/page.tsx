@@ -2,7 +2,6 @@ import { VisionSec } from '@/components/pages/About/VisionSection';
 import { AboutSection } from '@/components/pages/Home/AboutSection';
 import MissionSection from '@/components/pages/Home/MissionSection';
 import { ServiceSection } from '@/components/pages/Home/ServiceSection';
-import ServiceListCard from '@/components/pages/Service/ServiceListCard';
 import Image from 'next/image';
 import React from 'react';
 

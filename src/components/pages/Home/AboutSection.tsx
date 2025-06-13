@@ -5,7 +5,7 @@ export function AboutSection() {
     <section className="p-4 md:p-0">
       <div className="bg-zinc-50 mx-auto p-4 md:p-8 w-full rounded-lg shadow-sm flex flex-col lg:flex-row gap-8 justify-between">
       <div className=" w-[100%] md:w-[50%]">
-        <h2 className="text-4xl font-semibold mb-4 text-center md:text-start  ">Haqqımızda</h2>
+        <h2 className="text-4xl font-semibold mb-4 text-start  ">Haqqımızda</h2>
         <p className="text-muted-foreground text-[16px]">
           Lorem ipsum dolor sit amet consectetur. Id sollicitudin est eu nunc id. Porta malesuada
           consectetur vitae ipsum at nibh. Congue sed risus habitant vitae risus accumsan nec sit

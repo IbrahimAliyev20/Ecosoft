@@ -25,7 +25,7 @@ export function HeroSection() {
               href="#"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-cyan-500 text-white  px-[32px] py-2 hover:bg-cyan-600 transition-all"
             >
-              Detallı bax <ArrowRight className="h-5 w-8" />
+              Daha ətraflı <ArrowRight className="h-5 w-8" />
             </Link>
           </div>
 

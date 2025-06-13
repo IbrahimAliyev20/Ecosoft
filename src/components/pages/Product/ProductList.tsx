@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
-import { ProductCard } from '@/components/shared/ProductCard';
+import { ProductCard } from '@/components/pages/Product/ProductCard';
 import { allProducts, categories } from '@/utils/products';
 import Link from 'next/link'; 
 

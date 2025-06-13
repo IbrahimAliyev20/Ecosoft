@@ -1,4 +1,4 @@
-import { ProductList } from "@/components/shared/ProductList";
+import { ProductList } from "@/components/pages/Product/ProductList";
 
 export default function ProductsPage() {
   return (

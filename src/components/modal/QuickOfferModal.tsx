@@ -69,6 +69,7 @@ export default function QuickOfferModal({
       } else {
         setErrorMessage(result.message || "Server xətası.");
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) { 
       console.error("Quick offer form submission error:", error);
       setErrorMessage(

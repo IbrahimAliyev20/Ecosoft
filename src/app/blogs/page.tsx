@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link'; 
 import { allBlogPosts } from '@/utils/blog';
-import { BlogCard } from '@/components/shared/BlogCard';
+import { BlogCard } from '@/components/pages/Blog/BlogCard';
 
 const filterTags = ['Bütün yazılar', 'Filtrlər', 'Məsləhətlər', 'Sənaye','Yeniliklər'];
 

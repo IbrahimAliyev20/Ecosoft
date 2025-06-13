@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { ProductCard } from '@/components/shared/ProductCard';
+import { ProductCard } from '@/components/pages/Product/ProductCard';
 import ButtonMore from '@/components/shared/ButtonMore';
 import Link from 'next/link';
 

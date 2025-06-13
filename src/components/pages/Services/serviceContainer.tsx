@@ -4,7 +4,7 @@ import {
   getServiceBySlug,
   ServiceCardData,
 } from "@/utils/services";
-import ServiceListCard from "@/components/shared/ServiceListCard";
+import ServiceListCard from "@/components/pages/Services/ServiceListCard";
 import React, { useState, useEffect } from "react";
 
 function ServiceContainer() {
@@ -18,7 +18,7 @@ function ServiceContainer() {
     } else {
       setSelectedService(allServices[0] || null);
     }
-  }, []);
+  }, [selectedService]); // selectedService əlavə edildi
 
   if (!selectedService && allServices.length > 0) {
     return (
@@ -52,7 +52,7 @@ function ServiceContainer() {
             ))}
           </div>
 
-          <div className="w-full lg:w-2/3 bg-card ">
+          <div className="w-full lg:w-2/3 bg-card">
             {selectedService ? (
               <>
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">

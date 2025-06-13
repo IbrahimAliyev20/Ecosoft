@@ -3,7 +3,7 @@ import { allBlogPosts, getPostBySlug } from '@/utils/blog';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BlogCard } from '@/components/shared/BlogCard'; // Import BlogCard for related posts
+import { BlogCard } from '@/components/pages/Blog/BlogCard'; // Import BlogCard for related posts
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;

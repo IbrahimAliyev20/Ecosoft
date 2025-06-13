@@ -18,7 +18,7 @@ export default  function ServiceContainer() {
     } else {
       setSelectedService(allServices[0] || null);
     }
-  }, [selectedService]); // selectedService əlavə edildi
+  }, [selectedService]); 
 
   if (!selectedService && allServices.length > 0) {
     return (

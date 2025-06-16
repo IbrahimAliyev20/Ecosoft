@@ -40,7 +40,7 @@ export function CategorySection() {
     <div className="container mx-auto px-4 py-0 md:py-0 ">
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-semibold text-foreground">
-          Kategoriyalar
+          Kateqoriyalar
         </h1>
       </div>
 

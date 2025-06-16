@@ -1,0 +1,90 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getOffer": "Get Offer"
+  },
+  "hero": {
+    "title": "With Ecosoft",
+    "subtitle": "Not just water, we add value to your life",
+    "description": "Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque.",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Lorem ipsum dolor sit amet consectetur. Id sollicitudin est eu nunc id. Porta malesuada consectetur vitae ipsum at nibh. Congue sed risus habitant vitae risus accumsan nec sit amet. Eu eros risus elit at nibh quam eu. Quam vel pellentesque sed leo tristique amet mauris dolor. A gravida velit dui risus ac odio sit eget. Eget accumsan nibh condimentum sed venenatis turpis. Dictum dolor ut pretium id placerat velit amet habitasse. A egestas turpis cras porttitor feugiat. Quisque quam cursus potenti euismod viverra egestas. Amet vestibulum tortor dui purus morbi. Duis et orci ultrices et ut. In pharetra gravida odio adipiscing. Ac pellentesque enim posuere a et. Quisque quam cursus potenti euismod viverra egestas. Amet vestibulum tortor dui purus morbi. Duis et orci ultrices et ut. In pharetra gravida odio adipiscing. Ac pellentesque enim posuere a et.",
+    "stats": {
+      "products": "Products Sold",
+      "experience": "Years Experience",
+      "customers": "Customers",
+      "services": "Services"
+    }
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
+  },
+  "categories": {
+    "title": "Categories",
+    "home": "Home",
+    "garden": "Garden",
+    "industry": "Industry",
+    "kitchen": "Kitchen"
+  },
+  "footer": {
+    "tagline": "Not just water, we add value to your life",
+    "contact": "Contact Us",
+    "copyright": "All rights reserved © 2025, Developer"
+  },
+  "contact": {
+    "name": "Your Name",
+    "surname": "Your Surname",
+    "email": "Your Email",
+    "message": "Write to Us",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred while sending the message."
+  },
+  "quickOffer": {
+    "title": "Get Offer",
+    "name": "Your Name",
+    "surname": "Your Surname",
+    "question": "Your Question",
+    "phone": "Phone",
+    "send": "Get Offer",
+    "sending": "Sending...",
+    "success": "Your offer has been sent successfully!",
+    "error": "Server error."
+  },
+  "services": {
+    "waterFiltration": {
+      "title": "Water Filtration Systems",
+      "description": "Modern solutions for water purification and filtration"
+    },
+    "waterSoftening": {
+      "title": "Water Softening Systems",
+      "description": "Effective solutions for softening hard water"
+    },
+    "industrialWater": {
+      "title": "Industrial Water Treatment",
+      "description": "Water treatment solutions for industrial facilities"
+    },
+    "membraneTech": {
+      "title": "Membrane Technologies",
+      "description": "Advanced membrane technologies for water treatment"
+    },
+    "cafeWater": {
+      "title": "Water Treatment for Cafes",
+      "description": "Clean water supply for cafes and restaurants is crucial for customer satisfaction and equipment longevity. We offer water treatment solutions with the latest technologies."
+    }
+  }
+}

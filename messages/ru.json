@@ -1,0 +1,90 @@
+{
+  "navigation": {
+    "home": "Главная",
+    "about": "О нас",
+    "products": "Продукты",
+    "services": "Услуги",
+    "blog": "Блог",
+    "contact": "Контакты",
+    "getOffer": "Получить предложение"
+  },
+  "hero": {
+    "title": "С Ecosoft",
+    "subtitle": "Не просто вода, мы добавляем ценность в вашу жизнь",
+    "description": "Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque.",
+    "learnMore": "Узнать больше"
+  },
+  "about": {
+    "title": "О нас",
+    "description": "Lorem ipsum dolor sit amet consectetur. Id sollicitudin est eu nunc id. Porta malesuada consectetur vitae ipsum at nibh. Congue sed risus habitant vitae risus accumsan nec sit amet. Eu eros risus elit at nibh quam eu. Quam vel pellentesque sed leo tristique amet mauris dolor. A gravida velit dui risus ac odio sit eget. Eget accumsan nibh condimentum sed venenatis turpis. Dictum dolor ut pretium id placerat velit amet habitasse. A egestas turpis cras porttitor feugiat. Quisque quam cursus potenti euismod viverra egestas. Amet vestibulum tortor dui purus morbi. Duis et orci ultrices et ut. In pharetra gravida odio adipiscing. Ac pellentesque enim posuere a et. Quisque quam cursus potenti euismod viverra egestas. Amet vestibulum tortor dui purus morbi. Duis et orci ultrices et ut. In pharetra gravida odio adipiscing. Ac pellentesque enim posuere a et.",
+    "stats": {
+      "products": "Продано продуктов",
+      "experience": "Лет опыта",
+      "customers": "Клиентов",
+      "services": "Услуг"
+    }
+  },
+  "mission": {
+    "title": "Наша миссия",
+    "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
+  },
+  "vision": {
+    "title": "Наше видение",
+    "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
+  },
+  "categories": {
+    "title": "Категории",
+    "home": "Дом",
+    "garden": "Сад",
+    "industry": "Промышленность",
+    "kitchen": "Кухня"
+  },
+  "footer": {
+    "tagline": "Не просто вода, мы добавляем ценность в вашу жизнь",
+    "contact": "Связаться с нами",
+    "copyright": "Все права защищены © 2025, Разработчик"
+  },
+  "contact": {
+    "name": "Ваше имя",
+    "surname": "Ваша фамилия",
+    "email": "Ваш email",
+    "message": "Напишите нам",
+    "send": "Отправить",
+    "sending": "Отправка...",
+    "success": "Ваше сообщение успешно отправлено!",
+    "error": "Произошла ошибка при отправке сообщения."
+  },
+  "quickOffer": {
+    "title": "Получить предложение",
+    "name": "Ваше имя",
+    "surname": "Ваша фамилия",
+    "question": "Ваш вопрос",
+    "phone": "Телефон",
+    "send": "Получить предложение",
+    "sending": "Отправка...",
+    "success": "Ваше предложение успешно отправлено!",
+    "error": "Ошибка сервера."
+  },
+  "services": {
+    "waterFiltration": {
+      "title": "Системы фильтрации воды",
+      "description": "Современные решения для очистки и фильтрации воды"
+    },
+    "waterSoftening": {
+      "title": "Системы умягчения воды",
+      "description": "Эффективные решения для умягчения жесткой воды"
+    },
+    "industrialWater": {
+      "title": "Промышленная очистка воды",
+      "description": "Решения по очистке воды для промышленных предприятий"
+    },
+    "membraneTech": {
+      "title": "Мембранные технологии",
+      "description": "Передовые мембранные технологии для очистки воды"
+    },
+    "cafeWater": {
+      "title": "Очистка воды для кафе",
+      "description": "Обеспечение чистой водой кафе и ресторанов имеет решающее значение для удовлетворенности клиентов и долговечности оборудования. Мы предлагаем решения по очистке воды с использованием новейших технологий."
+    }
+  }
+}

@@ -62,7 +62,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
         </div>
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-4">
         <Link href="/products">
           <ButtonMore />
         </Link>

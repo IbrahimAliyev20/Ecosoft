@@ -22,7 +22,7 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto  py-16">
-        <AboutSection />
+        <AboutSection title="Haqqımızda" />
       </div>
     
       <div className="container mx-auto px-4 py-16">

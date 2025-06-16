@@ -7,7 +7,7 @@ const ButtonMore = () => {
   <div className="flex justify-center mt-6 ">
         <Button
           variant="default"
-          className='cursor-pointer'>
+          className='cursor-pointer px-[26px] py-[22px] rounded-[14px]'>
           Ətraflı
           <Image 
           src='/icons/ExternalLink.svg'

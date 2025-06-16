@@ -102,32 +102,44 @@ export default function QuickOfferModal({
 
         <form onSubmit={handleSubmit} className="p-6 pt-0 space-y-4">
           <div className="space-y-4">
+            <label htmlFor="name" className="text-base text-gray-600 font-medium">Ad</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Adınız"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
+            <label htmlFor="surname" className="text-base text-gray-600 font-medium ">Soyad</label>
             <input
               type="text"
               name="surname"
               value={formData.surname}
               onChange={handleChange}
               placeholder="Soyadınız"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
-          
+            <label htmlFor="phone" className="text-base text-gray-600 font-medium">Mobil nömrə</label>
+            <input
+              type="text"
+              name="number"
+              value={formData.surname}
+              onChange={handleChange}
+              placeholder="Mobil Nömrə"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              required
+            />
+            <label htmlFor="question" className="text-base text-gray-600 font-medium ">Sualınız</label>
             <textarea
               name="question"
               value={formData.question}
               onChange={handleChange}
               placeholder="Sualınız"
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
               required
             />
           </div>

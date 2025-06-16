@@ -21,7 +21,7 @@ export default function BlogPage() {
     <main className="bg-background py-12 md:py-16">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-foreground">
-          Bloglar
+          Bloqlar
         </h1>
 
         <div className="flex items-center gap-2 flex-wrap mb-10">

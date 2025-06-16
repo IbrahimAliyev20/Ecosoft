@@ -6,14 +6,14 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className=" pt-12 px-6">
+    <section className=" pt-12 ">
       <div className="container mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 text-left"> 
-            <h1 className="text-4xl lg:text-5xl font-semibold text-cyan-500 mb-4">
+            <h1 className="text-4xl md:text-[64px] font-semibold text-cyan-500 mb-2">
               Ecosoft ilə
             </h1>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
               Sadəcə su deyil, həyatına dəyər qatırıq
             </h2>
             <p className="text-gray-600 text-[16px] mb-8">

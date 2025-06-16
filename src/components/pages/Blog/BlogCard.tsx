@@ -11,7 +11,7 @@ interface BlogCardProps {
 
 export function BlogCard({ imageSrc, title, description, date, category }: BlogCardProps) {
   return (
-    <div className="relative p-4 bg-card text-card-foreground rounded-[20px] shadow overflow-hidden flex flex-col h-full">
+    <div className="relative px-4 bg-card text-card-foreground rounded-[20px] shadow overflow-hidden flex flex-col h-full">
       <div className="relative w-full h-48">
         <Image
           src={imageSrc}
@@ -21,7 +21,7 @@ export function BlogCard({ imageSrc, title, description, date, category }: BlogC
         />
         <p className='absolute top-2 left-2 py-[2px] px-3 rounded-[6px] bg-[#06B6D4] text-white text-[14px] '>{category}</p>
       </div>
-      <div className="p-4 flex flex-col flex-grow">
+      <div className="py-4 flex flex-col flex-grow justify-between">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
           <span>{date}</span>
         </div>

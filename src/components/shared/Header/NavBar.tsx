@@ -68,7 +68,7 @@ export function Navbar() {
               Xidmətlər
             </Link>
             <Link href="/blogs" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Blog
+              Bloq
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               Əlaqə
@@ -153,7 +153,7 @@ export function Navbar() {
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Blog
+                  Bloq
                 </Link>
                 <Link
                   href="/contact"

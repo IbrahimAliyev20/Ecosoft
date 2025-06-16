@@ -8,7 +8,7 @@ import React from 'react';
 export default function AboutPage() {
   return (
     <div>
-    <div className="container mx-auto py-8 md:py-16">
+    <div className="container mx-auto py-8 md:py-16 px-5">
       <div className=" flex flex-col md:flex-row items-center bg-card rounded-lg  overflow-hidden ">
         <div className="md:w-1/2 h-[368px] px-4 md:px-0">
           <Image
@@ -20,7 +20,7 @@ export default function AboutPage() {
             
           />
         </div>
-        <div className="md:w-1/2 px-6 ">
+        <div className="md:w-1/2 pl-6 ">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground md:mt-0 mt-6">Haqqımızda</h1>
           <p className="text-muted-foreground">
             Lorem ipsum dolor sit amet consectetur. Amet ac ac eu vulputate. Consectetur
@@ -42,12 +42,14 @@ export default function AboutPage() {
     </div>
 
     <div className="container mx-auto py-8 md:py-16">
-        <AboutSection />
+        <AboutSection title="Nə Edirik?"/>
     </div>
     <div className="container mx-auto py-8 md:py-16">
         <MissionSection />
     </div>
+    
     <div className="container mx-auto py-8 md:py-16">
+      <h1 className='text-3xl md:text-4xl font-semibold mb-12 text-center text-foreground'>Dəyərlərimiz</h1>
         <VisionSec />
     </div>
     <div className="container mx-auto py-8 md:py-16">

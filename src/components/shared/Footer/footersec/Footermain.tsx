@@ -8,7 +8,10 @@ export default function FooterMain() {
         <div className="mb-2 md:mb-0">
           Bütün hüquqlar qorunur © 2025, Tərtibatçı <Link href="https://markup.az/" target='_blank' className='text-primary'>MarkUp Agency</Link>
         </div>
-       
+       <div className='flex gap-12'>
+        <p>Privacy Policy</p>
+        <p>Terms & Conditions</p>
+       </div>
       </div>
     </footer>
   );

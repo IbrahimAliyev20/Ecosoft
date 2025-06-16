@@ -2,6 +2,7 @@ import { allProducts } from "@/utils/products";
 import { ProductImageGallery } from "./ProductImageGallery";
 import { ProductInfo } from "./ProductInfo";
 import { notFound } from "next/navigation";
+import { ProductSliderSec } from "@/components/pages/Home/ProductSliderSec";
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -14,10 +15,12 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   if (!product) {
     notFound();
   }
+    const temporaryProducts = allProducts 
+
 
   return (
     <main className="py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-x-8 gap-y-12">
           <div className="order-1 lg:order-none">
             <ProductImageGallery images={product.images} />
@@ -30,6 +33,9 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <p className="text-gray-600 leading-relaxed">{product.description}</p>
           </div>
         </div>
+      </div>
+      <div>
+         <ProductSliderSec title="Digər Məhsullar" products={temporaryProducts} />
       </div>
     </main>
   );

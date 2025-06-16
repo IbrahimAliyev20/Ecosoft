@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, Globe } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import QuickOfferModal from '@/components/modal/QuickOfferModal';
-
+import { useRouter, usePathname } from '@/i18n/navigation';
 import {
   Sheet,
   SheetContent,
@@ -15,12 +15,29 @@ import {
   SheetTitle,   
 } from "@/components/ui/sheet";
 import { useTranslations } from 'next-intl';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const t = useTranslations();
+  const router = useRouter();
+  const pathname = usePathname();
 
+  const languages = [
+    { code: 'az', label: 'AZ' },
+    { code: 'en', label: 'EN' },
+    { code: 'ru', label: 'RU' },
+  ];
+
+  const handleLanguageChange = (locale: string) => {
+    router.replace(pathname, { locale });
+  };
 
   useEffect(() => {
     if (isOfferModalOpen) {
@@ -62,7 +79,7 @@ export function Navbar() {
               {t('navigation.home')}
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-            {t('navigation.about')}
+              {t('navigation.about')}
             </Link>
             <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               {t('navigation.products')}
@@ -74,12 +91,32 @@ export function Navbar() {
               {t('navigation.blog')}
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-             {t('navigation.contact')}
+              {t('navigation.contact')}
             </Link>
-          
           </div>
-          <div className='hidden md:flex '>
-              <Button
+
+          <div className="hidden md:flex items-center space-x-4">
+            {/* Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-9 w-9">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    className="cursor-pointer"
+                  >
+                    {lang.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <Button
               onClick={openOfferModal}
               variant="default"
               className="bg-[#06B6D4] text-white hover:bg-[#0891b2] transition-colors flex items-center rounded-lg text-lg font-semibold cursor-pointer"
@@ -91,14 +128,11 @@ export function Navbar() {
                 height={20}
                 priority
               />
-               {t('navigation.getOffer')}
+              {t('navigation.getOffer')}
             </Button>
           </div>
 
-
-
-
-
+          {/* Mobile Menu Button */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
@@ -128,7 +162,7 @@ export function Navbar() {
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                   {t('navigation.home')}
+                  {t('navigation.home')}
                 </Link>
                 <Link
                   href="/about"
@@ -165,6 +199,28 @@ export function Navbar() {
                 >
                   {t('navigation.contact')}
                 </Link>
+
+                {/* Mobile Language Selector */}
+                <div className="py-3 px-2 border-b border-gray-200">
+                  <div className="flex items-center space-x-2">
+                    <Globe className="h-5 w-5 text-gray-600" />
+                    <div className="flex space-x-2">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            handleLanguageChange(lang.code);
+                            handleCloseMobileMenu();
+                          }}
+                          className="text-[#323642] hover:text-blue-500 text-lg font-medium"
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
                 <Button
                   onClick={openOfferModal}
                   variant="default"

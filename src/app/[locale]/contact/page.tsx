@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
+  const t = useTranslations();
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -39,12 +41,12 @@ export default function ContactPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Mesaj göndərilərkən xəta baş verdi.");
+        throw new Error(`${t('contact.error')}`);
       }
 
       const result = await response.json();
       if (result.success) {
-        setSuccessMessage("Mesajınız uğurla göndərildi!");
+        setSuccessMessage(`${t('contact.success')}`);
         setFormData({ name: '', surname: '', email: '', message: '' });
       } else {
         setErrorMessage(result.message || "Server xətası.");
@@ -102,7 +104,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-4"> 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="sr-only">Adınız</label>
+                  <label htmlFor="name" className="sr-only">{t('contact.name')}</label>
                   <input
                     type="text"
                     id="name"
@@ -115,7 +117,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="surname" className="sr-only">Soyadınız</label>
+                  <label htmlFor="surname" className="sr-only">{t('contact.surname')}</label>
                   <input
                     type="text"
                     id="surname"
@@ -129,7 +131,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="sr-only">Mail Ünvanınız</label>
+                <label htmlFor="email" className="sr-only">{t('contact.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -142,7 +144,7 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="sr-only">Bize yazın</label>
+                <label htmlFor="message" className="sr-only">{t('contact.message')}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -169,7 +171,7 @@ export default function ContactPage() {
                 className="rounded-[12px] w-full py-3 text-base font-normal text-primary-foreground transition-colors flex items-center justify-center gap-2 p-5"
               >
                 {!loading && "Göndər"}
-                {loading ? "Göndərilir..." : <Send className="w-5 h-5" />}
+                {loading ? `${t('contact.sending')}` : <Send className="w-5 h-5" />}
               </Button>
             </form>
           </div>

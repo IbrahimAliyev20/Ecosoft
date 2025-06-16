@@ -2,10 +2,12 @@ import { VisionSec } from '@/components/pages/About/VisionSection';
 import { AboutSection } from '@/components/pages/Home/AboutSection';
 import MissionSection from '@/components/pages/Home/MissionSection';
 import { ServiceSection } from '@/components/pages/Home/ServiceSection';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
 export default function AboutPage() {
+  const t = useTranslations();
   return (
     <div>
     <div className="container mx-auto py-8 md:py-16 px-5">
@@ -21,21 +23,9 @@ export default function AboutPage() {
           />
         </div>
         <div className="md:w-1/2 pl-6 ">
-          <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground md:mt-0 mt-6">Haqqımızda</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground md:mt-0 mt-6"> {t('about.title')}</h1>
           <p className="text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur. Amet ac ac eu vulputate. Consectetur
-            amet at augue nunc vestibulum aliquam suspendisse massa luctus. Cras ac velit
-            netus sagittis leo augue pharetra in vestibulum. Pulvinar mi mi nisi et bibendum
-            aliquet. Nullam sit erat facilisis velit id nibh aliquet tincidunt. Nec et in faucibus
-            sed sed. Semper gravida convallis nulla odio massa arcu nunc pharetra tellus.
-            Eros scelerisque nunc mauris aliquam viverra nulla pellentesque. Ut vivamus
-            consequat orci leo felis ultricies. Nec dui ultricies massa et tristique.
-            Suspendisse morbi integer quam sed ut ultrices ornare habitant. Mattis aliquet
-            eget non pellentesque consectetur lectus interdum. Tempor ac a erat posuere
-            pellentesque commodo in tortor. Sit suspendisse et lacus a ac risus in. Volutpat
-            aliquet ultricies consequat urna. Quis mattis feugiat auctor etiam orci cras sed
-            vitae elementum. Risus justo a nibh sit nulla tincidunt enim lorem tortor. Mauris
-            consequat ipsum natoque etiam sed. Enim enim placerat eros viverra donec.
+            {t('about.description')}
           </p>
         </div>
       </div>

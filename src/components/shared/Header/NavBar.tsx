@@ -14,10 +14,13 @@ import {
   SheetHeader, 
   SheetTitle,   
 } from "@/components/ui/sheet";
+import { useTranslations } from 'next-intl';
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+  const t = useTranslations();
+
 
   useEffect(() => {
     if (isOfferModalOpen) {
@@ -56,22 +59,22 @@ export function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Ana səhifə
+              {t('navigation.home')}
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Haqqımızda
+            {t('navigation.about')}
             </Link>
             <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Məhsullar
+              {t('navigation.products')}
             </Link>
             <Link href="/services" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Xidmətlər
+              {t('navigation.services')}
             </Link>
             <Link href="/blogs" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Bloq
+              {t('navigation.blog')}
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Əlaqə
+             {t('navigation.contact')}
             </Link>
           
           </div>
@@ -88,7 +91,7 @@ export function Navbar() {
                 height={20}
                 priority
               />
-              Təklif al
+               {t('navigation.getOffer')}
             </Button>
           </div>
 
@@ -125,42 +128,42 @@ export function Navbar() {
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Ana səhifə
-                </Link>
-                <Link
-                  href="/products"
-                  onClick={handleCloseMobileMenu}
-                  className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
-                >
-                  Məhsullar
+                   {t('navigation.home')}
                 </Link>
                 <Link
                   href="/about"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Haqqımızda
+                  {t('navigation.about')}
+                </Link>
+                <Link
+                  href="/products"
+                  onClick={handleCloseMobileMenu}
+                  className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
+                >
+                  {t('navigation.products')}
                 </Link>
                 <Link
                   href="/services"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Xidmətlər
+                  {t('navigation.services')}
                 </Link>
                 <Link
                   href="/blogs"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Bloq
+                  {t('navigation.blog')}
                 </Link>
                 <Link
                   href="/contact"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  Əlaqə
+                  {t('navigation.contact')}
                 </Link>
                 <Button
                   onClick={openOfferModal}
@@ -175,7 +178,7 @@ export function Navbar() {
                     priority
                     className="mr-2"
                   />
-                  Təklif al
+                  {t('navigation.getOffer')}
                 </Button>
               </nav>
             </SheetContent>

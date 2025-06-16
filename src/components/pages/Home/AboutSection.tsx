@@ -1,7 +1,9 @@
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 
 export function AboutSection({ title }: { title: string }) {
+  const t = useTranslations();
   return (
     <section className="p-4 md:p-0">
       <div className="bg-zinc-50 mx-auto p-4 md:p-8 w-full rounded-lg flex flex-col lg:flex-row gap-8 justify-between">
@@ -23,19 +25,19 @@ export function AboutSection({ title }: { title: string }) {
       <div className="w-[100%] md:w-[40%] grid grid-cols-2 gap-8 pr-0 md:pr-20">
         <div className="flex flex-col items-center justify-center relative">
           <div className=" text-5xl font-semibold text-foreground">100<span className="text-primary absolute md:top-6 -top-5 font-extrabold">+</span></div>
-          <div className="text-muted-foreground">Məhsul satışı</div>
+          <div className="text-muted-foreground">{t('about.stats.products')}</div>
         </div>
         <div className="flex flex-col items-center justify-center relative">
           <div className="text-5xl font-semibold text-foreground">10<span className="text-primary absolute md:top-6 -top-5 font-extrabold">+</span></div>
-          <div className="text-muted-foreground">İl təcrübə</div>
+          <div className="text-muted-foreground">{t('about.stats.experience')}</div>
         </div>
         <div className="flex flex-col items-center justify-center relative">
           <div className="text-5xl font-semibold text-foreground">150<span className="text-primary absolute md:top-6 -top-5 font-extrabold">+</span></div>
-          <div className="text-muted-foreground">Müştəri</div>
+          <div className="text-muted-foreground">{t('about.stats.customers')}</div>
         </div>
         <div className="flex flex-col items-center justify-center relative">
           <div className="text-5xl font-semibold text-foreground">20<span className="text-primary absolute md:top-6 -top-5 font-extrabold">+</span></div>
-          <div className="text-muted-foreground">Xidmət</div>
+          <div className="text-muted-foreground">{t('about.stats.services')}</div>
         </div>
       </div>
       </div>

@@ -12,7 +12,8 @@
     "title": "Ecosoft ilə",
     "subtitle": "Sadəcə su deyil, həyatına dəyər qatırıq",
     "description": "Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque.",
-    "learnMore": "Daha ətraflı"
+    "learnMore": "Daha ətraflı",
+    "detailed": "Ətraflı"
   },
   "about": {
     "title": "Haqqımızda",
@@ -32,6 +33,10 @@
     "title": "Vizyonumuz",
     "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
   },
+ "value": {
+  "title": "Dəyərimiz",
+  "description": "Bizim əsas dəyərlərimiz dürüstlük, keyfiyyət və müştəri məmnuniyyətinə əsaslanır. Hər addımda etibarlı və faydalı olmaq üçün çalışırıq."
+},
   "categories": {
     "title": "Kateqoriyalar",
     "home": "Ev",

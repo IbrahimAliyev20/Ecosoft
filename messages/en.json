@@ -12,7 +12,8 @@
     "title": "With Ecosoft",
     "subtitle": "Not just water, we add value to your life",
     "description": "Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque.",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "detailed": "Detailed"
   },
   "about": {
     "title": "About Us",
@@ -32,6 +33,10 @@
     "title": "Our Vision",
     "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
   },
+  "value": {
+  "title": "Our Value",
+  "description": "Our core values are based on honesty, quality, and customer satisfaction. We strive to be reliable and beneficial at every step."
+},
   "categories": {
     "title": "Categories",
     "home": "Home",

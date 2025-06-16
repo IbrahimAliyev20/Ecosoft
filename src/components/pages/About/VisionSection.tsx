@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export function VisionSec() {
+  const t = useTranslations();  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className='flex flex-col justify-between  order-last md:order-first'>
@@ -16,9 +18,9 @@ export function VisionSec() {
             />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Missiyamız</h2>
+            <h2 className="text-xl font-semibold mb-2">{t('mission.title')}</h2>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis.
+              {t('mission.description')}
             </p>
           </div>
         </div>
@@ -34,10 +36,10 @@ export function VisionSec() {
             />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Vizyonumuz</h2>
+            <h2 className="text-xl font-semibold mb-2">{t('vision.title')}</h2>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis.
-            </p>
+            {t('vision.description')}  
+          </p>
           </div>
         </div>
         <div className='border-[1px] border-[#E4E4E7]'></div>
@@ -53,9 +55,9 @@ export function VisionSec() {
             />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Dəyərimiz</h2>
+            <h2 className="text-xl font-semibold mb-2">{t('value.title')}</h2>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis.
+              {t('value.description')}
             </p>
           </div>
         </div>

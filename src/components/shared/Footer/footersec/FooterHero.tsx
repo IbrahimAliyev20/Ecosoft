@@ -2,8 +2,10 @@ import React from 'react';
 import { Instagram, Facebook } from "lucide-react";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export default function FooterHero() {
+  const t = useTranslations();
   return (
     <div className="flex flex-col items-center justify-center  bg-background text-foreground">
       <div className="flex-grow flex flex-col items-center justify-center text-center px-4 mb-10">
@@ -15,7 +17,7 @@ export default function FooterHero() {
         <Link href="/contact" 
          className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-cyan-500 text-white font-medium px-4 py-2 hover:bg-cyan-600 transition-all'
          >
-          Bizimlə əlaqə
+          {t('footer.contact')}
         </Link>
       </div>
 
@@ -39,12 +41,12 @@ export default function FooterHero() {
     </div>
 
     <nav className="flex flex-col md:flex-row items-center gap-6 my-8 md:my-0 md:mx-auto">
-      <Link href="/" className="text-[#06B6D4] hover:text-primary">Ana səhifə</Link>
-      <Link href="/about" className="text-[#06B6D4] hover:text-primary">Haqqımızda</Link>
-      <Link href="/products" className="text-[#06B6D4] hover:text-primary">Məhsullar</Link>
-      <Link href="/services" className="text-[#06B6D4] hover:text-primary">Xidmətlər</Link>
-      <Link href="/blogs" className="text-[#06B6D4] hover:text-primary">Bloq</Link>
-      <Link href="/contact" className="text-[#06B6D4] hover:text-primary">Əlaqə</Link>
+      <Link href="/" className="text-[#06B6D4] hover:text-primary">{t('navigation.home')}</Link>
+      <Link href="/about" className="text-[#06B6D4] hover:text-primary">{t('navigation.about')}</Link>
+      <Link href="/products" className="text-[#06B6D4] hover:text-primary">{t('navigation.products')}</Link>
+      <Link href="/services" className="text-[#06B6D4] hover:text-primary">{t('navigation.services')}</Link>
+      <Link href="/blogs" className="text-[#06B6D4] hover:text-primary">{t('navigation.blog')}</Link>
+      <Link href="/contact" className="text-[#06B6D4] hover:text-primary">{t('navigation.contact')}</Link>
     </nav>
 
     <div className="hidden md:flex items-center gap-4">

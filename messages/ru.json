@@ -12,7 +12,8 @@
     "title": "С Ecosoft",
     "subtitle": "Не просто вода, мы добавляем ценность в вашу жизнь",
     "description": "Lorem ipsum dolor sit amet consectetur. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque. Sit habitant tristique est ut. Fringilla proin scelerisque duis proin a elementum urna ac neque.",
-    "learnMore": "Узнать больше"
+    "learnMore": "Узнать больше",
+    "detailed": "Подробно"
   },
   "about": {
     "title": "О нас",
@@ -32,6 +33,10 @@
     "title": "Наше видение",
     "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
   },
+  "value": {
+  "title": "Наша ценность",
+  "description": "Наши основные ценности основаны на честности, качестве и удовлетворенности клиентов. Мы стремимся быть надежными и полезными на каждом этапе."
+},
   "categories": {
     "title": "Категории",
     "home": "Дом",

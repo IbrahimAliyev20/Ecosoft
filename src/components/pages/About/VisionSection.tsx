@@ -22,6 +22,7 @@ export function VisionSec() {
             </p>
           </div>
         </div>
+        <div className='border-[1px] border-[#E4E4E7]'></div>
         <div className="flex items-start px-6">
         <div className="p-4 rounded-full mr-4 bg-cyan-50">
             <Image 
@@ -39,6 +40,8 @@ export function VisionSec() {
             </p>
           </div>
         </div>
+        <div className='border-[1px] border-[#E4E4E7]'></div>
+
         <div className="flex items-start px-6">
           <div className="p-4 rounded-full mr-4 bg-cyan-50">
             <Image 

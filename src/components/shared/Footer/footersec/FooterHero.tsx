@@ -48,8 +48,8 @@ export default function FooterHero() {
     </nav>
 
     <div className="hidden md:flex items-center gap-4">
-      <a href="#" aria-label="Instagram"><Instagram className="text-gray-500 hover:text-cyan-500" size={24} /></a>
-      <a href="#" aria-label="Facebook"><Facebook className="text-gray-500 hover:text-cyan-500" size={24} /></a>
+      <Link  href="https://www.instagram.com/markup.agency/" aria-label="Instagram" target='_blank'><Instagram className="text-gray-500 hover:text-cyan-500" size={24} /></Link>
+      <Link href="https://www.facebook.com/markupagencyAZ/" aria-label="Facebook" target='_blank'><Facebook className="text-gray-500 hover:text-cyan-500" size={24} /></Link>
     </div>
 
   </div>

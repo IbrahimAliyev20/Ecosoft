@@ -58,11 +58,11 @@ export function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               Ana səhifə
             </Link>
-            <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              Məhsullar
-            </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               Haqqımızda
+            </Link>
+            <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
+              Məhsullar
             </Link>
             <Link href="/services" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               Xidmətlər
@@ -73,10 +73,13 @@ export function Navbar() {
             <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
               Əlaqə
             </Link>
-            <Button
+          
+          </div>
+          <div className='hidden md:flex '>
+              <Button
               onClick={openOfferModal}
               variant="default"
-              className="bg-[#06B6D4] text-white hover:bg-[#0891b2] transition-colors flex items-center px-6 py-3 rounded-md text-lg font-semibold"
+              className="bg-[#06B6D4] text-white hover:bg-[#0891b2] transition-colors flex items-center rounded-lg text-lg font-semibold cursor-pointer"
             >
               <Image
                 src="/icons/HandCoins.svg"
@@ -84,11 +87,14 @@ export function Navbar() {
                 width={20}
                 height={20}
                 priority
-                className="mr-2"
               />
               Təklif al
             </Button>
           </div>
+
+
+
+
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>

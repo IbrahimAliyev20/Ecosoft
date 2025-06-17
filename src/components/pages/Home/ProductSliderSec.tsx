@@ -21,11 +21,10 @@ interface ProductSliderSecProps {
 }
 
 export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
-  // Add options to snap to the start of each slide and contain the scroll
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: false,
-    align: 'start', // Ensure snapping to the start of each slide
-    containScroll: 'keepSnaps', // Ensures snaps are always kept in view
+    align: 'start', 
+    containScroll: 'keepSnaps', 
   });
 
   const scrollPrev = useCallback(() => {
@@ -54,8 +53,6 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => (
-            // Modify flex basis to ensure full cards are shown.
-            // Removed 'pl-4' from here and added to parent div for consistent spacing.
             <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pr-4 pb-4"> 
               <Link href={`/products/${product.slug}`} className="block h-full">
                 <ProductCard

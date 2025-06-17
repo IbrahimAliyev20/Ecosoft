@@ -1,23 +1,18 @@
-// components/pages/Service/ServiceContainer.tsx - YENİ VERSİYA
-
 "use client";
 import ServiceListCard from "@/components/pages/Service/ServiceListCard";
 import { ServicesType } from "@/types/alltype";
 import React, { useState } from "react";
 
-// Statik importları tamamilə silirik!
 
 interface ServiceContainerProps {
   services: ServicesType[];
 }
 
 export default function ServiceContainer({ services }: ServiceContainerProps) {
-  // Seçilmiş servisi props-dan gələn siyahının ilk elementi ilə təyin edirik
   const [selectedService, setSelectedService] = useState<ServicesType | null>(
     services[0] || null
   );
 
-  // useEffect-ə artıq ehtiyac yoxdur, çünki bütün data əlimizdədir.
 
   if (!services || services.length === 0) {
     return (
@@ -36,13 +31,12 @@ export default function ServiceContainer({ services }: ServiceContainerProps) {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full lg:w-1/3 flex-shrink-0 space-y-4 max-h-[600px] overflow-y-auto px-2">
-            {/* Statik `allServices` əvəzinə `props`-dan gələn `services`-i istifadə edirik */}
             {services.map((serviceItem) => (
               <ServiceListCard
                 key={serviceItem.slug}
                 service={serviceItem}
                 isSelected={selectedService?.slug === serviceItem.slug}
-                onClick={setSelectedService} // onClick-də birbaşa state-i yeniləyirik
+                onClick={setSelectedService} 
               />
             ))}
           </div>
@@ -55,7 +49,6 @@ export default function ServiceContainer({ services }: ServiceContainerProps) {
                 </h2>
                 <div
                   className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground"
-                  // Statik `content` əvəzinə API-dən gələn `description`-ı istifadə edirik
                   dangerouslySetInnerHTML={{ __html: selectedService.description }}
                 />
               </>

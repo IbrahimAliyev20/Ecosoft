@@ -8,6 +8,7 @@ import { ProductSliderSec } from "@/components/pages/Home/ProductSliderSec";
 import { allProducts } from "@/utils/products";
 import { getBlogs } from "@/lib/blog";
 import { getServices } from "@/lib/services";
+import { getStatistics } from "@/lib/statistics";
 
 
 
@@ -16,6 +17,8 @@ export default async function Home() {
   const latestPosts = allPosts.slice(0, 3);
   const temporaryProducts = allProducts 
   const services = await getServices();
+  const statics = await getStatistics();
+
   return (
     <>
       <div className="bg-cyan-50">
@@ -25,7 +28,7 @@ export default async function Home() {
       </div>
 
       <div className="container mx-auto  py-16">
-        <AboutSection title="Haqqımızda" />
+        <AboutSection title="Haqqımızda" statics={statics}/>
       </div>
     
       <div className="container mx-auto px-4 py-16">

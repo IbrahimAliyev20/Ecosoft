@@ -53,3 +53,17 @@ export interface ServicesType {
   thumb_image: string;
   description: string;
 }
+
+
+export interface StatisticsType{
+  title: string;
+  number: string;
+
+}
+
+
+export interface AdvantagesType{
+  title: string;
+  image: string;
+}
+

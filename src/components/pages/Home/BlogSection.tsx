@@ -1,3 +1,4 @@
+// components/sections/BlogSection.tsx - YENİ VERSİYA
 'use client';
 
 import React, { useCallback } from 'react';
@@ -5,11 +6,17 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ButtonMore from '@/components/shared/ButtonMore';
-import { allBlogPosts } from '@/utils/blog';
+// import { allBlogPosts } from '@/utils/blog'; // BU SƏTRİ SİLİRİK!
 import { BlogCard } from '@/components/pages/Blog/BlogCard';
-import Link from 'next/link'; 
+import Link from 'next/link';
+import { BlogPost } from '@/types/alltype'; // BlogPost tipini import edirik
 
-export function BlogSection() {
+// Datanı props ilə qəbul etmək üçün interface əlavə edirik
+interface BlogSectionProps {
+  posts: BlogPost[];
+}
+
+export function BlogSection({ posts }: BlogSectionProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   const scrollPrev = useCallback(() => {
@@ -20,22 +27,21 @@ export function BlogSection() {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  // Əgər heç post yoxdursa, section-u göstərməyə bilərsiniz
+  if (!posts || posts.length === 0) {
+    return null;
+  }
+
   return (
-    <section className="py-0 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Blog</h2>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
-          {allBlogPosts.map((post,) => (
+          {/* props-dan gələn datanı istifadə edirik */}
+          {posts.map((post) => (
             <Link href={`/blogs/${post.slug}`} key={post.slug}>
-              <BlogCard
-                imageSrc={post.imageSrc}
-                title={post.title}
-                description={post.description}
-                date={post.date}
-                category={post.category}
-                
-              />
+              <BlogCard post={post} />
             </Link>
           ))}
         </div>
@@ -43,16 +49,11 @@ export function BlogSection() {
         <div className="md:hidden mb-8">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {allBlogPosts.map((post) => ( 
-                <div className="basis-full shrink-0 grow-0 p-2" key={post.slug}> 
-                  <Link href={`/blogs/${post.slug}`}> 
-                    <BlogCard
-                      imageSrc={post.imageSrc}
-                      title={post.title}
-                      description={post.description}
-                      date={post.date}
-                      category={post.category}
-                    />
+              {/* props-dan gələn datanı istifadə edirik */}
+              {posts.map((post) => (
+                <div className="basis-full shrink-0 grow-0 p-2" key={post.slug}>
+                  <Link href={`/blogs/${post.slug}`}>
+                    <BlogCard post={post} />
                   </Link>
                 </div>
               ))}
@@ -67,12 +68,12 @@ export function BlogSection() {
             </Button>
           </div>
         </div>
-          <Link href="/blogs">
 
         <div className="text-center">
-          <ButtonMore />
-        </div>
+          <Link href="/blogs">
+            <ButtonMore />
           </Link>
+        </div>
       </div>
     </section>
   );

@@ -3,12 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { ServiceCardData } from '@/utils/services';
+import { ServicesType } from '@/types/alltype';
 
 interface ServiceListCardProps {
-  service: ServiceCardData;
+  service: ServicesType;
   isSelected: boolean;
-  onClick: (service: ServiceCardData) => void; 
+  onClick: (service: ServicesType) => void;
 }
 
 export default function ServiceListCard({ service, isSelected, onClick }: ServiceListCardProps) {

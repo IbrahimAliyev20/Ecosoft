@@ -6,13 +6,16 @@ import { CategorySection } from "@/components/pages/Home/CategorySection";
 import MissionSection from "@/components/pages/Home/MissionSection";
 import { ProductSliderSec } from "@/components/pages/Home/ProductSliderSec";
 import { allProducts } from "@/utils/products";
+import { getBlogs } from "@/lib/blog";
+import { getServices } from "@/lib/services";
 
 
 
-export default function Home() {
-
+export default async function Home() {
+  const allPosts = await getBlogs();
+  const latestPosts = allPosts.slice(0, 3);
   const temporaryProducts = allProducts 
-
+  const services = await getServices();
   return (
     <>
       <div className="bg-cyan-50">
@@ -29,7 +32,7 @@ export default function Home() {
         <MissionSection />
       </div>
       <div className="container mx-auto px-4 py-16">
-        <ServiceSection />
+        <ServiceSection services={services} />
       </div>
         <div className="container mx-auto px-4 py-16">
         <ProductSliderSec title="Məhsullar" products={temporaryProducts} />
@@ -38,7 +41,7 @@ export default function Home() {
         <CategorySection />
       </div>
         <div className="container mx-auto px-4 py-10">
-        <BlogSection />
+        <BlogSection posts={latestPosts} />
       </div>
       
     </>

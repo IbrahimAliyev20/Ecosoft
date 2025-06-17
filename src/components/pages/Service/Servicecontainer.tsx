@@ -1,38 +1,32 @@
+// components/pages/Service/ServiceContainer.tsx - YENİ VERSİYA
+
 "use client";
-import {
-  allServices,
-  getServiceBySlug,
-  ServiceCardData,
-} from "@/utils/services";
 import ServiceListCard from "@/components/pages/Service/ServiceListCard";
-import React, { useState, useEffect } from "react";
+import { ServicesType } from "@/types/alltype";
+import React, { useState } from "react";
 
-export default  function ServiceContainer() {
-  const [selectedService, setSelectedService] =
-    useState<ServiceCardData | null>(null);
+// Statik importları tamamilə silirik!
 
-  useEffect(() => {
-    const service = getServiceBySlug(selectedService?.slug || "");
-    if (service) {
-      setSelectedService(service);
-    } else {
-      setSelectedService(allServices[0] || null);
-    }
-  }, [selectedService]); 
+interface ServiceContainerProps {
+  services: ServicesType[];
+}
 
-  if (!selectedService && allServices.length > 0) {
-    return (
-      <div className="py-12 md:py-16 text-center text-foreground">
-        Yüklənir...
-      </div>
-    );
-  } else if (allServices.length === 0) {
+export default function ServiceContainer({ services }: ServiceContainerProps) {
+  // Seçilmiş servisi props-dan gələn siyahının ilk elementi ilə təyin edirik
+  const [selectedService, setSelectedService] = useState<ServicesType | null>(
+    services[0] || null
+  );
+
+  // useEffect-ə artıq ehtiyac yoxdur, çünki bütün data əlimizdədir.
+
+  if (!services || services.length === 0) {
     return (
       <div className="py-12 md:py-16 text-center text-foreground">
         Hazırda heç bir xidmət mövcud deyil.
       </div>
     );
   }
+
   return (
     <div className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -41,18 +35,19 @@ export default  function ServiceContainer() {
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/3 flex-shrink-0 space-y-4 max-h-[600px] overflow-y-scroll px-6">
-            {allServices.map((serviceItem) => (
+          <div className="w-full lg:w-1/3 flex-shrink-0 space-y-4 max-h-[600px] overflow-y-auto px-2">
+            {/* Statik `allServices` əvəzinə `props`-dan gələn `services`-i istifadə edirik */}
+            {services.map((serviceItem) => (
               <ServiceListCard
-                key={serviceItem.id}
+                key={serviceItem.slug}
                 service={serviceItem}
-                isSelected={selectedService?.id === serviceItem.id}
-                onClick={setSelectedService}
+                isSelected={selectedService?.slug === serviceItem.slug}
+                onClick={setSelectedService} // onClick-də birbaşa state-i yeniləyirik
               />
             ))}
           </div>
 
-          <div className="w-full lg:w-2/3 bg-card">
+          <div className="w-full lg:w-2/3 bg-card p-6 md:p-8 rounded-2xl">
             {selectedService ? (
               <>
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
@@ -60,7 +55,8 @@ export default  function ServiceContainer() {
                 </h2>
                 <div
                   className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground"
-                  dangerouslySetInnerHTML={{ __html: selectedService.content }}
+                  // Statik `content` əvəzinə API-dən gələn `description`-ı istifadə edirik
+                  dangerouslySetInnerHTML={{ __html: selectedService.description }}
                 />
               </>
             ) : (

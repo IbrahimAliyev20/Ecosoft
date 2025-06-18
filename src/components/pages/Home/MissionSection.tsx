@@ -16,6 +16,7 @@ export default async function MissionSection () {
                   alt='Package Icon'
                   width={40}
                   height={40}
+                  priority={true}
                   className='text-white '
                 />
               </div>

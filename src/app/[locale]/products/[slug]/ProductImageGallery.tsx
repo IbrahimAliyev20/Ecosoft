@@ -45,7 +45,9 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                 <Image
                   src={src}
                   alt={`Product image ${index + 1}`}
-                  fill
+                  width={500}
+                  height={500}
+                  priority={true}
                   className="object-contain"
                 />
               </div>
@@ -73,7 +75,9 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                     <Image
                       src={src}
                       alt={`Thumbnail ${index + 1}`}
-                      fill
+                      width={100}
+                      height={100}
+                      priority={true}
                       className="object-contain rounded-md border-2 border-gray-200"
                     />
                   </div>

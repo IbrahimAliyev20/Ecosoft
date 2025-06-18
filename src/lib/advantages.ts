@@ -10,7 +10,9 @@ export async function getAdvantages(): Promise<AdvantagesType[]> {
     headers: {
       "Accept-Language": localeFromCookie, 
     },
-    cache: "no-store",
+     next: {
+      revalidate: 60 
+    }
   });
 
   const json = await res.json();

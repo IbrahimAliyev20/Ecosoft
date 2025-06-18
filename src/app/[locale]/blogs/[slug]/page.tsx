@@ -41,7 +41,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Image
             src={post.image} 
             alt={post.title}
-            fill
+            width={1000}  
+            height={1000}
+            priority={true}
             className="object-cover"
           />
         </div>

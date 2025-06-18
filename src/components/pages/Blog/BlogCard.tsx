@@ -18,7 +18,9 @@ export function BlogCard({ post }: BlogCardProps) {
         <Image
           src={post.image} 
           alt={post.title}
-          fill
+          width={300} 
+          height={300}
+          priority={true}
           className="w-full h-48 object-cover rounded-[12px] mb-4"
         />
         <p className='absolute top-2 left-2 py-[2px] px-3 rounded-[6px] bg-[#06B6D4] text-white text-[14px] '>

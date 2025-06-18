@@ -72,6 +72,7 @@ function CategoryCard({ category }: CategoryCardProps) {
             alt={category.alt}
             width={220}
             height={160}
+            priority={true}
             className="object-contain transform translate-x-4 translate-y-4 group-hover:scale-105 transition-transform duration-300"
           />
         </div>

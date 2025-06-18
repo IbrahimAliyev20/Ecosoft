@@ -90,6 +90,7 @@ export default function QuickOfferModal({
             alt="Logo"
             width={89}
             height={81}
+            priority={true}
             className="mb-2"
           />
           <DialogTitle className="text-2xl font-semibold text-gray-800">

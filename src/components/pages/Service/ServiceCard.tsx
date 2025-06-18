@@ -25,6 +25,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               height={300}
               src={service.image}
               alt={service.title}
+              priority={true}
               className="w-full h-full object-cover"
             />
           </div>

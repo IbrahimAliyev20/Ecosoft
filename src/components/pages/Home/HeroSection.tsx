@@ -37,6 +37,7 @@ export function HeroSection() {
               alt="Su təmizləmə prosesi"
               width={93}
               height={93}
+              priority={true}
               className="w-full h-full object-cover rotate-90" />
           </div>
           <div className='hidden md:flex absolute top-0 -right-9 w-[93px] h-[93px] z-20'>
@@ -45,6 +46,7 @@ export function HeroSection() {
               alt="Su təmizləmə prosesi"
               width={93}
               height={93}
+              priority={true}
               className="w-full h-full object-cover " />
           </div>
             <div className="h-80 md:h-[527px] grid grid-cols-2 grid-rows-2 gap-4">
@@ -52,7 +54,9 @@ export function HeroSection() {
                 <Image
                   src="/image/hero1.png" 
                   alt="Su təmizləmə prosesi"
-                  fill
+                  width={400}
+                  height={400}
+                  priority={true}
                   className="rounded-xl shadow-lg object-cover"
                 />
               </div>
@@ -61,7 +65,9 @@ export function HeroSection() {
                  <Image
                   src="/image/hero2.png"
                   alt="Uşaq su içir"
-                  fill
+                  width={400}
+                  height={400}
+                  priority={true}
                   className="rounded-xl shadow-lg object-cover"
                 />
               </div>
@@ -70,7 +76,9 @@ export function HeroSection() {
                  <Image
                   src="/image/hero3.png" 
                   alt="Su damlaları"
-                  fill
+                  width={400} 
+                  height={400}
+                  priority={true}
                   className="rounded-xl shadow-lg object-cover"
                 />
               </div>

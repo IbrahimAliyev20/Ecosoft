@@ -10,7 +10,9 @@ export async function getStatistics(): Promise<StatisticsType[]> {
     headers: {
       "Accept-Language": localeFromCookie, 
     },
-    cache: "no-store",
+     next: {
+      revalidate: 60 
+    }
   });
 
   const json = await res.json();

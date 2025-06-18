@@ -72,6 +72,7 @@ export function ProductInfo({ product }: { product: Product }) {
                 alt='whatsapp icon'
                 width={20}
                 height={20}
+                priority={true}
                 className='text-white '
               />
                Whatsappla əlaqə

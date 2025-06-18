@@ -17,6 +17,7 @@ const ButtonMore = () => {
           alt='ExternalLink.svg'
           width={20}
           height={20}
+          priority={true}
           className='text-white '
           />
         </Button>

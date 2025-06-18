@@ -20,7 +20,7 @@ export function ProductCard({
           alt={title}
           width={200}
           height={200}
-          loading="lazy"
+          priority={true}
           className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
         />
       </div>

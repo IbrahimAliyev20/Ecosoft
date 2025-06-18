@@ -9,7 +9,9 @@ export async function getTags(): Promise<TagType[]> {
     headers: {
       "Accept-Language": localeFromCookie,
     },
-    cache: "no-store",
+    next: {
+      revalidate: 60 
+    }
   });
 
   const json = await res.json();

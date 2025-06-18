@@ -10,7 +10,9 @@ export async function getContact(): Promise<ContactType> {
     headers: {
       "Accept-Language": localeFromCookie, 
     },
-    cache: "no-store",
+     next: {
+      revalidate: 60 
+    }
   });
 
   const json = await res.json();

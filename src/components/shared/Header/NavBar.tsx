@@ -69,7 +69,7 @@ export function Navbar() {
               alt="Logo"
               width={90}
               height={56}
-              priority
+              priority={true}
             />
           </Link>
 
@@ -126,7 +126,7 @@ export function Navbar() {
                 alt="Təklif al ikonu"
                 width={20}
                 height={20}
-                priority
+                priority={true}
               />
               {t('navigation.getOffer')}
             </Button>
@@ -231,7 +231,7 @@ export function Navbar() {
                     alt="Təklif al ikonu"
                     width={24}
                     height={24}
-                    priority
+                    priority={true}
                     className="mr-2"
                   />
                   {t('navigation.getOffer')}

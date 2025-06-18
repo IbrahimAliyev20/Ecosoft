@@ -33,6 +33,7 @@ export default function ServiceListCard({ service, isSelected, onClick }: Servic
             height={300}
             src={service.image}
             alt={service.title}
+            priority={true}
             className="w-full h-full object-cover"
           />
         </div>

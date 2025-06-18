@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'mafia.markup.az',
+        hostname: 'ecosoft.markup.az',
       },
     ],
   },

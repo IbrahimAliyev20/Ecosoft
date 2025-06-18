@@ -24,6 +24,7 @@ export default async function AboutPage() {
               alt="About"
               width={500}
               height={500}
+              priority={true}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>

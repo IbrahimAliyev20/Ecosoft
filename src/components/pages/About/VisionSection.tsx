@@ -14,6 +14,7 @@ export function VisionSec() {
             alt="Goal"
             width={80}
             height={80}
+            priority={true}
             className="text-primary "
             />
           </div>
@@ -32,6 +33,7 @@ export function VisionSec() {
             alt="Goal"
             width={80}
             height={80}
+            priority={true}
             className="text-primary"
             />
           </div>
@@ -51,6 +53,7 @@ export function VisionSec() {
             alt="Goal"
             width={80}
             height={80}
+            priority={true}
             className="text-primary"
             />
           </div>
@@ -68,6 +71,7 @@ export function VisionSec() {
          alt="Placeholder Image" 
          width={500} 
          height={400} 
+         priority={true}
          className="object-cover rounded-lg" />
       </div>
     </div>

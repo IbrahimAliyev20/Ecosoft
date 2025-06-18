@@ -11,7 +11,7 @@ interface ServiceSectionProps {
 
 export function ServiceSection({ services }: ServiceSectionProps) {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24 ">
+    <div className="container mx-auto px-4  ">
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
           Xidmətlərimiz
@@ -23,7 +23,7 @@ export function ServiceSection({ services }: ServiceSectionProps) {
           <ServiceCard key={service.slug} service={service} />
         ))}
       </div>
-      <div className='flex justify-center mt-12'>
+      <div className='flex justify-center '>
         <Link href="/services">
           <ButtonMore />
         </Link>

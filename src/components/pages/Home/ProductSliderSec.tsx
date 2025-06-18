@@ -36,7 +36,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
   }, [emblaApi]);
 
   return (
-    <section className="container mx-auto py-8">
+    <section className="container mx-auto ">
       <h2 className="text-4xl font-semibold text-center">{title}</h2>
 
       <div className="flex justify-end items-center mb-6">
@@ -66,7 +66,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
         </div>
       </div>
 
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center ">
         <Link href="/products">
           <ButtonMore />
         </Link>

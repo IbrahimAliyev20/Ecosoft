@@ -6,7 +6,7 @@ export function VisionSec() {
   const t = useTranslations();  
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className='flex flex-col justify-between  order-last md:order-first'>
+      <div className='flex flex-col justify-between  order-last md:order-first gap-8'>
         <div className="flex items-start  px-6">
           <div className="p-4 rounded-full mr-4 bg-cyan-50">
             <Image 

@@ -9,7 +9,7 @@ import Image from 'next/image';
 import React from 'react';
 
 export default async function AboutPage() {
-  const t = await getTranslations('about'); 
+  const t = await getTranslations(); 
   const services = await getServices();
   const statics = await getStatistics();
   
@@ -30,17 +30,17 @@ export default async function AboutPage() {
           </div>
           <div className="md:w-1/2 pl-6">
             <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground md:mt-0 mt-6">
-              {t('title')} 
+              {t('about.title')} 
             </h1>
             <p className="text-muted-foreground">
-              {t('description')}
+              {t('about.description')}
             </p>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto py-8 md:py-16">
-        <AboutSection title={t('whatWeDo')}  statics={statics}/> 
+        <AboutSection title={t('about.whatWeDo')}  statics={statics}/> 
       </div>
       <div className="container mx-auto py-8 md:py-16">
         <MissionSection />
@@ -48,7 +48,7 @@ export default async function AboutPage() {
 
       <div className="container mx-auto py-8 md:py-16">
         <h1 className="text-3xl md:text-4xl font-semibold mb-12 text-center text-foreground">
-          {t('values')} 
+          {t('value.title')} 
         </h1>
         <VisionSec />
       </div>

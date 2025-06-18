@@ -66,7 +66,7 @@ export default async function Home() {
         <CategorySection />
       </div>
       
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 ">
         <DynamicBlogSection posts={latestPosts} />
       </div>
       

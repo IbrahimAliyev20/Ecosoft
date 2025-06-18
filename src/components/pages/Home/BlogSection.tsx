@@ -32,7 +32,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Blog</h2>
+        <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Bloq</h2>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
           {posts.map((post) => (

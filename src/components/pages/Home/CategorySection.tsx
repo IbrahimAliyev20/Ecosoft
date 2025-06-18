@@ -47,7 +47,7 @@ export function CategorySection() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}
@@ -62,18 +62,21 @@ interface CategoryCardProps {
 
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <div className="group cursor-pointer">
-      <div className="relative bg-cyan-400 rounded-2xl overflow-hidden h-48">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-cyan-400" />
+    <div className="flex  group cursor-pointer justify-center">
+      <div className="relative  rounded-2xl overflow-hidden w-[294px] h-[154px]"
+      style={{
+    background: `conic-gradient(from 194deg at 57.65% 30.52%, #06B6D4 0deg, #06C0DF 359.37004566192627deg)`
+  }}   >
+        <div className="absolute inset-0 bg-gradient-to-br" />
 
-        <div className="absolute bottom-0 right-0 z-0">
+        <div className="absolute bottom-3 right-0 z-0">
           <Image
             src={category.image}
             alt={category.alt}
-            width={220}
-            height={160}
+            width={141}
+            height={105}
             priority={true}
-            className="object-contain transform translate-x-4 translate-y-4 group-hover:scale-105 transition-transform duration-300"
+            className="object-cover transform translate-x-4 translate-y-4 group-hover:scale-105 transition-transform duration-300"
           />
         </div>
 

@@ -10,7 +10,10 @@ export interface Product {
   description: string; 
 }
 
-const defaultImage = 'https://i.ibb.co/00ngy67/productimage1.png';
+const defaultImage = '/image/productimage1.png';
+const defaultImage1 = '/image/productimage2.png';
+const defaultImage2 = '/image/productimage3.png';
+const defaultImage3 = '/image/productimage3.png';
 
 export const allProducts: Product[] = [
   {
@@ -26,8 +29,8 @@ export const allProducts: Product[] = [
   {
     id: 2,
     slug: 'uv-sterilizator-2000',
-    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
-    imageSrc: defaultImage,
+    images: [defaultImage1, defaultImage1, defaultImage1,defaultImage1,defaultImage1,defaultImage1,defaultImage1,defaultImage1,defaultImage1],
+    imageSrc: defaultImage1,
     title: 'UV Sterilizator 2000',
     productCode: 'FU23456789',
     category: 'Ev',
@@ -36,8 +39,8 @@ export const allProducts: Product[] = [
   {
     id: 3,
     slug: 'kompakt-su-yumsaldici',
-    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
-    imageSrc: defaultImage,
+    images: [defaultImage2, defaultImage2, defaultImage2,defaultImage2,defaultImage2,defaultImage2,defaultImage2,defaultImage2,defaultImage2],
+    imageSrc: defaultImage2,
     title: 'Kompakt Su Yumşaldıcı',
     productCode: 'FU34567890',
     category: 'Mətbəx',
@@ -46,8 +49,8 @@ export const allProducts: Product[] = [
   {
     id: 4,
     slug: 'sənaye-filtrasiya-sistemi',
-    images: [defaultImage, defaultImage, defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage,defaultImage],
-    imageSrc: defaultImage,
+    images: [defaultImage3, defaultImage3, defaultImage3,defaultImage3,defaultImage3,defaultImage3,defaultImage3,defaultImage3,defaultImage3],
+    imageSrc: defaultImage3,
     title: 'Sənaye Filtrasiya Sistemi',
     productCode: 'FU45678901',
     category: 'Sənaye',

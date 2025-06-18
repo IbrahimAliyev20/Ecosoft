@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 const ButtonMore = () => {
   const t = useTranslations()
   return (
-  <div className="flex justify-center mt-6 ">
+  <div className="flex justify-center mt-8 ">
         <Button
           variant="default"
           className='cursor-pointer px-[26px] py-[22px] rounded-[14px]'>

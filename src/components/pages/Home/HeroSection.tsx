@@ -43,7 +43,7 @@ export function HeroSection() {
          
           <div className='hidden md:flex absolute -bottom-9 left-2 w-[93px] h-[93px] z-20'>
             <Image
-              src="/icons/waves.svg"
+              src="/icons/Waves.svg"
               alt="Su təmizləmə prosesi"
               width={93}
               height={93}
@@ -53,7 +53,7 @@ export function HeroSection() {
 
           <div className='hidden md:flex absolute top-0 -right-9 w-[93px] h-[93px] z-20'>
             <Image
-              src="/icons/waves.svg"
+              src="/icons/Waves.svg"
               alt="Su təmizləmə prosesi"
               width={93}
               height={93}

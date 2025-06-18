@@ -48,7 +48,7 @@ export function HeroSection() {
               width={93}
               height={93}
               priority={true}
-              className="w-full h-full object-contain rotate-90" />
+              className="w-full h-full object-cover rotate-90" />
           </div>
 
           <div className='hidden md:flex absolute top-0 -right-9 w-[93px] h-[93px] z-20'>
@@ -58,7 +58,7 @@ export function HeroSection() {
               width={93}
               height={93}
               priority={true}
-              className="w-full h-full object-contain " />
+              className="w-full h-full object-cover " />
           </div>
 
             <div className="h-80 md:h-[527px] grid grid-cols-2 grid-rows-2 gap-4">

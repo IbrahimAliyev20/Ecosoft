@@ -1,12 +1,14 @@
-import { getCategories } from '@/lib/categories';
 import { CategoriesType } from '@/types/alltype';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
-export async function CategorySection() {
-  const t = useTranslations(); 
-  const categories = await getCategories(); 
+interface CategoriesProps {
+  categories: CategoriesType[];
+}
+
+export  function CategorySection({ categories }: CategoriesProps) {
+  const t =  useTranslations(); 
 
   return (
     <div className="container mx-auto px-4 py-0 md:py-0">

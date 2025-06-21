@@ -12,6 +12,7 @@ import { getStatistics } from "@/lib/statistics";
 import dynamic from 'next/dynamic'; 
 import React from 'react'; 
 import { getAbout } from "@/lib/about";
+import { getCategories } from "@/lib/categories";
 
 const DynamicProductSliderSec = dynamic(
   () => import('@/components/pages/Home/ProductSliderSec').then(mod => mod.ProductSliderSec),
@@ -35,6 +36,9 @@ export default async function Home() {
   const services = await getServices();
   const statics = await await getStatistics(); // await-i düzəltdim, iki dəfə yazılıb
   const about = await getAbout();
+  const categories = await getCategories(); 
+
+  
   
   return (
     <>
@@ -60,7 +64,7 @@ export default async function Home() {
       </div>
       
       <div className="container mx-auto px-4 py-16">
-        <CategorySection />
+        <CategorySection categories={categories}/>
       </div>
       
       <div className="container mx-auto px-4 ">

@@ -9,24 +9,20 @@ import { allProducts } from "@/utils/products";
 import { getBlogs } from "@/lib/blog";
 import { getServices } from "@/lib/services";
 import { getStatistics } from "@/lib/statistics";
-import dynamic from 'next/dynamic'; // <-- dynamic import üçün Next.js-dən dynamic import edirik
-import React from 'react'; // React-ı import etməyi unutma
+import dynamic from 'next/dynamic'; 
+import React from 'react'; 
+import { getAbout } from "@/lib/about";
 
-// ProductSliderSec komponentini dynamic olaraq yükləyirik
-// ssr: false hissəsini SİLİRİK!
 const DynamicProductSliderSec = dynamic(
   () => import('@/components/pages/Home/ProductSliderSec').then(mod => mod.ProductSliderSec),
   {
-    // ssr: false, // <-- BU SƏTRİ SİL!
     loading: () => <p className="text-center py-8">Məhsullar yüklənir...</p>
   }
 );
 
-// Əgər BlogSection da client-side komponentdirsə (məsələn, içində slider varsa), onu da lazy-load edə bilərik:
 const DynamicBlogSection = dynamic(
   () => import('@/components/pages/Home/BlogSection').then(mod => mod.BlogSection),
   {
-    // ssr: false, // <-- BU SƏTRİ DƏ SİL!
     loading: () => <p className="text-center py-8">Bloq məqalələri yüklənir...</p>
   }
 );
@@ -38,7 +34,8 @@ export default async function Home() {
   const temporaryProducts = allProducts;
   const services = await getServices();
   const statics = await await getStatistics(); // await-i düzəltdim, iki dəfə yazılıb
-
+  const about = await getAbout();
+  
   return (
     <>
       <div className="bg-cyan-50">
@@ -48,7 +45,7 @@ export default async function Home() {
       </div>
 
       <div className="container mx-auto py-16">
-        <AboutSection title="Haqqımızda" statics={statics}/>
+        <AboutSection about={about}  statics={statics} sectiontitle={about.title_1}/>
       </div>
       
       <div className="container mx-auto px-4 py-16">

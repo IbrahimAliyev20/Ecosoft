@@ -1,43 +1,12 @@
+import { getCategories } from '@/lib/categories';
+import { CategoriesType } from '@/types/alltype';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 
-interface Category {
-  id: number;
-  title: string;
-  image: string;
-  alt: string;
-}
-
-export function CategorySection() {
-  const t = useTranslations();
-
-  const categories: Category[] = [
-    {
-      id: 1,
-      title: t('categories.home'),
-      image: "/icons/homeicon.png",
-      alt: "Ev kategoriyası"
-    },
-    {
-      id: 2,
-      title: t('categories.garden'),
-      image: "/icons/gardenicon.png",
-      alt: "Bağ kategoriyası"
-    },
-    {
-      id: 3,
-      title: t('categories.industry'),
-      image: "/icons/machineicon.png",
-      alt: "Sənaye kategoriyası"
-    },
-    {
-      id: 4,
-      title: t('categories.kitchen'),
-      image: "/icons/kitchenicon.png",
-      alt: "Mətbəx kategoriyası"
-    }
-  ];
+export async function CategorySection() {
+  const t = useTranslations(); 
+  const categories = await getCategories(); 
 
   return (
     <div className="container mx-auto px-4 py-0 md:py-0">
@@ -48,8 +17,8 @@ export function CategorySection() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
-        {categories.map((category) => (
-          <CategoryCard key={category.id} category={category} />
+        {categories.map((category: CategoriesType, index) => ( 
+          <CategoryCard key={index} category={category} /> 
         ))}
       </div>
     </div>
@@ -57,22 +26,24 @@ export function CategorySection() {
 }
 
 interface CategoryCardProps {
-  category: Category;
+  category: CategoriesType; 
 }
 
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <div className="flex  group cursor-pointer justify-center">
-      <div className="relative  rounded-2xl overflow-hidden w-[294px] h-[154px]"
-      style={{
-    background: `conic-gradient(from 194deg at 57.65% 30.52%, #06B6D4 0deg, #06C0DF 359.37004566192627deg)`
-  }}   >
+    <div className="flex group cursor-pointer justify-center">
+      <div
+        className="relative rounded-2xl overflow-hidden w-[294px] h-[154px]"
+        style={{
+          background: `conic-gradient(from 194deg at 57.65% 30.52%, #06B6D4 0deg, #06C0DF 359.37004566192627deg)`
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-br" />
 
         <div className="absolute bottom-3 right-0 z-0">
           <Image
             src={category.image}
-            alt={category.alt}
+            alt={category.title}
             width={141}
             height={105}
             priority={true}

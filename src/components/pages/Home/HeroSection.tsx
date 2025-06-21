@@ -3,11 +3,11 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { getHero } from '@/lib/hero';
 
-export function HeroSection() {
-  const t = useTranslations();
-
+export async  function HeroSection() {
+  
+  const data = await getHero();
 
   return (
     <section className=" pt-12 ">
@@ -15,26 +15,20 @@ export function HeroSection() {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 text-left"> 
             <h1 className="text-4xl md:text-[64px] font-semibold text-cyan-500 mb-4">
-           
-              {t('hero.title')}
-
+            {data.title_1}
             </h1>
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-8">
-             
-              {t('hero.subtitle')}
-
+            {data.title_2}
             </h2>
             <p className="text-gray-600 text-[16px] mb-8">
-              
-              {t('hero.description')}
-
+              {data.description}
             </p>
             <Link
-              href="#"
+              href={data.button_link}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-cyan-500 text-white  px-[32px] py-2 hover:bg-cyan-600 transition-all"
             >
            
-             {t('hero.learnMore')}  <ArrowRight className="h-5 w-8" />
+            {data.button_text} <ArrowRight className="h-5 w-8" />
              
             </Link>
           </div>
@@ -60,11 +54,11 @@ export function HeroSection() {
               priority={true}
               className="w-full h-full object-cover " />
           </div>
-
+          
             <div className="h-80 md:h-[527px] grid grid-cols-2 grid-rows-2 gap-4">
               <div className="relative col-span-1 row-span-2 ">
                 <Image
-                  src="/image/hero1.png" 
+                  src={data.image_1}
                   alt="Su təmizləmə prosesi"
                   width={400}
                   height={400}
@@ -75,7 +69,7 @@ export function HeroSection() {
               
               <div className="relative col-span-1 row-span-1">
                  <Image
-                  src="/image/hero2.png"
+                  src={data.image_2}
                   alt="Uşaq su içir"
                   width={400}
                   height={400}
@@ -86,7 +80,7 @@ export function HeroSection() {
 
               <div className="relative col-span-1 row-span-1">
                  <Image
-                  src="/image/hero3.png" 
+                  src={data.image_3}
                   alt="Su damlaları"
                   width={400} 
                   height={400}

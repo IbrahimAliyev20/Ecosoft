@@ -3,6 +3,7 @@ import { ProductImageGallery } from "./ProductImageGallery";
 import { ProductInfo } from "./ProductInfo";
 import { notFound } from "next/navigation";
 import { ProductSliderSec } from "@/components/pages/Home/ProductSliderSec";
+import { getAttributes } from "@/lib/attribute";
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -16,7 +17,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
     notFound();
   }
     const temporaryProducts = allProducts 
-
+    const atribute = await getAttributes()
 
   return (
     <main className="py-12">
@@ -26,7 +27,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <ProductImageGallery images={product.images} />
           </div>
           <div className="order-3 lg:order-none">
-            <ProductInfo product={product} />
+            <ProductInfo product={product} atribute={atribute} />
           </div>
           <div className="order-2 lg:order-none lg:col-span-2">
             <h3 className="text-2xl font-semibold mb-4 border-b pb-2">Məhsulun Təsviri</h3>

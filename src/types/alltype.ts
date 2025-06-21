@@ -67,3 +67,39 @@ export interface AdvantagesType{
   image: string;
 }
 
+export interface HeroType {
+  title_1: string;
+  title_2: string;
+  description: string;
+  image_1: string;
+  image_2: string;
+  image_3: string;
+  button_link: string;
+  button_text: string;
+}
+export interface AttributeType {
+  title: string;
+  description: string;
+  image: string;
+}
+export interface AboutType {
+  title_1: string;
+  description_1: string;
+  title_2: string;
+  description_2: string;
+  image: string;
+  thumb_image: string;
+}
+export interface OurValuesType {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface CategoriesType {
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+}
+

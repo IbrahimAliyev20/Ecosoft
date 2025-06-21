@@ -1,9 +1,11 @@
+// components/pages/Product/ProductCard.tsx
 import Image from "next/image";
 
+// ProductCardProps interfeysini dəyişdirin
 interface ProductCardProps {
-  imageSrc: string;
-  title: string;
-  productCode: string;
+  imageSrc: string; // ProductType-da 'image' sahəsi
+  title: string;     // ProductType-da 'name' sahəsi
+  productCode: string; // ProductType-da 'title' sahəsi (kod kimi)
 }
 
 export function ProductCard({
@@ -29,7 +31,6 @@ export function ProductCard({
           {title}
         </h3>
         <p className="text-sm text-[#06B6D4] mt-1">{productCode}</p>
-     
       </div>
     </div>
   );

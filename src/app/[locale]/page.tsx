@@ -1,11 +1,10 @@
 // app/page.tsx
-
 import { AboutSection } from "@/components/pages/Home/AboutSection";
 import { ServiceSection } from "@/components/pages/Home/ServiceSection";
 import { HeroSection } from "@/components/pages/Home/HeroSection";
 import { CategorySection } from "@/components/pages/Home/CategorySection";
 import MissionSection from "@/components/pages/Home/MissionSection";
-import { allProducts } from "@/utils/products";
+// import { allProducts } from "@/utils/products"; // <-- SİLİNDİ!
 import { getBlogs } from "@/lib/blog";
 import { getServices } from "@/lib/services";
 import { getStatistics } from "@/lib/statistics";
@@ -13,11 +12,13 @@ import dynamic from 'next/dynamic';
 import React from 'react'; 
 import { getAbout } from "@/lib/about";
 import { getCategories } from "@/lib/categories";
+import { getProducts } from "@/lib/products"; 
+import { ProductType } from "@/types/alltype"; 
 
 const DynamicProductSliderSec = dynamic(
   () => import('@/components/pages/Home/ProductSliderSec').then(mod => mod.ProductSliderSec),
   {
-    loading: () => <p className="text-center py-8">Məhsullar yüklənir...</p>
+    loading: () => <p className="text-center py-8">Məhsullar yüklənir...</p>,
   }
 );
 
@@ -32,13 +33,21 @@ const DynamicBlogSection = dynamic(
 export default async function Home() {
   const allPosts = await getBlogs();
   const latestPosts = allPosts.slice(0, 3);
-  const temporaryProducts = allProducts;
+  let temporaryProducts: ProductType[] = [];
+  try {
+      temporaryProducts = await getProducts(); 
+      temporaryProducts = temporaryProducts.slice(0, 8); 
+  } catch (error) {
+      console.error("Failed to load products for slider on home page:", error);
+      temporaryProducts = []; 
+  }
+
   const services = await getServices();
-  const statics = await await getStatistics(); // await-i düzəltdim, iki dəfə yazılıb
+  const statics = await getStatistics(); 
   const about = await getAbout();
   const categories = await getCategories(); 
 
-  
+ 
   
   return (
     <>
@@ -49,7 +58,7 @@ export default async function Home() {
       </div>
 
       <div className="container mx-auto py-16">
-        <AboutSection about={about}  statics={statics} sectiontitle={about.title_1}/>
+        <AboutSection about={about} statics={statics} sectiontitle={about.title_1}/>
       </div>
       
       <div className="container mx-auto px-4 py-16">
@@ -70,7 +79,6 @@ export default async function Home() {
       <div className="container mx-auto px-4 ">
         <DynamicBlogSection posts={latestPosts} />
       </div>
-      
     </>
   );
 }

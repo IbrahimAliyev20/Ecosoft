@@ -1,29 +1,41 @@
+// components/pages/Product/ProductList.tsx
 'use client';
 
 import React, { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
-import { allProducts, categories } from '@/utils/products';
+// import { allProducts, categories } from '@/utils/products'; // <-- SİLİNDİ! Məlumat API-dən gəlir
 import Link from 'next/link'; 
+import { ProductType } from '@/types/alltype'; // ProductType interfeysini import edin
 
-const displayCategories = ['Hamısı', ...categories];
+// Bu kateqoriyaları API-dən çəkmək və ya statik saxlamaq olar.
+// Hal-hazırda statik qalsın, amma gələcəkdə API-dən çəkilməsi daha yaxşı olar.
+// Məsələn, yeni bir getCategories funksiyası yarada bilərsiniz.
+const staticCategories = ['Hamısı', 'Garden', 'Ev', 'Mətbəx', 'Sənaye']; // API cavabınızdakı kateqoriyaları əks etdirir
 
-export function ProductList() {
+interface ProductListProps {
+  initialProducts: ProductType[]; // <-- Yeni prop
+}
+
+export function ProductList({ initialProducts }: ProductListProps) { // <-- propu qəbul edin
   const [activeTab, setActiveTab] = useState('Hamısı');
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProducts = useMemo(() => {
-    return allProducts
+    // initialProducts üzərində filterləmə aparın
+    return initialProducts
       .filter((product) => {
         if (activeTab === 'Hamısı') {
           return true;
         }
-        return product.category === activeTab;
+        // ProductType-da `category` sahəsi var, onu istifadə edirik
+        return product.category === activeTab; 
       })
       .filter((product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
+        // `name` sahəsini axtarış üçün istifadə edin (və ya `title`)
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) 
       );
-  }, [activeTab, searchQuery]);
+  }, [activeTab, searchQuery, initialProducts]); // initialProducts dependency-ə əlavə edildi
 
   return (
     <section className="py-12">
@@ -34,7 +46,7 @@ export function ProductList() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
           <div className="flex items-center gap-2 flex-wrap p-1 rounded-full">
-            {displayCategories.map((category) => (
+            {staticCategories.map((category) => ( // <-- `staticCategories` istifadə edildi
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
@@ -63,11 +75,12 @@ export function ProductList() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {filteredProducts.map((product) => (
-            <Link href={`/products/${product.slug}`} key={product.id}>
+            // `product.id` API-dən gələn məhsulda yoxdur, `product.slug` istifadə edin
+            <Link href={`/products/${product.slug}`} key={product.slug}> 
               <ProductCard
-                imageSrc={product.imageSrc}
-                title={product.title}
-                productCode={product.productCode}
+                imageSrc={product.image} // API-dən gələn `image` sahəsi
+                title={product.name} // API-dən gələn `name` sahəsi başlıq üçün
+                productCode={product.title} // API-dən gələn `title` sahəsi kod üçün (FU23456789)
               />
             </Link>
           ))}

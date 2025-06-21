@@ -103,3 +103,57 @@ export interface CategoriesType {
   image: string;
 }
 
+//////////////////////////////////////////////////////
+
+
+
+export interface ProductImageType {
+  image: string;
+  thumb_image: string;
+}
+
+export interface ProductType {
+  title: string;
+  name: string;
+  slug: string;
+  category: string;
+  image: string;
+  thumb_image: string;
+  description: string;
+  images: ProductImageType[];
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
+}
+
+export interface ProductListResponse {
+  data: ProductType[];
+  links: {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+  };
+  meta: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: {
+      url: string | null;
+      label: string;
+      active: boolean;
+    }[];
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+  };
+}
+
+export interface ProductDetailResponse {
+  timestamp: string;
+  status: boolean;
+  message: string;
+  lang: string;
+  data: ProductType;
+}

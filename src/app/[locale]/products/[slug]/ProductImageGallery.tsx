@@ -48,7 +48,7 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                   width={500}
                   height={500}
                   priority={true}
-                  className="object-contain"
+                  className="object-cover w-full h-full"
                 />
               </div>
             ))}
@@ -64,11 +64,8 @@ export function ProductImageGallery({ images }: { images: string[] }) {
 
       <div className="mt-4">
         <div className="overflow-hidden" ref={thumbRef}>
-          <div className="flex -ml-2">
+          <div className="flex">
             {images.map((src, index) => (
-              /* DƏYİŞİKLİK 2: 'basis-1/4' -> 'basis-1/5' olaraq dəyişdirildi.
-                Bu, hər bir kiçik şəklin enini 20% edir və nəticədə bir sırada 5 şəkil görünür.
-              */
               <div className="basis-1/6 shrink-0 grow-0 pl-2" key={index}>
                 <button onClick={() => onThumbClick(index)} className={`block w-full rounded-md border-2 transition ${selectedIndex === index ? 'border-cyan-500' : 'border-transparent'}`}>
                   <div className="relative aspect-square">

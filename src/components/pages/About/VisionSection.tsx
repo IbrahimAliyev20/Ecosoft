@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { getOurValues } from '@/lib/our-values';
 
 export async function VisionSec() {
-  const values = await getOurValues(); // Bu array olmalıdır
+  const values = await getOurValues(); 
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

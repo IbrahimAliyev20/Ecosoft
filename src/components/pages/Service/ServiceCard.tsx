@@ -1,10 +1,9 @@
-
 'use client';
 
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import Link from "next/link";
+import Link from "next/link"; // Link komponenti
 import { ServicesType } from '@/types/alltype'; 
 
 interface ServiceCardProps {
@@ -15,7 +14,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const plainDescription = service.description.replace(/<[^>]*>?/gm, '');
 
   return (
-    <Link href={`/services/${service.slug}`} className="block">
+    // Dəyişiklik burada edildi: href="/services"
+    <Link href="/services" className="block">
       <div className="relative flex gap-4 p-5 md:p-6 rounded-[20px] bg-gray-100 border-0 cursor-pointer hover:bg-cyan-50 transition-colors duration-200 h-full">
         <div className="relative flex-shrink-0 w-[60px] h-[60px] md:w-[70px] md:h-[70px]">
           <div className="absolute bottom-0 left-0 w-full h-full z-0 rounded-lg translate-x-[-4px] translate-y-[4px] bg-cyan-400"></div>

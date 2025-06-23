@@ -20,10 +20,10 @@ export default async function RootLayout({
     notFound();
   }
   return (
-    <html lang={locale}>
+    <html lang="az">
       <body>
         <NextTopLoader />
-           <NextIntlClientProvider messages={messages}>
+           <NextIntlClientProvider messages={messages} locale={locale}>
         <Navbar />
         <main className="min-h-screen pt-20 ">
           

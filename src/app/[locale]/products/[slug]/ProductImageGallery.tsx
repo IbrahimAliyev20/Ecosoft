@@ -64,9 +64,9 @@ export function ProductImageGallery({ images }: { images: string[] }) {
 
       <div className="mt-4">
         <div className="overflow-hidden" ref={thumbRef}>
-          <div className="flex">
+          <div className="flex ">
             {images.map((src, index) => (
-              <div className="basis-1/6 shrink-0 grow-0 pl-2" key={index}>
+              <div className="basis-1/6  grow-0 pl-2  " key={index}>
                 <button onClick={() => onThumbClick(index)} className={`block w-full rounded-md border-2 transition ${selectedIndex === index ? 'border-cyan-500' : 'border-transparent'}`}>
                   <div className="relative aspect-square">
                     <Image
@@ -75,7 +75,7 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                       width={100}
                       height={100}
                       priority={true}
-                      className="object-contain rounded-md border-2 border-gray-200"
+                      className="object-cover rounded-md border-2 border-gray-200 h-full w-full"
                     />
                   </div>
                 </button>

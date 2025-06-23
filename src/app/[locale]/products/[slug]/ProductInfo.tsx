@@ -20,7 +20,7 @@ export function ProductInfo({ atribute, product }: { product: ProductType, atrib
             <AccordionItem key={index} value={`item-${index}`} className="border rounded-xl mb-3">
               <AccordionTrigger className="font-semibold text-base hover:no-underline p-4">
                 <div className="flex items-center gap-3">
-                  <div className="bg-cyan-500/10 p-2 rounded-full">
+                  <div className="bg-cyan-500/10 p-2 rounded-full w-10 h-10">
                     <Image
                       src={item.image}
                       alt={item.title}

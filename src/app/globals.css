@@ -138,3 +138,20 @@
 .animate-slide-in-right {
   animation: slide-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.react-tel-input .flag {
+  display: none !important;
+}
+
+.react-tel-input .selected-flag {
+  display: none !important;
+}
+
+.react-tel-input .selected-flag .arrow {
+  display: none !important;
+}
+
+.react-tel-input .form-control {
+    display: none !important;
+}
+    

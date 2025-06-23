@@ -1,6 +1,6 @@
 "use client";
 
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Dialog,
@@ -14,6 +14,9 @@ import { Button } from "@/components/ui/button";
 import { PhoneRecordApiResponse } from "@/types/alltype";
 import { useTranslations } from "next-intl";
 
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css"; // Keep this for base styles
+
 interface QuickOfferModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -23,7 +26,6 @@ export default function QuickOfferModal({
   isOpen,
   onClose,
 }: QuickOfferModalProps) {
-
   const t = useTranslations();
   const [formData, setFormData] = useState({
     name: "",
@@ -42,6 +44,13 @@ export default function QuickOfferModal({
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+
+  const handlePhoneChange = (phone: string) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: phone,
     }));
   };
 
@@ -114,9 +123,6 @@ export default function QuickOfferModal({
           <DialogTitle className="text-2xl font-semibold text-gray-800">
             {t("quickOffer.title")}
           </DialogTitle>
-          {/* <DialogDescription className="text-sm text-gray-600">
-            Hesabınıza giriş etmək üçün mobil nömrənizi daxil edin
-          </DialogDescription> */}
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="p-6 pt-0 space-y-4">
@@ -157,15 +163,32 @@ export default function QuickOfferModal({
             >
               {t("quickOffer.phone")}
             </label>
-            <input
-              type="text"
-              name="phone"
+            <PhoneInput
+              country={"az"}
+              enableSearch={true}
               value={formData.phone}
-              onChange={handleChange}
-              placeholder={t("quickOffer.phone")}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-              required
+              onChange={handlePhoneChange}
+              inputProps={{
+                name: "phone",
+                required: true,
+                className:
+                  "w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent",
+              }}
+              containerClass="phone-input-container" 
+              inputStyle={{
+                width: "100%",
+                paddingLeft: "10px", 
+                paddingTop: "0.5rem",
+                paddingBottom: "0.5rem",
+                borderRadius: "0.5rem",
+                borderColor: "#D1D5DB",
+              }}
+              buttonStyle={{
+                borderRadius: "0.5rem 0 0 0.5rem",
+                borderColor: "#D1D5DB",
+              }}
             />
+
             <label
               htmlFor="question"
               className="text-base text-gray-600 font-medium "
@@ -197,7 +220,7 @@ export default function QuickOfferModal({
               disabled={loading}
               className="w-full py-3 text-lg font-semibold text-primary-foreground transition-colors flex items-center justify-center gap-2"
             >
-              {loading ?  `${t("quickOffer.sending")}` : `${t("quickOffer.send")}`}
+              {loading ? `${t("quickOffer.sending")}` : `${t("quickOffer.send")}`}
             </Button>
           </DialogFooter>
         </form>

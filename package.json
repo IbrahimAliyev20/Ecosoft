@@ -23,6 +23,7 @@
     "nextjs-toploader": "^3.8.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-phone-input-2": "^2.15.1",
     "tailwind-merge": "^3.3.0",
     "use-debounce": "^10.0.5"
   },

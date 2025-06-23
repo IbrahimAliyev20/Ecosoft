@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import NextTopLoader from 'nextjs-toploader';
+import TopLoader from "@/components/shared/TopLoader";
 
 export default async function RootLayout({
   params,
@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="az">
       <body>
-        <NextTopLoader />
+      <TopLoader />
            <NextIntlClientProvider messages={messages} locale={locale}>
         <Navbar />
         <main className="min-h-screen pt-20 ">

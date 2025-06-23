@@ -7,7 +7,7 @@ export default async function MissionSection () {
   return (
    
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap gap-8 justify-center">
           {advantages.map((item, index) => (
             <div key={index} className="flex md:flex-row flex-col items-center gap-3">
               <div className="w-22 h-22 bg-cyan-50 rounded-full flex items-center justify-center">

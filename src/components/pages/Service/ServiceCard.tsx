@@ -21,10 +21,10 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <div className="absolute bottom-0 left-0 w-full h-full z-0 rounded-lg translate-x-[-4px] translate-y-[4px] bg-cyan-400"></div>
           <div className="w-full h-full rounded-lg overflow-hidden relative z-10">
             <Image
-              width={300}
-              height={300}
               src={service.image}
               alt={service.title}
+              width={300}
+              height={300}
               priority={true}
               className="w-full h-full object-cover"
             />

@@ -59,7 +59,7 @@ export function ProductList({ initialProducts, category }: ProductListProps) {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
-          <div className="flex items-center gap-2 flex-wrap p-1 rounded-full">
+          <div className="flex items-center gap-2 flex-wrap  rounded-full">
             {dynamicCategories.map((catTitle) => (
               <button
                 key={catTitle}

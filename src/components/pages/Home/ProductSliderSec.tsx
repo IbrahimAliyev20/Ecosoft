@@ -37,7 +37,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
       <h2 className="text-4xl font-semibold text-center">{title}</h2>
 
       <div className="flex justify-end items-center mb-6">
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 mr-4 md:mr-0 ">
           <Button variant="outline" size="icon" onClick={scrollPrev} className=" hover:text-[#06B6D4] hover:border-[#06B6D4]">
             <ChevronLeft className="h-4 w-4 " />
           </Button>
@@ -50,7 +50,7 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {products.map((product) => (
-            <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pr-4 pb-4"> 
+            <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pr-0 md:pr-4  pb-4"> 
               <Link href={`/products/${product.slug}`} className="block h-full">
                 <ProductCard
                   imageSrc={product.image} // <--- `imageSrc` yerinə `image`

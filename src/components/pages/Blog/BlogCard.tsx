@@ -1,10 +1,8 @@
-// components/pages/Blog/BlogCard.tsx - YENİ VERSİYA
 
 import React from 'react';
 import Image from 'next/image';
-import { BlogPost } from '@/types/alltype'; // Əvvəl yaratdığınız BlogPost tipini import edirik
+import { BlogPost } from '@/types/alltype';
 
-// Props-ları tək-tək yazmaq əvəzinə, bütün post obyektini qəbul edirik
 interface BlogCardProps {
   post: BlogPost;
 }

@@ -32,6 +32,15 @@ export interface BlogPost {
   description: string;
   tag: string;
   created_at: string;
+  blog:{
+    title: string;
+  slug: string;
+  image: string;
+  thumb_image: string;
+  description: string;
+  tag: string;
+  created_at: string;
+  }
 }
 
 export interface BlogsApiResponse {

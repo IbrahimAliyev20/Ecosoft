@@ -18,12 +18,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     getBlogs()
   ]);
 
-  if (!post) {
+  const formattedPost = post.blog
+
+  if (!formattedPost) {
     notFound();
   }
 
   const otherBlogPosts = allPosts.filter((blogPost) => blogPost.slug !== slug);
-
+  console.log(formattedPost);
+  
   return (
     <main className="pt-12">
       <nav className="container mx-auto px-6 text-sm text-muted-foreground mb-8">
@@ -31,16 +34,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <span className="mx-2">&gt;</span>
         <Link href="/blogs" className="hover:text-primary">Bloglar</Link>
         <span className="mx-2">&gt;</span>
-        <span className="text-foreground">{post.title}</span>
+        <span className="text-foreground">{formattedPost.title}</span>
       </nav>
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-4xl md:text-2xl font-semibold text-center mb-8 text-foreground">
-          {post.title}
+          {formattedPost.title}
         </h1>
         <div className="relative w-full h-96 rounded-2xl overflow-hidden mb-6">
           <Image
-            src={post.image} 
-            alt={post.title}
+            src={formattedPost.image || ''} 
+            alt={formattedPost.title}
             width={1000}  
             height={1000}
             priority={true}
@@ -49,13 +52,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
         <div className="flex justify-between items-center text-muted-foreground text-sm mb-8">
           <Badge variant="default" className='bg-[#06B6D4] text-base'>
-            {post.tag} 
+            {formattedPost.tag} 
           </Badge>
-          <span>{post.created_at}</span>
+          <span>{formattedPost.created_at}</span>
         </div>
         <article
           className="prose dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.description }} 
+          dangerouslySetInnerHTML={{ __html: formattedPost?.description || '' }} 
         />
       </div>
 

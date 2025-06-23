@@ -9,7 +9,6 @@ type ContactProps = {
   contact: ContactType
 };
 
-// Map hissəsi üçün memoized komponent
 const MapSection = React.memo(function MapSection({ mapHtml }: { mapHtml: string }) {
   return (
     <div className="w-full h-[300px] sm:h-[400px] lg:h-[450px] bg-gray-200 rounded-xl overflow-hidden ">
@@ -79,15 +78,13 @@ export default function ContactPage({ contact }: ContactProps) {
 
         setErrorMessage(errorDisplayMessage);
       }
-    } catch (error) { // 'any' silindi, TypeScript 'unknown' qəbul edəcək
+    } catch (error) { 
       console.error('Contact form submission error:', error);
-      // Xətanın Error obyekti olub olmadığını yoxlayın
       if (error instanceof Error) {
         setErrorMessage(
           error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin." 
         );
       } else {
-        // Digər növ xətalar üçün (nadir halda)
         setErrorMessage("Bir naməlum xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
       }
     } finally {
@@ -99,7 +96,6 @@ export default function ContactPage({ contact }: ContactProps) {
     <div className="pt-20 ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* MapSection komponenti burada istifadə olunur */}
           <MapSection mapHtml={contact.map} />
 
           <div className="bg-card rounded-xl">

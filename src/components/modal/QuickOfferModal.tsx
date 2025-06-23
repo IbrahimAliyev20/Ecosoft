@@ -68,33 +68,24 @@ export default function QuickOfferModal({
         body: JSON.stringify(payload),
       });
 
-      // Response-un uğurlu olmadığını yoxlamaq üçün əvvəlcə json-u parse etməyə çalışaq.
-      // Əgər response.ok false-dursa, serverdən gələn cavabın da JSON formatında olması gözlənilir,
-      // lakin bəzən HTML də gələ bilər (məsələn, 404/500 səhifəsi).
-      // Bu halda, `response.json()` xəta verə bilər, ona görə də `try...catch` daxilində olması yaxşıdır.
       const result: PhoneRecordApiResponse = await response.json();
 
       if (response.ok && result.status) {
-        // Serverdən gələn mesajı düzəltməyə ehtiyac yoxdursa, birbaşa istifadə edin.
-        // Əks halda, əvvəlki dəyişikliyi geri qaytara bilərsiniz.
         setSuccessMessage(result.message || "Təklifiniz uğurla göndərildi!");
         setFormData({ name: "", surname: "", question: "", phone: "" });
         setTimeout(onClose, 2000);
       } else {
-        // result.status false olduqda və ya response.ok false olduqda serverdən gələn mesajı göstəririk.
         setErrorMessage(
           result.message || "Server xətası. Zəhmət olmasa yenidən cəhd edin."
         );
       }
-    } catch (error) { // 'any' silindi
+    } catch (error) { 
       console.error("Quick offer form submission error:", error);
-      // Xətanın Error obyekti olub olmadığını yoxlayın
       if (error instanceof Error) {
         setErrorMessage(
           error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
         );
       } else {
-        // Digər növ xətalar üçün (nadir halda)
         setErrorMessage("Bir naməlum xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
       }
     } finally {

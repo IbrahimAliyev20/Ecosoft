@@ -52,6 +52,9 @@
     "copyright": "All rights reserved © 2025, Developer"
   },
   "contact": {
+    "address": "Adress",
+    "mailadress": "Email address",
+    "phone": "Phone",
     "name": "Your Name",
     "surname": "Your Surname",
     "email": "Your Email",

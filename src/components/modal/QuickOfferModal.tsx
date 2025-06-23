@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import Image from "next/image";
 import {
   Dialog,
@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogFooter,
   DialogOverlay,
-  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { PhoneRecordApiResponse } from "@/types/alltype";
+import { useTranslations } from "next-intl";
 
 interface QuickOfferModalProps {
   isOpen: boolean;
@@ -23,6 +23,8 @@ export default function QuickOfferModal({
   isOpen,
   onClose,
 }: QuickOfferModalProps) {
+
+  const t = useTranslations();
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -71,7 +73,7 @@ export default function QuickOfferModal({
       const result: PhoneRecordApiResponse = await response.json();
 
       if (response.ok && result.status) {
-        setSuccessMessage(result.message || "Təklifiniz uğurla göndərildi!");
+        setSuccessMessage(`${t("quickOffer.success")}`);
         setFormData({ name: "", surname: "", question: "", phone: "" });
         setTimeout(onClose, 2000);
       } else {
@@ -79,14 +81,17 @@ export default function QuickOfferModal({
           result.message || "Server xətası. Zəhmət olmasa yenidən cəhd edin."
         );
       }
-    } catch (error) { 
+    } catch (error) {
       console.error("Quick offer form submission error:", error);
       if (error instanceof Error) {
         setErrorMessage(
-          error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+          error.message ||
+            "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
         );
       } else {
-        setErrorMessage("Bir naməlum xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+        setErrorMessage(
+          "Bir naməlum xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+        );
       }
     } finally {
       setLoading(false);
@@ -107,11 +112,11 @@ export default function QuickOfferModal({
             className="mb-2"
           />
           <DialogTitle className="text-2xl font-semibold text-gray-800">
-            Sürətli təklif al
+            {t("quickOffer.title")}
           </DialogTitle>
-          <DialogDescription className="text-sm text-gray-600">
+          {/* <DialogDescription className="text-sm text-gray-600">
             Hesabınıza giriş etmək üçün mobil nömrənizi daxil edin
-          </DialogDescription>
+          </DialogDescription> */}
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="p-6 pt-0 space-y-4">
@@ -120,14 +125,14 @@ export default function QuickOfferModal({
               htmlFor="name"
               className="text-base text-gray-600 font-medium"
             >
-              Ad
+              {t("quickOffer.name")}
             </label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Adınız"
+              placeholder={t("quickOffer.name")}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
@@ -135,14 +140,14 @@ export default function QuickOfferModal({
               htmlFor="surname"
               className="text-base text-gray-600 font-medium "
             >
-              Soyad
+              {t("quickOffer.surname")}
             </label>
             <input
               type="text"
               name="surname"
               value={formData.surname}
               onChange={handleChange}
-              placeholder="Soyadınız"
+              placeholder={t("quickOffer.surname")}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
@@ -150,14 +155,14 @@ export default function QuickOfferModal({
               htmlFor="phone"
               className="text-base text-gray-600 font-medium"
             >
-              Mobil nömrə
+              {t("quickOffer.phone")}
             </label>
             <input
               type="text"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Mobil Nömrə"
+              placeholder={t("quickOffer.phone")}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
@@ -165,13 +170,13 @@ export default function QuickOfferModal({
               htmlFor="question"
               className="text-base text-gray-600 font-medium "
             >
-              Sualınız
+              {t("quickOffer.question")}
             </label>
             <textarea
               name="question"
               value={formData.question}
               onChange={handleChange}
-              placeholder="Sualınız"
+              placeholder={t("quickOffer.question")}
               rows={3}
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
               required
@@ -192,7 +197,7 @@ export default function QuickOfferModal({
               disabled={loading}
               className="w-full py-3 text-lg font-semibold text-primary-foreground transition-colors flex items-center justify-center gap-2"
             >
-              {loading ? "Göndərilir..." : "Təklif al"}
+              {loading ?  `${t("quickOffer.sending")}` : `${t("quickOffer.send")}`}
             </Button>
           </DialogFooter>
         </form>

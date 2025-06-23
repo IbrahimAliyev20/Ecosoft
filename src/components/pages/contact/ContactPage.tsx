@@ -1,9 +1,10 @@
 'use client';
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContactType, EmailRecordApiResponse } from '@/types/alltype'; 
+import { useTranslations } from 'next-intl'; 
+
 
 type ContactProps = {
   contact: ContactType
@@ -18,6 +19,7 @@ const MapSection = React.memo(function MapSection({ mapHtml }: { mapHtml: string
 });
 
 export default function ContactPage({ contact }: ContactProps) {
+  const t = useTranslations()
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -66,7 +68,7 @@ export default function ContactPage({ contact }: ContactProps) {
 
       if (response.ok && result.status) {
         const displayMessage = result.message === "errors.RECORD_WAS_SUCCESSFULLY_CREATED"
-            ? "Mesajınız uğurla göndərildi!" 
+            ? `${t('contact.success')}` 
             : result.message;
 
         setSuccessMessage(displayMessage);
@@ -103,21 +105,21 @@ export default function ContactPage({ contact }: ContactProps) {
               <div className="flex items-center space-x-3">
                 <MapPin className="text-primary w-6 h-6 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-lg text-foreground">Ünvan</h3>
+                  <h3 className="font-semibold text-lg text-foreground">{t('contact.address')}</h3>
                   <p className="text-muted-foreground text-sm">{contact.address}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-primary w-6 h-6 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-lg text-foreground">Mail Ünvanı</h3>
+                  <h3 className="font-semibold text-lg text-foreground">{t('contact.mailadress')}</h3>
                   <p className="text-muted-foreground text-sm">{contact.email}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="text-primary w-6 h-6 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-lg text-foreground">Telefon</h3>
+                  <h3 className="font-semibold text-lg text-foreground">{t('contact.phone')}</h3>
                   <p className="text-muted-foreground text-sm">{contact.phone}</p>
                 </div>
               </div>
@@ -126,12 +128,12 @@ export default function ContactPage({ contact }: ContactProps) {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="sr-only">Adınız</label>
+                  <label htmlFor="name" className="sr-only">{t('contact.name')}</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Adınız"
+                    placeholder={t('contact.name')}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -139,12 +141,12 @@ export default function ContactPage({ contact }: ContactProps) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="surname" className="sr-only">Soyadınız</label>
+                  <label htmlFor="surname" className="sr-only">{t('contact.surname')}</label>
                   <input
                     type="text"
                     id="surname"
                     name="surname"
-                    placeholder="Soyadınız"
+                    placeholder={t('contact.surname')}
                     value={formData.surname}
                     onChange={handleChange}
                     required
@@ -153,12 +155,12 @@ export default function ContactPage({ contact }: ContactProps) {
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="sr-only">Mail Ünvanınız</label> 
+                <label htmlFor="email" className="sr-only">{t('contact.email')}</label> 
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Mail Ünvanınız"
+                  placeholder={t('contact.email')}
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -166,12 +168,12 @@ export default function ContactPage({ contact }: ContactProps) {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="sr-only">Mesajınız</label> 
+                <label htmlFor="message" className="sr-only">{t('contact.message')}</label> 
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
-                  placeholder="Bizə yazın"
+                  placeholder={t('contact.message')}
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -192,8 +194,8 @@ export default function ContactPage({ contact }: ContactProps) {
                 disabled={loading}
                 className="rounded-[12px] w-full py-3 text-base font-normal text-primary-foreground transition-colors flex items-center justify-center gap-2 p-5"
               >
-                {!loading && "Göndər"} 
-                {loading ? "Göndərilir..." : <Send className="w-5 h-5" />}
+                {!loading && `${t('contact.send')}`} 
+                {loading ? `${t('contact.sending')}`: <Send className="w-5 h-5" />}
               </Button>
             </form>
           </div>

@@ -52,6 +52,9 @@
     "copyright": "Все права защищены © 2025, Разработчик"
   },
   "contact": {
+    "address": "Адрес",
+    "mailadress": "Почты",
+    "phone": "Телефон",
     "name": "Ваше имя",
     "surname": "Ваша фамилия",
     "email": "Ваш email",

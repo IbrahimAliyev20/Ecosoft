@@ -54,6 +54,9 @@
     "copyright": "Bütün hüquqlar qorunur © 2025, Tərtibatçı"
   },
   "contact": {
+    "address": "Ünvan",
+    "mailadress": "Mail ünvanı",
+    "phone": "Telefon",
     "name": "Adınız",
     "surname": "Soyadınız",
     "email": "Mail Ünvanınız",
@@ -64,11 +67,11 @@
     "error": "Xəta baş verdi."
   },
   "quickOffer": {
-    "title": "Təklif al",
+    "title": "Sürətli təklif al",
     "name": "Adınız",
     "surname": "Soyadınız",
     "question": "Sualınız",
-    "phone": "Telefon",
+    "phone": "Mobil nömrə",
     "send": "Təklif al",
     "sending": "Göndərilir...",
     "success": "Təklifiniz uğurla göndərildi!",

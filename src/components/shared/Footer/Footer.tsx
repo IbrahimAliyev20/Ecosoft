@@ -1,7 +1,6 @@
 import React from 'react';
 import FooterHero from './footersec/FooterHero';
 import FooterMain from './footersec/Footermain';
-import { get } from 'http';
 import { getSocialMedia } from '@/lib/social';
 
 export async function Footer() {

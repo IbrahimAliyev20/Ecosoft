@@ -3,12 +3,35 @@ import { AboutSection } from "@/components/pages/Home/AboutSection";
 import MissionSection from "@/components/pages/Home/MissionSection";
 import { ServiceSection } from "@/components/pages/Home/ServiceSection";
 import { getAbout } from "@/lib/about";
+import { getMetaTags } from "@/lib/metatags";
 import { getServices } from "@/lib/services";
 import { getStatistics } from "@/lib/statistics";
+import { MetaTagsType } from "@/types/alltype";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import React from "react";
+export async function generateMetadata() {
+  const metaData: MetaTagsType[] = await getMetaTags();
 
+  const defaultMeta = metaData.find((meta) => meta.title.toLowerCase() === 'About') || {
+    meta_title: 'EcoSoft | About meta',
+    meta_description: 'EcoSoft | About meta',
+    meta_keywords: 'EcoSoft | About meta',
+    
+  };
+  
+  return {
+    title: defaultMeta.meta_title,
+    description: defaultMeta.meta_description,
+    keywords: defaultMeta.meta_keywords,
+    openGraph: {
+      title: defaultMeta.meta_title,
+      description: defaultMeta.meta_description,
+      url: process.env.NEXT_PUBLIC_BASE_URL,
+      type: 'website',
+    },
+  };
+}
 export default async function AboutPage() {
   const t = await getTranslations();
   const services = await getServices();

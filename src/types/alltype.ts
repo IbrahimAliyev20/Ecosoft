@@ -156,3 +156,10 @@ export interface ProductDetailResponse {
   lang: string;
   data: ProductType;
 }
+/////////
+export interface MetaTagsType {
+    title: string;
+    meta_title: string;
+    meta_description: string;
+    meta_keywords: string;
+}

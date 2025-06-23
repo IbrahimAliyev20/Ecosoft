@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Dialog,
@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogFooter,
   DialogOverlay,
-  DialogDescription, 
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-
+import { PhoneRecordApiResponse } from "@/types/alltype";
 
 interface QuickOfferModalProps {
   isOpen: boolean;
@@ -33,7 +33,6 @@ export default function QuickOfferModal({
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -51,30 +50,53 @@ export default function QuickOfferModal({
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/submit-quick-offer", {
+      const payload = {
+        name: formData.name,
+        surname: formData.surname,
+        phone: formData.phone,
+        question: formData.question,
+      };
+
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/offer-form`;
+
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language": "az",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
+      // Response-un uğurlu olmadığını yoxlamaq üçün əvvəlcə json-u parse etməyə çalışaq.
+      // Əgər response.ok false-dursa, serverdən gələn cavabın da JSON formatında olması gözlənilir,
+      // lakin bəzən HTML də gələ bilər (məsələn, 404/500 səhifəsi).
+      // Bu halda, `response.json()` xəta verə bilər, ona görə də `try...catch` daxilində olması yaxşıdır.
+      const result: PhoneRecordApiResponse = await response.json();
 
-
-      const result = await response.json();
-      if (result.success) {
-        setSuccessMessage("Təklifiniz uğurla göndərildi!");
+      if (response.ok && result.status) {
+        // Serverdən gələn mesajı düzəltməyə ehtiyac yoxdursa, birbaşa istifadə edin.
+        // Əks halda, əvvəlki dəyişikliyi geri qaytara bilərsiniz.
+        setSuccessMessage(result.message || "Təklifiniz uğurla göndərildi!");
         setFormData({ name: "", surname: "", question: "", phone: "" });
-        setTimeout(onClose, 2000); 
+        setTimeout(onClose, 2000);
       } else {
-        setErrorMessage(result.message || "Server xətası.");
+        // result.status false olduqda və ya response.ok false olduqda serverdən gələn mesajı göstəririk.
+        setErrorMessage(
+          result.message || "Server xətası. Zəhmət olmasa yenidən cəhd edin."
+        );
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) { 
+    } catch (error) { // 'any' silindi
       console.error("Quick offer form submission error:", error);
-      setErrorMessage(
-        error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
-      );
+      // Xətanın Error obyekti olub olmadığını yoxlayın
+      if (error instanceof Error) {
+        setErrorMessage(
+          error.message || "Bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+        );
+      } else {
+        // Digər növ xətalar üçün (nadir halda)
+        setErrorMessage("Bir naməlum xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.");
+      }
     } finally {
       setLoading(false);
     }
@@ -83,7 +105,7 @@ export default function QuickOfferModal({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogOverlay className="backdrop-filter backdrop-blur-xs" />
-      <DialogContent className="w-[484px]  rounded-xl shadow-xl p-0">
+      <DialogContent className="w-[484px] rounded-xl shadow-xl p-0">
         <DialogHeader className="p-6 text-start ">
           <Image
             src="/image/logo.svg"
@@ -103,7 +125,12 @@ export default function QuickOfferModal({
 
         <form onSubmit={handleSubmit} className="p-6 pt-0 space-y-4">
           <div className="space-y-4">
-            <label htmlFor="name" className="text-base text-gray-600 font-medium">Ad</label>
+            <label
+              htmlFor="name"
+              className="text-base text-gray-600 font-medium"
+            >
+              Ad
+            </label>
             <input
               type="text"
               name="name"
@@ -113,7 +140,12 @@ export default function QuickOfferModal({
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
-            <label htmlFor="surname" className="text-base text-gray-600 font-medium ">Soyad</label>
+            <label
+              htmlFor="surname"
+              className="text-base text-gray-600 font-medium "
+            >
+              Soyad
+            </label>
             <input
               type="text"
               name="surname"
@@ -123,17 +155,27 @@ export default function QuickOfferModal({
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
-            <label htmlFor="phone" className="text-base text-gray-600 font-medium">Mobil nömrə</label>
+            <label
+              htmlFor="phone"
+              className="text-base text-gray-600 font-medium"
+            >
+              Mobil nömrə
+            </label>
             <input
               type="text"
-              name="number"
-              value={formData.surname}
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
               placeholder="Mobil Nömrə"
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
             />
-            <label htmlFor="question" className="text-base text-gray-600 font-medium ">Sualınız</label>
+            <label
+              htmlFor="question"
+              className="text-base text-gray-600 font-medium "
+            >
+              Sualınız
+            </label>
             <textarea
               name="question"
               value={formData.question}

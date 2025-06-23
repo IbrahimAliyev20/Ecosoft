@@ -1,12 +1,37 @@
+export interface ApiResponse<T> {
+  timestamp: string;
+  status: boolean;
+  message: string;
+  lang: string;
+  data: T;
+}
+
+export interface RecordDataWithEmail {
+  name: string;
+  surname: string;
+  email: string;
+  note: string;
+}
+export type EmailRecordApiResponse = ApiResponse<RecordDataWithEmail>;
+
+export interface RecordDataWithPhone {
+  name: string;
+  surname: string;
+  phone: string;
+  question: string;
+}
+export type PhoneRecordApiResponse = ApiResponse<RecordDataWithPhone>;
+
+
 
 export interface BlogPost {
   title: string;
   slug: string;
-  image: string;         
+  image: string;
   thumb_image: string;
-  description: string;  
-  tag: string;          
-  created_at: string;    
+  description: string;
+  tag: string;
+  created_at: string;
 }
 
 export interface BlogsApiResponse {
@@ -18,18 +43,18 @@ export interface BlogsApiResponse {
     next: string | null;
   };
   meta: {
-     current_page: number;
-  from: number;
-  last_page: number;
-   links: {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: {
       url: string | null;
       label: string;
       active: boolean;
     }[];
-  path: string;
-  per_page: number;
-  to: number;
-  total: number;
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
   };
 }
 
@@ -45,7 +70,6 @@ export interface TagType {
   slug: string;
 }
 
-
 export interface ServicesType {
   title: string;
   slug: string;
@@ -54,13 +78,10 @@ export interface ServicesType {
   description: string;
 }
 
-
 export interface StatisticsType{
   title: string;
   number: string;
-
 }
-
 
 export interface AdvantagesType{
   title: string;
@@ -77,11 +98,13 @@ export interface HeroType {
   button_link: string;
   button_text: string;
 }
+
 export interface AttributeType {
   title: string;
   description: string;
   image: string;
 }
+
 export interface AboutType {
   title_1: string;
   description_1: string;
@@ -90,6 +113,7 @@ export interface AboutType {
   image: string;
   thumb_image: string;
 }
+
 export interface OurValuesType {
   title: string;
   description: string;
@@ -101,10 +125,6 @@ export interface CategoriesType {
   slug: string;
   image: string;
 }
-
-//////////////////////////////////////////////////////
-
-
 
 export interface ProductImageType {
   image: string;
@@ -156,7 +176,7 @@ export interface ProductDetailResponse {
   lang: string;
   data: ProductType;
 }
-/////////
+
 export interface MetaTagsType {
     title: string;
     meta_title: string;

@@ -48,7 +48,7 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                   width={500}
                   height={500}
                   priority={true}
-                  className="object-cover w-full h-full"
+                  className="object-contain w-full h-full"
                 />
               </div>
             ))}
@@ -75,7 +75,7 @@ export function ProductImageGallery({ images }: { images: string[] }) {
                       width={100}
                       height={100}
                       priority={true}
-                      className="object-cover rounded-md border-2 border-gray-200 h-full w-full"
+                      className="object-contain rounded-md border-2 border-gray-200 h-full w-full"
                     />
                   </div>
                 </button>

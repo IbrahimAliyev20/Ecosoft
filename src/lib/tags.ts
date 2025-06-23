@@ -10,7 +10,7 @@ export async function getTags(): Promise<TagType[]> {
       "Accept-Language": localeFromCookie,
     },
     next: {
-      revalidate: 60 
+      evalidate: 5 
     }
   });
 

@@ -32,7 +32,7 @@ export async function getServiceSlug(slug: string): Promise<ServicesType> {
         "Accept-Language": localeFromCookie,
       },
        next: {
-      revalidate: 60 
+      evalidate: 5 
     }
     });
     const json = await res.json();

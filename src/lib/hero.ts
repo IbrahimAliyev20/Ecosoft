@@ -11,7 +11,7 @@ export async function getHero(): Promise<HeroType> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      revalidate: 60 
+      evalidate: 5 
     }
   });
 

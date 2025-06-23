@@ -192,3 +192,8 @@ export interface MetaTagsType {
     meta_description: string;
     meta_keywords: string;
 }
+export interface SocialMediaType{
+  name: string;
+  image: string;
+  link: string;
+}

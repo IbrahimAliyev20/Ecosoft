@@ -10,10 +10,7 @@ export default function FooterMain() {
         <div className="mb-2 md:mb-0">
          {t('footer.copyright')} <Link href="https://markup.az/" target='_blank' className='text-primary'>MarkUp Agency</Link>
         </div>
-       <div className='flex gap-12'>
-        <p>Privacy Policy</p>
-        <p>Terms & Conditions</p>
-       </div>
+    
       </div>
     </footer>
   );

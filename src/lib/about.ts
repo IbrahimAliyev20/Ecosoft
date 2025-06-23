@@ -11,7 +11,7 @@ export async function getAbout(): Promise<AboutType> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      revalidate: 60 
+      revalidate: 5 
     }
   });
 

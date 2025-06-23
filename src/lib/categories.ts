@@ -11,7 +11,7 @@ export async function getCategories(): Promise<CategoriesType[]> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      revalidate: 60 
+      evalidate: 5 
     }
   });
 

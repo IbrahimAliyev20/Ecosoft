@@ -11,7 +11,7 @@ export async function getStatistics(): Promise<StatisticsType[]> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      evalidate: 5 
+      revalidate: 5 
     }
   });
 

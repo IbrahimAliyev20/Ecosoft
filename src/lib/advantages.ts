@@ -11,7 +11,7 @@ export async function getAdvantages(): Promise<AdvantagesType[]> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      evalidate: 5 
+      revalidate: 5 
     }
   });
 

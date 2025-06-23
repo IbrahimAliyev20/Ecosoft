@@ -11,7 +11,7 @@ export async function getAttributes(): Promise<AttributeType[]> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      evalidate: 5 
+      revalidate: 5 
     }
   });
 

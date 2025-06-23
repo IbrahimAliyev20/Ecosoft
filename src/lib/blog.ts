@@ -34,7 +34,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
                 "Accept-Language": localeFromCookie,
             },
              next: {
-      evalidate: 5 
+      revalidate: 5 
     }
         }).then(res => {
             if (!res.ok) {
@@ -67,7 +67,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost> {
       "Accept-Language": localeFromCookie,
     },
      next: {
-      evalidate: 5 
+      revalidate: 5 
     }
   });
   const json = await res.json();

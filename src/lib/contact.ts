@@ -11,7 +11,7 @@ export async function getContact(): Promise<ContactType> {
       "Accept-Language": localeFromCookie, 
     },
      next: {
-      evalidate: 5 
+      revalidate: 5 
     }
   });
 

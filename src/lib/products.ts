@@ -41,7 +41,7 @@ export async function getProducts(): Promise<ProductType[]> {
                     "Accept-Language": localeFromCookie,
                 },
                 next: {
-                    evalidate: 5 
+                    revalidate: 5 
                 }
             }).then(res => {
                 if (!res.ok) {
@@ -97,7 +97,7 @@ export async function getProductBySlug(slug: string): Promise<ProductType | null
                 "Accept-Language": localeFromCookie,
             },
             next: {
-                evalidate: 5 
+                revalidate: 5 
             }
         });
 

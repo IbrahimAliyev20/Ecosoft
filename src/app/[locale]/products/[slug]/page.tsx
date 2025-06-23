@@ -5,6 +5,7 @@ import { getProductBySlug, getProducts } from "@/lib/products";
 import { ProductType } from '@/types/alltype'; 
 import { ProductImageGallery } from "./ProductImageGallery";
 import { ProductInfo } from "./ProductInfo";
+import { getTranslations } from "next-intl/server";
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -14,6 +15,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   const { slug } = await params; 
   
   const product = await getProductBySlug(slug);
+  const t = await getTranslations()
 
   if (!product) {
     notFound(); 
@@ -42,13 +44,13 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <ProductInfo product={product} atribute={atribute} />
           </div>
           <div className="order-2 lg:order-none lg:col-span-2">
-            <h3 className="text-2xl font-semibold mb-4 border-b pb-2">Məhsulun Təsviri</h3>
+            <h3 className="text-2xl font-semibold mb-4 border-b pb-2">{t('product.productDescription')}</h3>
             <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: product.description }} />
           </div>
         </div>
       </div>
       <div>
-        <ProductSliderSec title="Digər Məhsullar" products={temporaryProducts} />
+        <ProductSliderSec title={t('product.otherProducts')} products={temporaryProducts} />
       </div>
     </main>
   );

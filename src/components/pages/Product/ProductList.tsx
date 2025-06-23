@@ -5,23 +5,27 @@ import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
 import Link from 'next/link';
 import { CategoriesType, ProductType } from '@/types/alltype';
-import { useSearchParams } from 'next/navigation'; 
+import { useSearchParams } from 'next/navigation';
+// Burada useTranslations istifadə etməyə ehtiyac yoxdur, çünki tərcümələr prop kimi gəlir.
 
 interface ProductListProps {
   initialProducts: ProductType[];
   category: CategoriesType[];
+  searchPlaceholder: string; // Yeni prop
+  productsTitle: string;     // Yeni prop
+  noProductsFoundText: string; // Yeni prop
 }
 
-export function ProductList({ initialProducts, category }: ProductListProps) {
-  const searchParams = useSearchParams(); 
-  const initialCategorySlug = searchParams.get('category'); 
+export function ProductList({ initialProducts, category, searchPlaceholder, productsTitle, noProductsFoundText }: ProductListProps) {
+  const searchParams = useSearchParams();
+  const initialCategorySlug = searchParams.get('category');
 
   const [activeTab, setActiveTab] = useState('Hamısı');
   const [searchQuery, setSearchQuery] = useState('');
 
   const dynamicCategories = useMemo(() => {
     const uniqueCategories = new Set(['Hamısı']);
-    category.forEach(cat => uniqueCategories.add(cat.title)); 
+    category.forEach(cat => uniqueCategories.add(cat.title));
     return Array.from(uniqueCategories);
   }, [category]);
 
@@ -36,7 +40,7 @@ export function ProductList({ initialProducts, category }: ProductListProps) {
     } else if (dynamicCategories.length > 0 && !dynamicCategories.includes(activeTab)) {
       setActiveTab('Hamısı');
     }
-  }, [initialCategorySlug, category, dynamicCategories]); 
+  }, [initialCategorySlug, category, dynamicCategories]);
 
   const filteredProducts = useMemo(() => {
     return initialProducts
@@ -55,11 +59,11 @@ export function ProductList({ initialProducts, category }: ProductListProps) {
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-          <h1 className="text-4xl font-semibold text-gray-800">Məhsullar</h1>
+          <h1 className="text-4xl font-semibold text-gray-800">{productsTitle}</h1> {/* Buranı dəyişdik */}
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
-          <div className="flex items-center gap-2 flex-wrap  rounded-full">
+          <div className="flex items-center gap-2 flex-wrap rounded-full">
             {dynamicCategories.map((catTitle) => (
               <button
                 key={catTitle}
@@ -79,7 +83,7 @@ export function ProductList({ initialProducts, category }: ProductListProps) {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
-              placeholder="Məhsul axtar"
+              placeholder={searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-2.5 border border-gray-200 rounded-full focus:ring-2 focus:ring-cyan-500 focus:outline-none"
@@ -102,7 +106,7 @@ export function ProductList({ initialProducts, category }: ProductListProps) {
         {filteredProducts.length === 0 && (
           <div className="text-center py-16 col-span-full">
             <p className="text-gray-500">
-              Axtarışınıza uyğun məhsul tapılmadı.
+              {noProductsFoundText} 
             </p>
           </div>
         )}

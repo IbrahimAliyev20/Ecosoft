@@ -1,20 +1,22 @@
 
-import React from 'react';
+import React, { use } from 'react';
 import ButtonMore from '@/components/shared/ButtonMore';
 import Link from 'next/link';
 import ServiceCard from '@/components/pages/Service/ServiceCard';
 import { ServicesType } from '@/types/alltype';
+import { useTranslations } from 'next-intl';
 
 interface ServiceSectionProps {
   services: ServicesType[];
 }
 
 export function ServiceSection({ services }: ServiceSectionProps) {
+  const t = useTranslations();
   return (
     <div className="container mx-auto px-4  ">
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
-          Xidmətlərimiz
+          {t('alltitle.services')}
         </h1>
       </div>
 

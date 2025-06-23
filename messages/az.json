@@ -26,6 +26,7 @@
       "services": "Xidmət"
     }
   },
+ 
   "mission": {
     "title": "Missiyamız",
     "description": "Lorem ipsum dolor sit amet consectetur. Semper velit cursus condimentum eleifend non aenean enim vel. Diam velit ac ipsum tristique feugiat duis."
@@ -38,6 +39,7 @@
   "title": "Dəyərimiz",
   "description": "Bizim əsas dəyərlərimiz dürüstlük, keyfiyyət və müştəri məmnuniyyətinə əsaslanır. Hər addımda etibarlı və faydalı olmaq üçün çalışırıq."
 },
+
   "categories": {
     "title": "Kateqoriyalar",
     "home": "Ev",
@@ -46,7 +48,8 @@
     "kitchen": "Mətbəx"
   },
   "footer": {
-    "tagline": "Sadəcə su deyil, həyatına dəyər qatırıq",
+    "tagline1": "Sadəcə su deyil,",
+    "tagline2": "həyatına dəyər qatırıq",
     "contact": "Bizimlə əlaqə",
     "copyright": "Bütün hüquqlar qorunur © 2025, Tərtibatçı"
   },
@@ -54,11 +57,11 @@
     "name": "Adınız",
     "surname": "Soyadınız",
     "email": "Mail Ünvanınız",
-    "message": "Bize yazın",
+    "message": "Bizə yazın",
     "send": "Göndər",
     "sending": "Göndərilir...",
     "success": "Mesajınız uğurla göndərildi!",
-    "error": "Mesaj göndərilərkən xəta baş verdi."
+    "error": "Xəta baş verdi."
   },
   "quickOffer": {
     "title": "Təklif al",
@@ -92,5 +95,16 @@
       "title": "Kafeler üçün su təmizlənməsi",
       "description": "Kafelerdə və restoranlarda təmiz suyun təminatı müştəri məmnuniyyəti və avadanlıqların ömrü üçün vacibdir. Ən son texnologiyalarla su təmizləmə həlləri təklif edirik."
     }
+  },
+   "alltitle":{
+    "services": "Xidmətlərimiz"
+    
+  },
+  "placeholder":{
+  "search": "Məhsul axtar"
+  },
+  "product":{
+    "productDescription":"Məhsulun Təsviri",
+    "otherProducts":"Digər Məhsullar"
   }
 }

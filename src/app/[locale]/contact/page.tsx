@@ -29,6 +29,7 @@ export async function generateMetadata() {
 
 const Contact = async () => {
   const contact = await getContact();
+  
 
   return (
     <div>

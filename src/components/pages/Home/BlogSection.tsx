@@ -1,4 +1,3 @@
-// components/sections/BlogSection.tsx - YENİ VERSİYA
 'use client';
 
 import React, { useCallback } from 'react';
@@ -12,9 +11,10 @@ import { BlogPost } from '@/types/alltype';
 
 interface BlogSectionProps {
   posts: BlogPost[];
+  title: string;
 }
 
-export function BlogSection({ posts }: BlogSectionProps) {
+export function BlogSection({ posts, title }: BlogSectionProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   const scrollPrev = useCallback(() => {
@@ -32,7 +32,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">Bloq</h2>
+        <h2 className="text-4xl font-semibold text-center mb-8 text-foreground">{title}</h2>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-8">
           {posts.map((post) => (

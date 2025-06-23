@@ -46,7 +46,8 @@
     "kitchen": "Kitchen"
   },
   "footer": {
-    "tagline": "Not just water, we add value to your life",
+    "tagline1": "Not just water,",
+    "tagline2": "we add value to your life",
     "contact": "Contact Us",
     "copyright": "All rights reserved © 2025, Developer"
   },
@@ -71,6 +72,7 @@
     "success": "Your offer has been sent successfully!",
     "error": "Server error."
   },
+
   "services": {
     "waterFiltration": {
       "title": "Water Filtration Systems",
@@ -92,5 +94,16 @@
       "title": "Water Treatment for Cafes",
       "description": "Clean water supply for cafes and restaurants is crucial for customer satisfaction and equipment longevity. We offer water treatment solutions with the latest technologies."
     }
+  },
+   "alltitle":{
+    "services": "Our Services"
+
+  },
+  "placeholder":{
+  "search": "Search for product"
+}, 
+ "product":{
+    "productDescription":"Product Description",
+    "otherProducts":"Other Products"
   }
 }

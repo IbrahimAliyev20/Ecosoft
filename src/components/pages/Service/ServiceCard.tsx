@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import Link from "next/link"; // Link komponenti
 import { ServicesType } from '@/types/alltype'; 
+import { useTranslations } from 'next-intl';
 
 interface ServiceCardProps {
   service: ServicesType;
@@ -12,6 +13,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   const plainDescription = service.description.replace(/<[^>]*>?/gm, '');
+  const t = useTranslations()
 
   return (
     // Dəyişiklik burada edildi: href="/services"
@@ -39,7 +41,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             {plainDescription}
           </p>
           <span className="inline-flex items-center gap-2 text-cyan-600 text-sm font-medium mt-3">
-            <span>Daha çox oxu</span>
+            <span>
+              {t('hero.learnMore')}
+            </span>
             <ArrowRight className="w-4 h-4" />
           </span>
         </div>

@@ -1,4 +1,3 @@
-// components/pages/Home/ProductSliderSec.tsx
 'use client';
 
 import React, { useCallback } from 'react';
@@ -8,13 +7,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
 import ButtonMore from '@/components/shared/ButtonMore';
 import Link from 'next/link';
-import { ProductType } from '@/types/alltype'; // ProductType import edildi
+import { ProductType } from '@/types/alltype'; 
 
-// Product interfeysini ProductType olaraq dəyişdirin
-// ProductType-da imageSrc yox, image var. ProductCode yox, title var.
 interface ProductSliderSecProps {
   title: string;
-  products: ProductType[]; // <--- Product[] yerinə ProductType[]
+  products: ProductType[]; 
 }
 
 export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
@@ -53,9 +50,9 @@ export function ProductSliderSec({ title, products }: ProductSliderSecProps) {
             <div key={product.slug} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pr-0 md:pr-4  pb-4"> 
               <Link href={`/products/${product.slug}`} className="block h-full">
                 <ProductCard
-                  imageSrc={product.image} // <--- `imageSrc` yerinə `image`
-                  title={product.name} // <--- `title` yerinə `name` (məhsul adı)
-                  productCode={product.title} // <--- `productCode` yerinə `title` (kodu ifadə edən başlıq)
+                  imageSrc={product.image}
+                  title={product.name} 
+                  productCode={product.title} 
                 />
               </Link>
             </div>

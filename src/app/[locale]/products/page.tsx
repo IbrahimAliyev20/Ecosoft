@@ -1,15 +1,18 @@
-// app/products/page.tsx
 import { ProductList } from "@/components/pages/Product/ProductList";
-import { getProducts } from "@/lib/products"; // getProducts funksiyasını import edin
-import { ProductType } from '@/types/alltype'; // ProductType interfeysini import edin
+import { getCategories } from "@/lib/categories";
+import { getProducts } from "@/lib/products";
+import { CategoriesType, ProductType } from '@/types/alltype';
 
-export default async function ProductsPage() { // <-- async əlavə edildi
+
+export default async function ProductsPage() {
   let products: ProductType[] = [];
+  let category: CategoriesType[] = []; 
+
   try {
-    products = await getProducts(); // API-dən məhsulları çəkin
+    products = await getProducts();
+    category = await getCategories(); 
   } catch (error) {
     console.error("Failed to load products on page:", error);
-    // Əgər məhsullar yüklənməzsə, istifadəçiyə xəta mesajı göstərin
     return (
       <main className="py-12">
         <div className="container mx-auto px-4 text-center text-red-600">
@@ -18,11 +21,9 @@ export default async function ProductsPage() { // <-- async əlavə edildi
       </main>
     );
   }
-
   return (
     <main>
-      {/* ProductList komponentinə çəkilmiş məhsulları prop kimi ötürün */}
-      <ProductList initialProducts={products} /> 
+      <ProductList initialProducts={products} category={category} />
     </main>
   );
 }

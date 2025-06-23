@@ -2,7 +2,7 @@ import { CategoriesType } from '@/types/alltype';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
-import Link from 'next/link'; // Link komponentini import edirik
+import Link from 'next/link'; 
 
 interface CategoriesProps {
   categories: CategoriesType[];
@@ -33,12 +33,9 @@ interface CategoryCardProps {
 }
 
 function CategoryCard({ category }: CategoryCardProps) {
-  // Yönləndirmə URL-i yaradırıq. Əgər category.slug varsa, həmin kateqoriyanın məhsullar səhifəsinə yönləndiririk.
-  // Əks halda, ümumi məhsullar səhifəsinə yönləndiririk.
   const linkHref = category.slug ? `/products?category=${category.slug}` : '/products';
 
   return (
-    // 'Link' komponenti ilə bütün kartı link edirik
     <Link href={linkHref} passHref>
       <div className="flex group cursor-pointer justify-center">
         <div

@@ -1,41 +1,55 @@
-// components/pages/Product/ProductList.tsx
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
-// import { allProducts, categories } from '@/utils/products'; // <-- SİLİNDİ! Məlumat API-dən gəlir
-import Link from 'next/link'; 
-import { ProductType } from '@/types/alltype'; // ProductType interfeysini import edin
-
-// Bu kateqoriyaları API-dən çəkmək və ya statik saxlamaq olar.
-// Hal-hazırda statik qalsın, amma gələcəkdə API-dən çəkilməsi daha yaxşı olar.
-// Məsələn, yeni bir getCategories funksiyası yarada bilərsiniz.
-const staticCategories = ['Hamısı', 'Garden', 'Ev', 'Mətbəx', 'Sənaye']; // API cavabınızdakı kateqoriyaları əks etdirir
+import Link from 'next/link';
+import { CategoriesType, ProductType } from '@/types/alltype';
+import { useSearchParams } from 'next/navigation'; 
 
 interface ProductListProps {
-  initialProducts: ProductType[]; // <-- Yeni prop
+  initialProducts: ProductType[];
+  category: CategoriesType[];
 }
 
-export function ProductList({ initialProducts }: ProductListProps) { // <-- propu qəbul edin
+export function ProductList({ initialProducts, category }: ProductListProps) {
+  const searchParams = useSearchParams(); 
+  const initialCategorySlug = searchParams.get('category'); 
+
   const [activeTab, setActiveTab] = useState('Hamısı');
   const [searchQuery, setSearchQuery] = useState('');
 
+  const dynamicCategories = useMemo(() => {
+    const uniqueCategories = new Set(['Hamısı']);
+    category.forEach(cat => uniqueCategories.add(cat.title)); 
+    return Array.from(uniqueCategories);
+  }, [category]);
+
+  useEffect(() => {
+    if (initialCategorySlug) {
+      const foundCategory = category.find(cat => cat.slug === initialCategorySlug);
+      if (foundCategory) {
+        setActiveTab(foundCategory.title);
+      } else {
+        setActiveTab('Hamısı');
+      }
+    } else if (dynamicCategories.length > 0 && !dynamicCategories.includes(activeTab)) {
+      setActiveTab('Hamısı');
+    }
+  }, [initialCategorySlug, category, dynamicCategories]); 
+
   const filteredProducts = useMemo(() => {
-    // initialProducts üzərində filterləmə aparın
     return initialProducts
       .filter((product) => {
         if (activeTab === 'Hamısı') {
           return true;
         }
-        // ProductType-da `category` sahəsi var, onu istifadə edirik
-        return product.category === activeTab; 
+        return product.category === activeTab;
       })
       .filter((product) =>
-        // `name` sahəsini axtarış üçün istifadə edin (və ya `title`)
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) 
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
-  }, [activeTab, searchQuery, initialProducts]); // initialProducts dependency-ə əlavə edildi
+  }, [activeTab, searchQuery, initialProducts]);
 
   return (
     <section className="py-12">
@@ -46,17 +60,17 @@ export function ProductList({ initialProducts }: ProductListProps) { // <-- prop
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
           <div className="flex items-center gap-2 flex-wrap p-1 rounded-full">
-            {staticCategories.map((category) => ( // <-- `staticCategories` istifadə edildi
+            {dynamicCategories.map((catTitle) => (
               <button
-                key={category}
-                onClick={() => setActiveTab(category)}
+                key={catTitle}
+                onClick={() => setActiveTab(catTitle)}
                 className={`px-6 py-2 text-sm font-medium rounded-full transition-colors bg-[#F4F4F5] ${
-                  activeTab === category
+                  activeTab === catTitle
                     ? 'bg-white text-gray-800 shadow border-1 border-[#06B6D4]'
                     : 'text-gray-500 hover:bg-gray-200 '
                 }`}
               >
-                {category}
+                {catTitle}
               </button>
             ))}
           </div>
@@ -75,12 +89,11 @@ export function ProductList({ initialProducts }: ProductListProps) { // <-- prop
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {filteredProducts.map((product) => (
-            // `product.id` API-dən gələn məhsulda yoxdur, `product.slug` istifadə edin
-            <Link href={`/products/${product.slug}`} key={product.slug}> 
+            <Link href={`/products/${product.slug}`} key={product.slug}>
               <ProductCard
-                imageSrc={product.image} // API-dən gələn `image` sahəsi
-                title={product.name} // API-dən gələn `name` sahəsi başlıq üçün
-                productCode={product.title} // API-dən gələn `title` sahəsi kod üçün (FU23456789)
+                imageSrc={product.image}
+                title={product.name}
+                productCode={product.title}
               />
             </Link>
           ))}

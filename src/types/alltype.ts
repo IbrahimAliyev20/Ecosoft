@@ -97,7 +97,6 @@ export interface OurValuesType {
 }
 
 export interface CategoriesType {
-  id: number;
   title: string;
   slug: string;
   image: string;

@@ -107,7 +107,8 @@
 "product":{
     "productDescription":"Описание товара",
     "otherProducts":"Другие товары",
-    "dontproduct":"Товара нет"
+    "dontproduct":"Товара нет",
+    "allproduct":"Все товары"
   },
   "blogs":{
     "blog":"Блоги",

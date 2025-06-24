@@ -110,7 +110,8 @@
   "product":{
     "productDescription":"Məhsulun Təsviri",
     "otherProducts":"Digər Məhsullar",
-    "dontproduct":"Məhsul tapılmadı"
+    "dontproduct":"Məhsul tapılmadı",
+    "allproduct":"Hamısı"
   },
   "blogs":{
     "blog":"Bloqlar",

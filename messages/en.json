@@ -108,7 +108,8 @@
  "product":{
     "productDescription":"Product Description",
     "otherProducts":"Other Products",
-    "dontproduct":"Product dont have"
+    "dontproduct":"Product dont have",
+    "allproduct":"All Products"
   },
    "blogs":{
     "blog":"Blogs",

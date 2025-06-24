@@ -6,6 +6,7 @@ import { ProductCard } from '@/components/pages/Product/ProductCard';
 import Link from 'next/link';
 import { CategoriesType, ProductType } from '@/types/alltype';
 import { useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 interface ProductListProps {
   initialProducts: ProductType[];
@@ -18,12 +19,13 @@ interface ProductListProps {
 export function ProductList({ initialProducts, category, searchPlaceholder, productsTitle, noProductsFoundText }: ProductListProps) {
   const searchParams = useSearchParams();
   const initialCategorySlug = searchParams.get('category');
+  const t = useTranslations('product');
 
-  const [activeTab, setActiveTab] = useState('Hamısı');
+  const [activeTab, setActiveTab] = useState(t('allproduct'));
   const [searchQuery, setSearchQuery] = useState('');
 
   const dynamicCategories = useMemo(() => {
-    const uniqueCategories = new Set(['Hamısı']);
+    const uniqueCategories = new Set([t('allproduct')]);
     category.forEach(cat => uniqueCategories.add(cat.title));
     return Array.from(uniqueCategories);
   }, [category]);
@@ -34,17 +36,17 @@ export function ProductList({ initialProducts, category, searchPlaceholder, prod
       if (foundCategory) {
         setActiveTab(foundCategory.title);
       } else {
-        setActiveTab('Hamısı');
+        setActiveTab(t('allproduct'));
       }
     } else if (dynamicCategories.length > 0 && !dynamicCategories.includes(activeTab)) {
-      setActiveTab('Hamısı');
+      setActiveTab(t('allproduct'));
     }
   }, [initialCategorySlug, category, dynamicCategories]);
 
   const filteredProducts = useMemo(() => {
     return initialProducts
       .filter((product) => {
-        if (activeTab === 'Hamısı') {
+        if (activeTab === t('allproduct')) {
           return true;
         }
         return product.category === activeTab;

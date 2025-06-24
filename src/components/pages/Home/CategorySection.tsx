@@ -2,7 +2,7 @@ import { CategoriesType } from '@/types/alltype';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
-import Link from 'next/link'; 
+import {  Link } from '@/i18n/navigation'; 
 
 interface CategoriesProps {
   categories: CategoriesType[];

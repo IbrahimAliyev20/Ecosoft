@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 
 import { BlogCard } from '@/components/pages/Blog/BlogCard';
 import { TagType, BlogPost } from '@/types/alltype'; 

@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ButtonMore from '@/components/shared/ButtonMore';
 import { BlogCard } from '@/components/pages/Blog/BlogCard';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 import { BlogPost } from '@/types/alltype'; 
 
 interface BlogSectionProps {

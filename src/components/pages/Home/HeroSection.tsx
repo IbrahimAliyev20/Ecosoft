@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 import { getHero } from '@/lib/hero';
 
 export async function HeroSection() {

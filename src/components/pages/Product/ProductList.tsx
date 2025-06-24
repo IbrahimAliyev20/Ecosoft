@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 import { CategoriesType, ProductType } from '@/types/alltype';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';

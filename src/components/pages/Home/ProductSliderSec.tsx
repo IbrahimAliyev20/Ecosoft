@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductCard } from '@/components/pages/Product/ProductCard';
 import ButtonMore from '@/components/shared/ButtonMore';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 import { ProductType } from '@/types/alltype'; 
 
 interface ProductSliderSecProps {

@@ -1,7 +1,7 @@
 
 // import { Badge } from '@/components/ui/badge';
 // import Image from 'next/image';
-// import Link from 'next/link';
+// import {  Link } from '@/i18n/navigation';
 // import { notFound } from 'next/navigation';
 // import { BlogCard } from '@/components/pages/Blog/BlogCard';
 // import { getBlogBySlug, getBlogs } from '@/lib/blog'; 

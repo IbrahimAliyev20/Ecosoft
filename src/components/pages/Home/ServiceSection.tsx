@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ButtonMore from '@/components/shared/ButtonMore';
-import Link from 'next/link';
+import {  Link } from '@/i18n/navigation';
 import ServiceCard from '@/components/pages/Service/ServiceCard';
 import { ServicesType } from '@/types/alltype';
 import { useTranslations } from 'next-intl';

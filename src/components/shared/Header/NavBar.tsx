@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, Globe } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import QuickOfferModal from '@/components/modal/QuickOfferModal';
-import {  usePathname } from '@/i18n/navigation'; 
+import React, { useState, useEffect } from "react";
+import { Menu, Globe } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import QuickOfferModal from "@/components/modal/QuickOfferModal";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   Sheet,
   SheetContent,
@@ -14,7 +13,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,35 +28,33 @@ export function Navbar() {
   const pathname = usePathname();
 
   const languages = [
-    { code: 'az', label: 'AZ' },
-    { code: 'en', label: 'EN' },
-    { code: 'ru', label: 'RU' },
+    { code: "az", label: "AZ" },
+    { code: "en", label: "EN" },
+    { code: "ru", label: "RU" },
   ];
 
   const handleLanguageChange = (locale: string) => {
-
-
-    const currentLocale = pathname.split('/')[1]; 
+    const currentLocale = pathname.split("/")[1];
     let newPath = pathname;
 
-    if (languages.some(lang => lang.code === currentLocale)) {
-        newPath = '/' + pathname.split('/').slice(2).join('/'); 
+    if (languages.some((lang) => lang.code === currentLocale)) {
+      newPath = "/" + pathname.split("/").slice(2).join("/");
     } else {
     }
 
-    const newUrl = `/${locale}${newPath === '/' ? '' : newPath}`; 
+    const newUrl = `/${locale}${newPath === "/" ? "" : newPath}`;
 
-    window.location.assign(newUrl); 
+    window.location.assign(newUrl);
   };
 
   useEffect(() => {
     if (isOfferModalOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     }
     return () => {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     };
   }, [isOfferModalOpen]);
 
@@ -85,23 +82,41 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.home')}
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.home")}
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.about')}
+            <Link
+              href="/about"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.about")}
             </Link>
-            <Link href="/products" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.products')}
+            <Link
+              href="/products"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.products")}
             </Link>
-            <Link href="/services" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.services')}
+            <Link
+              href="/services"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.services")}
             </Link>
-            <Link href="/blogs" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.blog')}
+            <Link
+              href="/blogs"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.blog")}
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
-              {t('navigation.contact')}
+            <Link
+              href="/contact"
+              className="text-gray-700 hover:text-gray-900 font-medium text-lg"
+            >
+              {t("navigation.contact")}
             </Link>
           </div>
 
@@ -137,7 +152,7 @@ export function Navbar() {
                 height={20}
                 priority={true}
               />
-              {t('navigation.getOffer')}
+              {t("navigation.getOffer")}
             </Button>
           </div>
 
@@ -150,9 +165,14 @@ export function Navbar() {
                 <Menu className="h-6 w-6 text-gray-600" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[85vw] max-w-[400px] p-0 bg-white">
+            <SheetContent
+              side="right"
+              className="w-[85vw] max-w-[400px] p-0 bg-white"
+            >
               <SheetHeader>
-                <SheetTitle className="sr-only">Mobil Naviqasiya Menyu</SheetTitle>
+                <SheetTitle className="sr-only">
+                  Mobil Naviqasiya Menyu
+                </SheetTitle>
               </SheetHeader>
 
               <div className="flex justify-end p-0">
@@ -160,8 +180,7 @@ export function Navbar() {
                   onClick={handleCloseMobileMenu}
                   className="p-2 rounded-lg hover:bg-gray-100"
                   aria-label="Mobil menunu bağla"
-                >
-                </button>
+                ></button>
               </div>
 
               <nav className="flex flex-col space-y-2 px-4 pb-8">
@@ -170,42 +189,42 @@ export function Navbar() {
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.home')}
+                  {t("navigation.home")}
                 </Link>
                 <Link
                   href="/about"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.about')}
+                  {t("navigation.about")}
                 </Link>
                 <Link
                   href="/products"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.products')}
+                  {t("navigation.products")}
                 </Link>
                 <Link
                   href="/services"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.services')}
+                  {t("navigation.services")}
                 </Link>
                 <Link
                   href="/blogs"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.blog')}
+                  {t("navigation.blog")}
                 </Link>
                 <Link
                   href="/contact"
                   onClick={handleCloseMobileMenu}
                   className="text-[#323642] hover:text-blue-500 py-3 px-2 text-xl font-medium border-b border-gray-200"
                 >
-                  {t('navigation.contact')}
+                  {t("navigation.contact")}
                 </Link>
 
                 <div className="py-3 px-2 border-b border-gray-200">
@@ -241,7 +260,7 @@ export function Navbar() {
                     priority={true}
                     className="mr-2"
                   />
-                  {t('navigation.getOffer')}
+                  {t("navigation.getOffer")}
                 </Button>
               </nav>
             </SheetContent>

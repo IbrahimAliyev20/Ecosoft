@@ -33,9 +33,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
             headers: {
                 "Accept-Language": localeFromCookie,
             },
-             next: {
-      revalidate: 5 
-    }
+             cache: 'no-store' 
         }).then(res => {
             if (!res.ok) {
                 console.error(`Failed to fetch page ${page}`);
@@ -66,9 +64,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost> {
     headers: {
       "Accept-Language": localeFromCookie,
     },
-     next: {
-      revalidate: 5 
-    }
+     cache: 'no-store' 
   });
   const json = await res.json();
   return json.data; 

@@ -31,9 +31,7 @@ export async function getServiceSlug(slug: string): Promise<ServicesType> {
       headers: {
         "Accept-Language": localeFromCookie,
       },
-       next: {
-      revalidate: 5 
-    }
+        cache: 'no-store' 
     });
     const json = await res.json();
     return json.data; 

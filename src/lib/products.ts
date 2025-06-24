@@ -40,9 +40,7 @@ export async function getProducts(): Promise<ProductType[]> {
                 headers: {
                     "Accept-Language": localeFromCookie,
                 },
-                next: {
-                    revalidate: 5 
-                }
+                 cache: 'no-store' 
             }).then(res => {
                 if (!res.ok) {
                     console.error(`Failed to fetch product page ${page}: ${res.status} ${res.statusText}`);
@@ -96,9 +94,7 @@ export async function getProductBySlug(slug: string): Promise<ProductType | null
             headers: {
                 "Accept-Language": localeFromCookie,
             },
-            next: {
-                revalidate: 5 
-            }
+            cache: 'no-store' 
         });
 
         if (!res.ok) {

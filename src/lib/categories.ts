@@ -10,9 +10,7 @@ export async function getCategories(): Promise<CategoriesType[]> {
     headers: {
       "Accept-Language": localeFromCookie, 
     },
-     next: {
-      revalidate: 5 
-    }
+      cache: 'no-store' 
   });
 
   const json = await res.json();

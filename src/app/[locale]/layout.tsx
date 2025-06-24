@@ -45,7 +45,7 @@ export default async function RootLayout({
     notFound();
   }
   return (
-    <html lang="az">
+    <html lang={locale}>
       <body>
       <TopLoader />
            <NextIntlClientProvider messages={messages} locale={locale}>

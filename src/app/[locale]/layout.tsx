@@ -48,7 +48,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
       <TopLoader />
-           <NextIntlClientProvider messages={messages} locale={locale}>
+           <NextIntlClientProvider messages={messages} >
         <Navbar />
         <main className="min-h-screen pt-20 ">
           

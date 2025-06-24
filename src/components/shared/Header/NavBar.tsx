@@ -6,13 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import QuickOfferModal from '@/components/modal/QuickOfferModal';
-import { useRouter, usePathname } from '@/i18n/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation'; // useRouter hələ də lazım ola bilər, amma əsas dəyişiklik aşağıdadır
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-  SheetHeader, 
-  SheetTitle,   
+  SheetHeader,
+  SheetTitle,
 } from "@/components/ui/sheet";
 import { useTranslations } from 'next-intl';
 import {
@@ -26,7 +26,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
   const t = useTranslations();
-  const router = useRouter();
+  const router = useRouter(); // Bunu saxlaya bilərsiniz, lakin bilavasitə refresh üçün istifadə etməyəcəyik
   const pathname = usePathname();
 
   const languages = [
@@ -35,8 +35,32 @@ export function Navbar() {
     { code: 'ru', label: 'RU' },
   ];
 
+  // handleLanguageChange funksiyasını dəyişdiririk
   const handleLanguageChange = (locale: string) => {
-    router.replace(pathname, { locale });
+    // Cari URL-i alırıq
+    const currentUrl = window.location.pathname;
+
+    // next-intl konfiqurasiyanıza uyğun olaraq URL-i formalaşdırırıq.
+    // Əgər sizdə localePrefix: 'always' quraşdırılıbsa, URL belə olacaq: /az/about, /en/contact
+    // Bu halda, mövcud dil prefiksini yeni dillə əvəz etməliyik.
+    // Misal: /az/about -> /en/about
+
+    // Yol prefiksini silirik (əgər varsa)
+    const currentLocale = pathname.split('/')[1]; // Məsələn, /en/about -> 'en'
+    let newPath = pathname;
+
+    // Əgər URL-də dil prefiksi varsa, onu silirik
+    if (languages.some(lang => lang.code === currentLocale)) {
+        newPath = '/' + pathname.split('/').slice(2).join('/'); // /en/about -> /about
+    } else {
+        // Əgər yoxdursa, yeniPath olduğu kimi qalır, məsələn, /about
+    }
+
+    // Yeni URL-i formalaşdırırıq (yeni dil prefiksi ilə)
+    const newUrl = `/${locale}${newPath === '/' ? '' : newPath}`; // /en + /about = /en/about
+
+    // Səhifəni tamamilə yeniləyin
+    window.location.assign(newUrl); // Və ya window.location.href = newUrl;
   };
 
   useEffect(() => {
@@ -132,7 +156,6 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <button
@@ -200,7 +223,6 @@ export function Navbar() {
                   {t('navigation.contact')}
                 </Link>
 
-                {/* Mobile Language Selector */}
                 <div className="py-3 px-2 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
                     <Globe className="h-5 w-5 text-gray-600" />

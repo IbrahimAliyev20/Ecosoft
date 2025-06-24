@@ -30,7 +30,7 @@ const DynamicBlogSection = dynamic(
 
 
 export default async function Home() {
-  const t = await getTranslations(); // getTranslations funksiyasını çağırın
+  const t = await getTranslations(); 
 
   const allPosts = await getBlogs();
   const latestPosts = allPosts.slice(0, 3);

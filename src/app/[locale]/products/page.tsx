@@ -49,7 +49,7 @@ export default async function ProductsPage() {
 
   const searchPlaceholder = t('placeholder.search'); 
   const productsTitle = t('navigation.products');
-  const noProductsFoundText = t('contact.error');
+  const noProductsFoundText = t('product.dontproduct');
 
   return (
     <main>

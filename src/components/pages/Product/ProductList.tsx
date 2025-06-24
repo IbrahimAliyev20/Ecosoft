@@ -6,14 +6,13 @@ import { ProductCard } from '@/components/pages/Product/ProductCard';
 import Link from 'next/link';
 import { CategoriesType, ProductType } from '@/types/alltype';
 import { useSearchParams } from 'next/navigation';
-// Burada useTranslations istifadə etməyə ehtiyac yoxdur, çünki tərcümələr prop kimi gəlir.
 
 interface ProductListProps {
   initialProducts: ProductType[];
   category: CategoriesType[];
-  searchPlaceholder: string; // Yeni prop
-  productsTitle: string;     // Yeni prop
-  noProductsFoundText: string; // Yeni prop
+  searchPlaceholder: string; 
+  productsTitle: string;     
+  noProductsFoundText: string; 
 }
 
 export function ProductList({ initialProducts, category, searchPlaceholder, productsTitle, noProductsFoundText }: ProductListProps) {

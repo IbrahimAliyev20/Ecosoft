@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { BlogCard } from '@/components/pages/Blog/BlogCard';
 import { TagType, BlogPost } from '@/types/alltype'; 
+import { useTranslations } from 'next-intl';
 
 type BlogPageProps = {
   filterTags: TagType[];
@@ -12,22 +13,24 @@ type BlogPageProps = {
 };
 
 export default function BlogPage({ filterTags, initialPosts }: BlogPageProps) {
-  const [activeTag, setActiveTag] = useState('Bütün yazılar');
+  const t = useTranslations("blogs");
+  const [activeTag, setActiveTag] = useState(t('allblogs'));
+
 
   const filteredPosts = useMemo(() => {
-    if (activeTag === 'Bütün yazılar') {
+    if (activeTag === t('allblogs')) {
       return initialPosts;
     }
     return initialPosts.filter((post) => post.tag === activeTag);
   }, [activeTag, initialPosts]);
 
-  const allDisplayTags = [{ name: 'Bütün yazılar', slug: 'all' }, ...filterTags];
+  const allDisplayTags = [{ name: t('allblogs'), slug: 'all' }, ...filterTags];
 
   return (
     <main className="bg-background py-12 md:py-16">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl lg:text-4xl font-bold mb-8 text-foreground">
-          Bloqlar
+          {t('blog')}
         </h1>
 
         <div className="flex items-center gap-2 flex-wrap mb-10">
@@ -57,7 +60,7 @@ export default function BlogPage({ filterTags, initialPosts }: BlogPageProps) {
         {filteredPosts.length === 0 && (
           <div className="text-center py-16 col-span-full">
             <p className="text-muted-foreground">
-              Bu kateqoriyaya uyğun yazı tapılmadı.
+              {t('no_posts_found')}
             </p>
           </div>
         )}

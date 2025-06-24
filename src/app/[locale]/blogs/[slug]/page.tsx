@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlogCard } from '@/components/pages/Blog/BlogCard';
 import { getBlogBySlug, getBlogs } from '@/lib/blog'; 
+import { getTranslations } from 'next-intl/server';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -12,6 +13,7 @@ interface BlogPostPageProps {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
+  const t = await getTranslations()
 
   const [post, allPosts] = await Promise.all([
     getBlogBySlug(slug),
@@ -30,9 +32,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <main className="pt-12">
       <nav className="container mx-auto px-6 text-sm text-muted-foreground mb-8">
-        <Link href="/" className="hover:text-primary">Ana səhifə</Link>
+        <Link href="/" className="hover:text-primary">{t('navigation.home')}</Link>
         <span className="mx-2">&gt;</span>
-        <Link href="/blogs" className="hover:text-primary">Bloglar</Link>
+        <Link href="/blogs" className="hover:text-primary">{t('blogs.blog')}</Link>
         <span className="mx-2">&gt;</span>
         <span className="text-foreground">{formattedPost.title}</span>
       </nav>
@@ -65,7 +67,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <hr className='my-16'/>
 
       <div className='container mx-auto px-4 pt-0 pb-16'>
-        <h2 className='text-3xl font-semibold text-center mb-8 text-foreground'>Digər Bloglar</h2>
+        <h2 className='text-3xl font-semibold text-center mb-8 text-foreground'>{t('blogs.otherBlogs')}</h2>
         {otherBlogPosts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {otherBlogPosts.slice(0, 3).map((otherPost) => (

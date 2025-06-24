@@ -107,6 +107,14 @@
 }, 
  "product":{
     "productDescription":"Product Description",
-    "otherProducts":"Other Products"
+    "otherProducts":"Other Products",
+    "dontproduct":"Product dont have"
+  },
+   "blogs":{
+    "blog":"Blogs",
+    "otherBlogs":"Other Blogs",
+    "dontBlog":"Blog dont have",
+    "allblogs":"All Blogs",
+    "no_posts_found": "No posts found for this category."
   }
 }

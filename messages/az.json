@@ -65,6 +65,7 @@
     "sending": "Göndərilir...",
     "success": "Mesajınız uğurla göndərildi!",
     "error": "Xəta baş verdi."
+    
   },
   "quickOffer": {
     "title": "Sürətli təklif al",
@@ -108,6 +109,14 @@
   },
   "product":{
     "productDescription":"Məhsulun Təsviri",
-    "otherProducts":"Digər Məhsullar"
+    "otherProducts":"Digər Məhsullar",
+    "dontproduct":"Məhsul tapılmadı"
+  },
+  "blogs":{
+    "blog":"Bloqlar",
+    "otherBlogs":"Digər Bloqlar",
+    "dontBlog":"Blog tapılmadı",
+    "allblogs":"Bütün Bloqlar",
+    "no_posts_found": "Bu kateqoriyaya uyğun yazı tapılmadı."
   }
 }

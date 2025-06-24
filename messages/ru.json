@@ -106,6 +106,14 @@
 },
 "product":{
     "productDescription":"Описание товара",
-    "otherProducts":"Другие товары"
+    "otherProducts":"Другие товары",
+    "dontproduct":"Товара нет"
+  },
+  "blogs":{
+    "blog":"Блоги",
+    "otherBlogs":"Другие блоги",
+    "dontBlog":"Блога нет",
+    "allblogs":"Все статьи",
+    "no_posts_found": "Постов по этой категории не найдено."
   }
 }

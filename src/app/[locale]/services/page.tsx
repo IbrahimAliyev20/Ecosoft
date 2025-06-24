@@ -3,7 +3,6 @@ import ServiceContainer from "@/components/pages/Service/Servicecontainer";
 import { getMetaTags } from "@/lib/metatags";
 import { getServices } from "@/lib/services";
 import { MetaTagsType } from "@/types/alltype";
-import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
   const metaData: MetaTagsType[] = await getMetaTags();
@@ -30,7 +29,6 @@ export async function generateMetadata() {
 
 export default async function ServicePage() {
   const services = await getServices();
-  const t = await getTranslations();
   
   return (
     <div>

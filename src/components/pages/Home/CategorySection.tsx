@@ -37,9 +37,9 @@ function CategoryCard({ category }: CategoryCardProps) {
 
   return (
     <Link href={linkHref} passHref>
-      <div className="flex group cursor-pointer justify-center">
+      <div className="flex group cursor-pointer justify-center ">
         <div
-          className="relative rounded-2xl overflow-hidden w-[294px] h-[154px]"
+          className="relative rounded-2xl overflow-hidden w-[350px] h-[154px]"
           style={{
             background: `conic-gradient(from 194deg at 57.65% 30.52%, #06B6D4 0deg, #06C0DF 359.37004566192627deg)`
           }}

@@ -98,8 +98,8 @@ export default function FooterHero({ socials }: SocialMediaProps) {
               >
              <Image
                 src={social.image}  
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 priority={true}
                 alt={social.name}
               />

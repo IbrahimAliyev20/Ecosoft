@@ -42,14 +42,14 @@ export default async function AboutPage() {
     <div>
       <div className="container mx-auto py-8 md:py-16 px-5">
         <div className="flex flex-col md:flex-row items-center bg-card rounded-lg overflow-hidden">
-          <div className="md:w-1/2 h-[368px]  px-0">
+          <div className="w-full md:w-1/2 h-[368px]  px-0">
             <Image
               src={about.thumb_image}
               alt="About"
               width={500}
               height={500}
               priority={true}
-              className="w-full h-full object-cover rounded-xl object-contain"
+              className="w-full h-full object-cover rounded-xl "
             />
           </div>
           <div className="md:w-1/2 pl-6">

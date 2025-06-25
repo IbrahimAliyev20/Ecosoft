@@ -3,9 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import Link from "next/link"; // Link komponenti
 import { ServicesType } from '@/types/alltype'; 
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 interface ServiceCardProps {
   service: ServicesType;

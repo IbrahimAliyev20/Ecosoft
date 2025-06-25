@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { SocialMediaType } from "@/types/alltype";
+import { Link } from "@/i18n/navigation";
 
 interface SocialMediaProps {
   socials: SocialMediaType[];

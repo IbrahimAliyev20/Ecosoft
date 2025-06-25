@@ -1,6 +1,7 @@
 "use client";
 import ServiceListCard from "@/components/pages/Service/ServiceListCard";
 import { ServicesType } from "@/types/alltype";
+import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 
 
@@ -12,6 +13,7 @@ export default function ServiceContainer({ services }: ServiceContainerProps) {
   const [selectedService, setSelectedService] = useState<ServicesType | null>(
     services[0] || null
   );
+  const t = useTranslations();
 
 
   if (!services || services.length === 0) {
@@ -26,7 +28,7 @@ export default function ServiceContainer({ services }: ServiceContainerProps) {
     <div className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl lg:text-4xl font-semibold mb-12 text-start text-foreground">
-          Xidmətlər
+          {t('navigation.services')}
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-8">

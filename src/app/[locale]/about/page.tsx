@@ -49,7 +49,7 @@ export default async function AboutPage() {
               width={500}
               height={500}
               priority={true}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-cover rounded-xl object-contain"
             />
           </div>
           <div className="md:w-1/2 pl-6">

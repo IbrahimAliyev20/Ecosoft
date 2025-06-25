@@ -44,7 +44,7 @@ export default async function AboutPage() {
         <div className="flex flex-col md:flex-row items-center bg-card rounded-lg overflow-hidden">
           <div className="w-full md:w-1/2 h-[368px]  px-0">
             <Image
-              src={about.thumb_image}
+              src={about.image}
               alt="About"
               width={500}
               height={500}

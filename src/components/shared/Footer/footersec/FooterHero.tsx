@@ -1,22 +1,22 @@
 import React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { SocialMediaType } from "@/types/alltype";
 import { Link } from "@/i18n/navigation";
+import { getHero } from "@/lib/hero";
+import { getTranslations } from "next-intl/server";
 
 interface SocialMediaProps {
   socials: SocialMediaType[];
 }
 
-export default function FooterHero({ socials }: SocialMediaProps) {
-  const t = useTranslations();
+export default async function  FooterHero({ socials }: SocialMediaProps) {
+    const data = await getHero();
+  const t = await getTranslations();
   return (
     <div className="flex flex-col items-center justify-center  bg-background text-foreground">
       <div className="flex-grow flex flex-col items-center justify-center text-center px-4 mb-10">
         <h1 className="text-3xl md:text-4xl font-[600] mb-8">
-          {t("footer.tagline1")}
-          <br />
-          {t("footer.tagline2")}
+          {data.title_2}
         </h1>
         <Link
           href="/contact"

@@ -45,7 +45,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           </div>
           <div className="order-2 lg:order-none lg:col-span-2">
             <h3 className="text-2xl font-semibold mb-4 border-b pb-2">{t('product.productDescription')}</h3>
-            <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: product.description }} />
+            <div className="prose max-w-none " dangerouslySetInnerHTML={{ __html: product.description }} />
           </div>
         </div>
       </div>
